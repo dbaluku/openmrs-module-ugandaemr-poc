@@ -20,7 +20,11 @@
              disable_fields(165160);
              disable_fields(162925);
              // disable_fields(99477);
-             disable_fields(90200);
+             disable_fields(90211);
+             jq("#99369").find("input[type$='text']").attr("disabled",true);
+             disable_fields(99115);
+             disable_fields(165159);
+             disable_fields(165167);
 
              <!--         Enable HTC Delivery Model-->
              jq("#165171").change(function () {
@@ -46,9 +50,10 @@
          // });
 
 <!--         Enable HIV Test date-->
-         jq('#99464').change(function () {
-         enable_disable('99464', '165170', '1066');
-         enable_disable('99464', '99411', '1066');
+         jq('#165180').change(function () {
+         enable_disable('165180', '165170', '90004');
+         enable_disable('165180', '165181', '90004');
+         enable_disable('165180', '162965', '90004');
          });
 
 <!--Enable HIV spouse test field-->
@@ -58,7 +63,7 @@
 
 
          jq('#162982').change(function () {
-         enable_disable('162982', '90200', '1065');
+         enable_disable('162982', '90211', '1065');
          });
 
 
@@ -71,6 +76,42 @@
          jq('#99494').change(function () {
          enable_disable('99494', '99497', '1065');
          });
+
+         // other specify handling
+         jq('#969').change(function () {
+             enable_disable('969', '99369', '5620');
+         });
+
+         jq('#162925').change(function () {
+             enable_disable('162925', '99115', '90002');
+         });
+
+         jq('#165160').change(function () {
+             enable_disable('165160', '165159', '90002');
+         });
+
+         jq('#165168').change(function () {
+              enable_disable('165168', '165167', '90002');
+         });
+
+             jq("#other-prevention-services").find("input[type$='text']").attr("disabled",true);
+             jq('#other-prevention-services').change(function(){
+                 if(!jq('#other-prevention-services').find(':checkbox').prop('checked')){
+                     jq("#other-prevention-services").find("input[type$='text']").attr("disabled",true);
+                     jq("#other-prevention-services").find("input[type$='text']").val("");
+                 }else{
+                     jq("#other-prevention-services").find("input[type$='text']").attr("disabled",false); }
+             });
+
+
+             jq("#other-special-category").find("input[type$='text']").attr("disabled",true);
+             jq('#other-special-category').change(function(){
+                 if(!jq('#other-special-category').find(':checkbox').prop('checked')){
+                     jq("#other-special-category").find("input[type$='text']").attr("disabled",true);
+                     jq("#other-special-category").find("input[type$='text']").val("");
+                 }else{
+                     jq("#other-special-category").find("input[type$='text']").attr("disabled",false); }
+             });
 
          /* add JQuery validator classes and rules*/
          jq("#nationalid input:text").addClass("nationalid");
@@ -173,8 +214,12 @@
                             <td colspan="4">
 
                                 <label>Accompanied by:</label>
-                                <obs conceptId="969" answerConceptIds="970,971,165154,5620"
-                                     answerLabels="1 - Mother,2 - Father,3 - Both Parents, 4 - Other specify"/>
+                                <obs id="969" conceptId="969" answerConceptIds="970,971,165154,5620"
+                                     answerLabels="1 - Mother,2 - Father,3 - Both Parents, 4 - Other "/>
+                                <span >
+                                <label>Specify</label>
+                                <obs id="99369" conceptId="99369"/>
+                            </span>
                             </td>
                         </tr>
                     </includeIf>
@@ -212,10 +257,13 @@
                         </td>
                     <td>
                             <span >
-<!--                                some concepts are missing 160542 2nd parameter-->
                                 <obs conceptId="162925" id="162925"
-                                     answerConceptIds="160542,160542,165047,165048,165156,99593,164983,160456,165046,164984,165155,90015,160542"
+                                     answerConceptIds="160542,165179,165047,165048,165156,99593,164983,160456,165046,164984,165155,90015,90002"
                                      answerLabels="1 - OPD,2 - Ward,3 - ART Clinic,4 - TB Clinic,5 - Nutrition unit,6 - Young Child Clinic (YCC),7 - ANC,8 - Maternity,9 - PNC,10 - Family Planning,11 - SMC,12 - STI Clinic,13 - Others(specify)"/>
+                            </span>
+                            <span>
+                                <label>Specify</label>
+                                <obs id="99115" conceptId="99115"/>
                             </span>
                         </td>
                     </tr>
@@ -226,8 +274,12 @@
                         <td>
                             <span id="checkboxRadio">
                                 <obs conceptId="165160" id="165160"
-                                     answerConceptIds="99460,165157,162920,162895,165158,165159"
-                                     answerLabels="1 - Home Based,2 - Hotspot,3 - Workplace,4 - Outreach,5 - Drop in Centre (DIC),6 - Others specify"/>
+                                     answerConceptIds="99460,165157,162920,162895,165158,90002"
+                                     answerLabels="1 - Home Based,2 - Hotspot,3 - Workplace,4 - Outreach,5 - Drop in Centre (DIC),6 - Others "/>
+                            </span>
+                            <span >
+                                <label>Specify</label>
+                                <obs id="165159" conceptId="165159"/>
                             </span>
                         </td>
 
@@ -238,11 +290,15 @@
                         </td>
                         <td>
                             <span id="checkboxRadio">
-                                <obs conceptId="165168"
-                                     answerConceptIds="165161,165162,165163,99056,165164,165165,165166,90012,165167"
+                                <obs conceptId="165168" id="165168"
+                                     answerConceptIds="165161,165162,165163,99056,165164,165165,165166,90012,90002"
                                      answerLabels="1 - Assisted Partner Notification (APN),2 - Index Client Testing other than APN,
-                                     3 - PrEP,4 - PEP,5 - HIV Self -Test Positive,6 - Inconclusive HIV result,7 - Self-initiative,8 - PMTCT, 9 - Others specify"/>
+                                     3 - PrEP,4 - PEP,5 - HIV Self -Test Positive,6 - Inconclusive HIV result,7 - Self-initiative,8 - PMTCT, 9 - Others "/>
 
+                            </span>
+                            <span >
+                                <label>Specify</label>
+                                <obs id="165167" conceptId="165167"/>
                             </span>
                         </td>
                     </tr>
@@ -274,12 +330,19 @@
 
                         </td>
                         <td colspan="3">
-                            <span id="checkboxRadio">
-<!--                                other specify concept is missing replace with 160542-->
-                                <obs conceptId="165169"
-                                     answerConceptIds="162277,160666,165125,165126,162198,159674,165127,90041,99601,165132,162558,160542"
-                                     answerLabels="1 - Prisoners,2 - PWIDs,3 - Uniformed men,4 - Migrant workers,
-                                     5 - Truckers,6 - Fisher Folks,7 - Refugees,8 - Pregnant,9 - Breastfeeding,10 - AGYW,11 - People with Disabilities (PWD), 12 - Others specify"/>
+                            <span>
+                                 <obs conceptId="165169" answerConceptId="162277" answerLabel="1 - Prisoners" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="160666" answerLabel="2 - PWIDs" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="165125" answerLabel="3 - Uniformed men" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="165126" answerLabel="4 - Migrant workers" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="162198" answerLabel="5 - Truckers" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="159674" answerLabel="6 - Fisher Folks" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="165127" answerLabel="7 - Refugees" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="90041" answerLabel="8 - Pregnant" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="99601" answerLabel="9 - Breastfeeding" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="165132" answerLabel="10 - AGYW" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" answerConceptId="162558" answerLabel="11 - People with Disabilities (PWD)" style="checkbox" class="horizontal-layout-options" />
+                                 <obs conceptId="165169" id="other-special-category" answerConceptId="90002" answerLabel="12 - Others specify"  style="checkbox"   commentFieldLabel="" class="horizontal-layout-options" />
                             </span>
                         </td>
                     </tr>
@@ -289,8 +352,7 @@
                             <label>Testing for HIV for the first time (has never tested before):</label>
                         </td>
                         <td>
-<!--                            this concept qn  needs to be corrected -->
-                            <obs id="99464" conceptId="99411" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
+                            <obs id="165180" conceptId="165180" answerConceptIds="90003,90004" answerLabels="1 - Yes,2 - No" style="radio"/>
                         </td>
                     </tr>
 
@@ -310,10 +372,8 @@
                             <label>Test Result the last time you tested</label>
 
                         </td>
-<!--                        this concept question is missing
-                            replace with concept 99411-->
                         <td colspan="3">
-                            <obs id="99411" conceptId="99411" answerConceptIds="90166,90167" answerLabels="1 - Positive ,2 - Negative" style="radio"/>
+                            <obs id="165181" conceptId="165181" answerConceptIds="90166,90167" answerLabels="1 - Positive ,2 - Negative" style="radio"/>
                         </td>
                     </tr>
                     <tr>
@@ -322,7 +382,7 @@
 
                         </td>
                         <td colspan="3">
-                            <obs id="br" conceptId="162965"/>
+                            <obs id="162965" conceptId="162965"/>
                         </td>
                     </tr>
                     <excludeIf velocityTest="$patient.age &lt; 12">
@@ -341,8 +401,7 @@
                                 <label>Your spouse/partner ever been tested for HIV before :</label>
                             </td>
                             <td>
-<!--                                concept is unclear it says 'before' and the concept 99472 says Spouse/Partner tested for HIV-->
-<!--                                it also lacks yes answer and not applicable a-->
+<!--                                 not applicable answer among the answers is missing-->
                                 <obs id="99472" conceptId="99472" answerConceptIds="1065,1066,99480,90001" answerLabels="1 - Yes,2 - No,3 - Don't Know, 4 - Not Applicable" />
 
                             </td>
@@ -375,7 +434,6 @@
 
                         <td colspan="3" class="PreTestCounselingEnableDisableChild1">
                             <span class="CounseledAsCoupleEnableDisable1">
-<!--                                concept for 2 and 3 not icluded as answers to concept qn-->
                                 <obs conceptId="99368" id="99368" answerConceptIds="99365,99367,99366"
                                      answerLabels="1 - Individual,2 - Couple,3 - Group" style="radio"/>
                             </span>
@@ -406,30 +464,28 @@
                         </td>
                     </tr>
 
-<!--                    <includeIf velocityTest="$fn.globalProperty('ugandaemr.hts.recency') == true">-->
-<!--                        <tr>-->
-<!--                            <td colspan="2"><label>HIV Recency Test Result:</label>-->
-<!--                                <obs conceptId="141520" answerConceptIds="141518,141519,163611,165145,1118" answerLabels="Recent,Long Term,Invalid,Missing,Not Done"/>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                    </includeIf>-->
+                    <includeIf velocityTest="$fn.globalProperty('ugandaemr.hts.recency') == true">
+                        <tr>
+                            <td colspan="2"><label>HIV Recency Test Result:</label>
+                                <obs id="141520" conceptId="141520" answerConceptIds="141518,141519,90167,165145" answerLabels="1 - Recent,2 - Long Term,3 - Negative,4 - Missing"/>
+                            </td>
+                        </tr>
+                    </includeIf>
 
                     <tr>
                         <td><label>Finger Print Captured:</label></td>
                         <td>
-<!--                            concept for fingerprint captured not found-->
-                            <obs conceptId="99411" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
+                            <obs conceptId="165182" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
                         </td>
                     </tr>
 
                     <tr>
                         <td><label>Results Received as Individual:</label></td>
                         <td>
-<!--                            concept 99411 is for HIV Test Results Received not for HIV Test Results Received as individual-->
-                            <obs conceptId="99411" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
+                            <obs conceptId="165183" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
                         </td>
                     </tr>
-                    <excludeIf velocityTest="$patient.age &lt; 9">
+                    <excludeIf velocityTest="$patient.age &lt; 12">
                         <tr>
                             <td class="ResultAsCoupleEnableDisable1"><label>Results received as a
                                 couple:</label></td>
@@ -450,14 +506,14 @@
                     </excludeIf>
 
                     <tr>
-                        <td><label>Client has presumptive TB<br/>(Current cough, fever, weight loss and night sweats):</label></td>
+                        <td><label>Client has presumptive TB (Current cough, fever, weight loss and night sweats):</label></td>
                         <td>
                             <obs conceptId="99498" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
                         </td>
                     </tr>
 
                     <tr>
-                        <td><label>Presumptive TB Case reffered for TB Services:</label></td>
+                        <td><label>Presumptive TB Case refered for TB Services:</label></td>
                         <td>
                             <obs conceptId="165178" answerConceptIds="90003,90004" answerLabels="1 - Yes,2 - No" style="radio"/>
                         </td>
@@ -466,14 +522,14 @@
                     <tr>
                         <td><label>Prevention Services Received:</label></td>
                         <td>
-                            <obs conceptId="165177" answerConceptId="99511" answerLabel="1 - Prevention" style="checkbox" class="horizontal-layout-options" />
+                            <obs conceptId="165177" answerConceptId="99511" answerLabel="1 - Prevention Information" style="checkbox" class="horizontal-layout-options" />
                             <obs conceptId="165177" answerConceptId="90083" answerLabel="2 - Condoms" style="checkbox" class="horizontal-layout-options" />
                             <obs conceptId="165177" answerConceptId="99550" answerLabel="3 - STI Screening" style="checkbox" class="horizontal-layout-options" />
                             <obs conceptId="165177" answerConceptId="99553" answerLabel="4 - STI treatment" style="checkbox" class="horizontal-layout-options" />
                             <obs conceptId="165177" answerConceptId="165176" answerLabel="5 - Post-GBV" style="checkbox" class="horizontal-layout-options" />
                             <obs conceptId="165177" answerConceptId="99056" answerLabel="6 - PEP" style="checkbox" class="horizontal-layout-options" />
                             <obs conceptId="165177" answerConceptId="165163" answerLabel="7 - PREP" style="checkbox" class="horizontal-layout-options" />
-                            <obs conceptId="165177" answerConceptId="90002" answerLabel="8 - Others" style="checkbox" class="horizontal-layout-options" />
+                            <obs conceptId="165177" id="other-prevention-services" answerConceptId="90002" answerLabel="8 - Others" style="checkbox"   commentFieldLabel="" class="horizontal-layout-options" />
                         </td>
                     </tr>
 
@@ -482,10 +538,9 @@
                             <label>Client has been referred for HIV care or other prevention services:  </label>
                         </td>
                         <td >
-<!--                          this concept is for entry point into hiv care-->
                          <label >  <obs id="162982" conceptId="162982" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No"  style="radio" /></label>
                             <label>Place of referral: </label>
-                                <obs id="90200" conceptId="90200" class="horizontal-layout-options"/>
+                                <obs id="90211" conceptId="90211" class="horizontal-layout-options"/>
 
 
                         </td>
