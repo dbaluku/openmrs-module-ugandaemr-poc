@@ -206,7 +206,7 @@
                         </td>
                         <td>
                             <label>Reg Number:</label>
-                            <obs conceptId="164985" required="required"/>
+                            <obs conceptId="164985" required="true"/>
                         </td>
                         <td>
                             <label>National ID:</label>
@@ -245,7 +245,7 @@
                             <label>HTS Delivery Model:</label>
                         </td>
                         <td>
-                            <obs id="165171" conceptId="165171" answerConceptIds="99416,165160" answerLabels="1 - Health Facility(HF),2 - Community " style="radio"/>
+                            <obs id="165171" conceptId="165171" answerConceptIds="99416,165160" answerLabels="1 - Health Facility(HF),2 - Community " style="radio" required="true"/>
                         </td>
                     </tr>
 
@@ -254,7 +254,7 @@
                             <label>HTS Approach:</label>
                         </td>
                         <td colspan="3">
-                            <obs id="br" conceptId="99462" answerConceptIds="162919,99459" answerLabels="1 - CICT/VCT,2 - PITC" style="radio"/>
+                            <obs id="br" conceptId="99462" answerConceptIds="162919,99459" answerLabels="1 - CICT/VCT,2 - PITC" style="radio" required="true"/>
                         </td>
                     </tr>
 
@@ -455,7 +455,7 @@
                         <td style="width: 20%"><label>HIV final test results:</label>
                         </td>
                         <td>
-                            <obs id="99493" conceptId="99493" answerConceptIds="90167,90166,162926" answerLabels="1 - Negative,2 - Positive,3 - Inconclusive" style="radio"/>
+                            <obs id="99493" conceptId="99493" answerConceptIds="90167,90166,162926" answerLabels="1 - Negative,2 - Positive,3 - Inconclusive" style="radio" required="true"/>
                         </td>
                     </tr>
 
@@ -552,8 +552,10 @@
                         </td>
                         <td >
                          <label >  <obs id="162982" conceptId="162982" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No"  style="radio" /></label>
-                            <label>Place of referral: </label>
-                                <obs id="90211" conceptId="90211" class="horizontal-layout-options"/>
+                           <span>
+                               <label class="horizontal-layout-options">Place of referral: </label>
+                                <obs id="90211" conceptId="90211" />
+                           </span>
 
 
                         </td>
