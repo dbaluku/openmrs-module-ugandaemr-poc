@@ -205,7 +205,7 @@
                             </span>
                         </td>
                         <td>
-                            <label>Reg Number:</label>
+                            <label>Serial No:</label>
                             <obs conceptId="164985" required="true"/>
                         </td>
                         <td>
