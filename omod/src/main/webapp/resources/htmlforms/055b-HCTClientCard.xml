@@ -25,6 +25,8 @@
              disable_fields(99115);
              disable_fields(165159);
              disable_fields(165167);
+             disable_fields(141520);
+             jq("#99477").find("input[type$='radio']").attr("disabled",true);
 
              <!--         Enable HTC Delivery Model-->
              jq("#165171").change(function () {
@@ -93,6 +95,10 @@
          jq('#165168').change(function () {
               enable_disable('165168', '165167', '90002');
          });
+
+             jq('#99493').change(function () {
+                 enable_disable('99493', '141520', '90166');
+             });
 
              jq("#165175").find("input[type$='text']").attr("disabled",true);
              jq('#other-prevention-services').change(function(){
@@ -449,7 +455,7 @@
                         <td style="width: 20%"><label>HIV final test results:</label>
                         </td>
                         <td>
-                            <obs id="br" conceptId="99493" answerConceptIds="90167,90166,162926" answerLabels="1 - Negative,2 - Positive,3 - Inconclusive" style="radio"/>
+                            <obs id="99493" conceptId="99493" answerConceptIds="90167,90166,162926" answerLabels="1 - Negative,2 - Positive,3 - Inconclusive" style="radio"/>
                         </td>
                     </tr>
 
