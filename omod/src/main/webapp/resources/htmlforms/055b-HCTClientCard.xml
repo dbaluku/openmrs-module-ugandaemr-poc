@@ -94,13 +94,13 @@
               enable_disable('165168', '165167', '90002');
          });
 
-             jq("#other-prevention-services").find("input[type$='text']").attr("disabled",true);
+             jq("#165175").find("input[type$='text']").attr("disabled",true);
              jq('#other-prevention-services').change(function(){
                  if(!jq('#other-prevention-services').find(':checkbox').prop('checked')){
-                     jq("#other-prevention-services").find("input[type$='text']").attr("disabled",true);
-                     jq("#other-prevention-services").find("input[type$='text']").val("");
+                     jq("#165175").find("input[type$='text']").attr("disabled",true);
+                     jq("#165175").find("input[type$='text']").val("");
                  }else{
-                     jq("#other-prevention-services").find("input[type$='text']").attr("disabled",false); }
+                     jq("#165175").find("input[type$='text']").attr("disabled",false); }
              });
 
 
@@ -217,8 +217,10 @@
                                 <obs id="969" conceptId="969" answerConceptIds="970,971,165154,5620"
                                      answerLabels="1 - Mother,2 - Father,3 - Both Parents, 4 - Other "/>
                                 <span >
-                                <label>Specify</label>
-                                <obs id="99369" conceptId="99369"/>
+
+                                    <label>Specify</label>
+                                    <obs id="99369" conceptId="99369" class="horizontal-layout-options"/>
+
                             </span>
                             </td>
                         </tr>
@@ -262,8 +264,8 @@
                                      answerLabels="1 - OPD,2 - Ward,3 - ART Clinic,4 - TB Clinic,5 - Nutrition unit,6 - Young Child Clinic (YCC),7 - ANC,8 - Maternity,9 - PNC,10 - Family Planning,11 - SMC,12 - STI Clinic,13 - Others(specify)"/>
                             </span>
                             <span>
-                                <label>Specify</label>
-                                <obs id="99115" conceptId="99115"/>
+                              <label>Specify</label>
+                        <obs id="99115" conceptId="99115" class="horizontal-layout-options"/>
                             </span>
                         </td>
                     </tr>
@@ -278,8 +280,8 @@
                                      answerLabels="1 - Home Based,2 - Hotspot,3 - Workplace,4 - Outreach,5 - Drop in Centre (DIC),6 - Others "/>
                             </span>
                             <span >
-                                <label>Specify</label>
-                                <obs id="165159" conceptId="165159"/>
+                               <label>Specify</label>
+                        <obs id="165159" conceptId="165159" class="horizontal-layout-options"/>
                             </span>
                         </td>
 
@@ -297,8 +299,8 @@
 
                             </span>
                             <span >
-                                <label>Specify</label>
-                                <obs id="165167" conceptId="165167"/>
+                              <label>Specify</label>
+                        <obs id="165167" conceptId="165167" class="horizontal-layout-options"/>
                             </span>
                         </td>
                     </tr>
@@ -331,19 +333,15 @@
                         </td>
                         <td colspan="3">
                             <span>
-                                 <obs conceptId="165169" answerConceptId="162277" answerLabel="1 - Prisoners" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="160666" answerLabel="2 - PWIDs" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="165125" answerLabel="3 - Uniformed men" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="165126" answerLabel="4 - Migrant workers" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="162198" answerLabel="5 - Truckers" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="159674" answerLabel="6 - Fisher Folks" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="165127" answerLabel="7 - Refugees" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="90041" answerLabel="8 - Pregnant" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="99601" answerLabel="9 - Breastfeeding" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="165132" answerLabel="10 - AGYW" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" answerConceptId="162558" answerLabel="11 - People with Disabilities (PWD)" style="checkbox" class="horizontal-layout-options" />
-                                 <obs conceptId="165169" id="other-special-category" answerConceptId="90002" answerLabel="12 - Others specify"  style="checkbox"   commentFieldLabel="" class="horizontal-layout-options" />
+                                <obs conceptId="165169"
+                                     answerConceptIds="162277,160666,165125,165126,162198,159674,165127,90041,99601,165132,162558,90002"
+                                     answerLabels="1 - Prisoners,2 - PWIDs,3 - Uniformed men,4 - Migrant workers,
+                                     5 - Truckers,6 - Fisher Folks,7 - Refugees,8 - Pregnant,9 - Breastfeeding,10 - AGYW,11 - People with Disabilities (PWD), 12 - Others specify"/>
                             </span>
+
+                            <span>
+<!--                                     <obs id="5622" conceptId="5622" class="horizontal-layout-options"/>-->
+                                </span>
                         </td>
                     </tr>
 
@@ -466,7 +464,10 @@
 
                     <includeIf velocityTest="$fn.globalProperty('ugandaemr.hts.recency') == true">
                         <tr>
-                            <td colspan="2"><label>HIV Recency Test Result:</label>
+                            <td>
+                                <label>HIV Recency Test Result:</label>
+                            </td>
+                            <td>
                                 <obs id="141520" conceptId="141520" answerConceptIds="141518,141519,90167,165145" answerLabels="1 - Recent,2 - Long Term,3 - Negative,4 - Missing"/>
                             </td>
                         </tr>
@@ -529,7 +530,13 @@
                             <obs conceptId="165177" answerConceptId="165176" answerLabel="5 - Post-GBV" style="checkbox" class="horizontal-layout-options" />
                             <obs conceptId="165177" answerConceptId="99056" answerLabel="6 - PEP" style="checkbox" class="horizontal-layout-options" />
                             <obs conceptId="165177" answerConceptId="165163" answerLabel="7 - PREP" style="checkbox" class="horizontal-layout-options" />
-                            <obs conceptId="165177" id="other-prevention-services" answerConceptId="90002" answerLabel="8 - Others" style="checkbox"   commentFieldLabel="" class="horizontal-layout-options" />
+                            <obs conceptId="165177" id="other-prevention-services" answerConceptId="90002" answerLabel="8 - Others" style="checkbox" class="horizontal-layout-options" />
+
+
+                                <span><label>Specify:</label>
+                                     <obs id="165175" conceptId="165175" class="horizontal-layout-options"/>
+                                </span>
+
                         </td>
                     </tr>
 
