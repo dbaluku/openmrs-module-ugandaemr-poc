@@ -17,9 +17,52 @@
 
                 //Block Multiple encounter entry on same date
                 blockEncounterOnSameDateEncounter(jq("#encounterDate").find("input[type=hidden]"),"block");
+
+            <ifMode mode="EDIT">
+                if( jq("#165160").find("input").val()==''){
+                disable_fields(165160);
+                }
+                if( jq("#162925").find("input").val()==''){
+                    disable_fields(162925);
+                }
+                if( jq("#90211").find("input").val()==''){
+                    disable_fields(90211);
+                }
+                if( jq("#99115").find("input").val()==''){
+                    disable_fields(99115);
+                }
+                if( jq("#165159").find("input").val()==''){
+                    disable_fields(165159);
+                }
+                if( jq("#165167").find("input").val()==''){
+                    disable_fields(165167);
+                }
+                if( jq("#141520").find("input").val()==''){
+                    disable_fields(141520);
+                }
+
+              if( jq("#99369").find("input[type$='text']").val()==''){
+                jq("#99369").find("input[type$='text']").attr("disabled",true);
+              }
+              if(jq("#99477").find("input[type$='radio']").val()==''){
+                  jq("#99477").find("input[type$='radio']").attr("disabled",true);
+              }
+              if(jq("#99481").find("input[type$='radio']").val()==''){
+                  jq("#99481").find("input[type$='radio']").attr("disabled",true);
+              }
+              if(jq("#165178").find("input[type$='radio']").val()==''){
+                  jq("#165178").find("input[type$='radio']").attr("disabled",true);
+              }
+              if(jq("#165175").find("input[type$='text']").val()==''){
+                  jq("#165175").find("input[type$='text']").attr("disabled",true);
+              }
+              if(jq("#other-special-category").find("input[type$='text']").val()==''){
+                  jq("#other-special-category").find("input[type$='text']").attr("disabled",true);
+              }
+            </ifMode>
+            <ifMode mode="ENTER">
                 disable_fields(165160);
                 disable_fields(162925);
-                // disable_fields(99477);
                 disable_fields(90211);
                 jq("#99369").find("input[type$='text']").attr("disabled",true);
                 disable_fields(99115);
@@ -29,6 +72,10 @@
                 jq("#99477").find("input[type$='radio']").attr("disabled",true);
                 jq("#99481").find("input[type$='radio']").attr("disabled",true);
                 jq("#165178").find("input[type$='radio']").attr("disabled",true);
+                jq("#165175").find("input[type$='text']").attr("disabled",true);
+                jq("#other-special-category").find("input[type$='text']").attr("disabled",true);
+
+            </ifMode>
 
                 <!--         Enable HTC Delivery Model-->
                 jq("#165171").change(function () {
@@ -121,7 +168,7 @@
                     }
                 });
 
-                jq("#165175").find("input[type$='text']").attr("disabled",true);
+
                 jq('#other-prevention-services').change(function(){
                     if(!jq('#other-prevention-services').find(':checkbox').prop('checked')){
                         jq("#165175").find("input[type$='text']").attr("disabled",true);
@@ -131,7 +178,7 @@
                 });
 
 
-                jq("#other-special-category").find("input[type$='text']").attr("disabled",true);
+
                 jq('#other-special-category').change(function(){
                     if(!jq('#other-special-category').find(':checkbox').prop('checked')){
                         jq("#other-special-category").find("input[type$='text']").attr("disabled",true);
@@ -155,7 +202,6 @@
             function disable_fields(groupId){
                 var disable = true;
                 var group = jq("#"+groupId);
-                setValue(groupId+'.value', '');
                 group.find("input").attr("disabled", disable);
                 group.find('select').attr("disabled", disable);
 
@@ -397,7 +443,6 @@
                         <obs id="162965" conceptId="162965"/>
                     </td>
                 </tr>
-                <excludeIf velocityTest="$patient.age &lt; 12">
                     <tr>
                         <td>
                             <label>Number of sexual partners in the last 12 months:</label>
@@ -428,7 +473,6 @@
                                  answerLabels="1 - Positive ,2 - Negative ,3 - Don't know" style="radio"/>
                         </td>
                     </tr>
-                </excludeIf>
 
 
                 <tr>
@@ -467,14 +511,7 @@
                     </td>
                 </tr>
 
-                <tr>
-                    <td>
-                        <label>Do you agree to have blood drawn for recency?</label>
-                    </td>
-                    <td>
-                        <obs id="99481" conceptId="99481" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
-                    </td>
-                </tr>
+
                 <includeIf velocityTest="$patient.gender == 'F'">
                 <tr>
                     <td><label>HIV final Syphillis-Duo results:</label>
@@ -485,6 +522,15 @@
                     </td>
                 </tr>
                 </includeIf>
+                <excludeIf velocityTest="$patient.age &lt; 15">
+                <tr>
+                    <td>
+                        <label>Do you agree to have blood drawn for recency?</label>
+                    </td>
+                    <td>
+                        <obs id="99481" conceptId="99481" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
+                    </td>
+                </tr>
 
                 <includeIf velocityTest="$fn.globalProperty('ugandaemr.hts.recency') == true">
                     <tr>
@@ -496,6 +542,7 @@
                         </td>
                     </tr>
                 </includeIf>
+                </excludeIf>
 
                 <tr>
                     <td><label>Finger Print Captured:</label></td>
@@ -510,7 +557,6 @@
                         <obs conceptId="165183" answerConceptIds="1065,1066" answerLabels="1 - Yes,2 - No" style="radio"/>
                     </td>
                 </tr>
-                <excludeIf velocityTest="$patient.age &lt; 12">
                     <tr>
                         <td class="ResultAsCoupleEnableDisable1"><label>Results received as a
                             couple:</label></td>
@@ -528,7 +574,6 @@
                                 </span>
                         </td>
                     </tr>
-                </excludeIf>
 
                 <tr>
                     <td><label>Client has presumptive TB (Current cough, fever, weight loss and night sweats):</label></td>
@@ -592,5 +637,3 @@
         </section>
     </div>
 </htmlform>
-
-<!--        /Users/ssolomon/IdeaProjects/METSPROJECTS/openmrs-module-ugandaemr-poc/omod/src/main/resources/htmlforms/055b-HCTClientCard.xml-->
