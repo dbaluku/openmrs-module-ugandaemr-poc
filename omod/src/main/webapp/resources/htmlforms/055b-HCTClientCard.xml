@@ -12,6 +12,11 @@
           formLabel="HCT Client Card">
     <script type="text/javascript">
 
+        var facility_entry_point ;
+        var facility_entry_point_enabled =false;
+        var community_entry_testing_point ;
+        var community_entry_testing_point_enabled = false;
+
         if (jQuery) {
             jq(document).ready(function () {
 
@@ -59,6 +64,15 @@
               if(jq("#other-special-category").find("input[type$='text']").val()==''){
                   jq("#other-special-category").find("input[type$='text']").attr("disabled",true);
               }
+              if(jq("#165170").find("input[type$='text']").val()==''){
+                    jq("#165170").find("input[type$='text']").attr("disabled",true);
+               }
+              if(jq("#165181").find("input[type$='radio']").val()==''){
+                    jq("#165181").find("input[type$='radio']").attr("disabled",true);
+              }
+              if(jq("#162965").find("input[type$='text']").val()==''){
+                    jq("#162965").find("input[type$='text']").attr("disabled",true);
+              }
             </ifMode>
             <ifMode mode="ENTER">
                 disable_fields(165160);
@@ -74,6 +88,9 @@
                 jq("#165178").find("input[type$='radio']").attr("disabled",true);
                 jq("#165175").find("input[type$='text']").attr("disabled",true);
                 jq("#other-special-category").find("input[type$='text']").attr("disabled",true);
+                jq("#165170").find("input[type$='text']").attr("disabled",true);
+                jq("#162965").find("input[type$='text']").attr("disabled",true);
+                jq("#165181").find("input[type$='radio']").attr("disabled",true);
 
             </ifMode>
 
@@ -84,10 +101,14 @@
                     if(hts_Delivery_Model == 99416 ){
                         disable_fields(165160);
                         enable_fields(162925);
+                        facility_entry_point_enabled= true;
+                        community_entry_testing_point_enabled= false;
                     }
                     else if(hts_Delivery_Model == 165160){
                         disable_fields(162925);
                         enable_fields(165160);
+                        community_entry_testing_point_enabled= true;
+                        facility_entry_point_enabled= false;
                     }
                     else{
                         disable_fields(165160);
@@ -96,9 +117,6 @@
                 });
 
 
-                // jq('#162925').change(function () {
-                // enable_disable('162925', '165170', '99416');
-                // });
 
                 <!--         Enable HIV Test date-->
                 jq('#165180').change(function () {
@@ -245,8 +263,35 @@
             }
 
             beforeSubmit.push(function () {
+                setValue('162925.error', '');
+                setValue('165160.error', '');
+                setValue('99115.error', '');
+                setValue('165159.error', '');
+                setValue('165167.error', '');
+
                 var submitVal = true;
                 var submitValStage = [];
+               if( jq("#162925").find("select").find(":selected").val()== '' &amp;&amp; facility_entry_point_enabled ){
+                   getField('162925.error').html('Select one of the options ').show();
+                   return false;
+               }
+               if( jq("#165160").find("select").find(":selected").val()== '' &amp;&amp; community_entry_testing_point_enabled ){
+                  getField('165160.error').html('Select one of the options ').show();
+                  return false;
+               }
+               if(! jq("#162925").find("select").is(':disabled') &amp;&amp; jq("#162925").find("select").find(":selected").val()== 90002 &amp;&amp; jq("#99115").find("input[type$='text']").val()=='') {
+                   getField('99115.error').html('Required text field is empty').show();
+                   return false;
+               }
+               if(! jq("#165160").find("select").is(':disabled') &amp;&amp; jq("#165160").find("select").find(":selected").val()== 90002 &amp;&amp; jq("#165159").find("input[type$='text']").val()=='') {
+                    getField('165159.error').html('Required text field is empty').show();
+                    return false;
+               }
+               if(! jq("#165168").find("select").is(':disabled') &amp;&amp; jq("#165168").find("select").find(":selected").val()== 90002 &amp;&amp; jq("#165167").find("input[type$='text']").val()=='') {
+                    getField('165167.error').html('Required text field is empty').show();
+                    return false;
+               }
+
                 return true;
             });
         }
@@ -480,7 +525,7 @@
                         <label>Pre -Test Counseling done/information given:</label>
                     </td>
                     <td>
-                        <obs id="162918" conceptId="162918" answerConceptIds="90003,90004" answerLabels="1 - Yes, 2 - No" style="radio"/>
+                        <obs id="162918" conceptId="162918" answerConceptIds="90003,90004" answerLabels="1 - Yes, 2 - No" style="radio" required="true"/>
                     </td>
                 </tr>
                 <tr>
@@ -522,6 +567,7 @@
                     </td>
                 </tr>
                 </includeIf>
+                <includeIf velocityTest="$fn.globalProperty('ugandaemr.hts.recency') == true">
                 <excludeIf velocityTest="$patient.age &lt; 15">
                 <tr>
                     <td>
@@ -532,7 +578,7 @@
                     </td>
                 </tr>
 
-                <includeIf velocityTest="$fn.globalProperty('ugandaemr.hts.recency') == true">
+
                     <tr>
                         <td>
                             <label>HIV Recency Test Result:</label>
@@ -541,8 +587,8 @@
                             <obs id="141520" conceptId="141520" answerConceptIds="141518,141519,90167,165145" answerLabels="1 - Recent,2 - Long Term,3 - Negative,4 - Missing"/>
                         </td>
                     </tr>
-                </includeIf>
                 </excludeIf>
+                </includeIf>
 
                 <tr>
                     <td><label>Finger Print Captured:</label></td>
