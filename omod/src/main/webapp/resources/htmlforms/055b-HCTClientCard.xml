@@ -318,7 +318,7 @@
                     </td>
                     <td>
                         <label>Serial No:</label>
-                        <obs conceptId="164985" required="true"/>
+                        <obs conceptId="1646" required="true"/>
                     </td>
                     <td>
                         <label>National ID:</label>
