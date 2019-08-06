@@ -499,7 +499,7 @@
                         </td>
                         <td>
                             <!--                                 not applicable answer among the answers is missing-->
-                            <obs id="99472" conceptId="99472" answerConceptIds="1065,1066,99480,90001" answerLabels="1 - Yes,2 - No,3 - Don't Know, 4 - Not Applicable" />
+                            <obs id="99472" conceptId="99472" answerConceptIds="1065,1066,99480,1175" answerLabels="1 - Yes,2 - No,3 - Don't Know, 4 - Not Applicable" />
 
                         </td>
                     </tr>
@@ -509,7 +509,7 @@
                             <label style="float:right"><i>If yes, the most recent test results for the spouse</i></label>
                         </td>
                         <td class="PartnerTestedBeforeEnableDisableChild1">
-                            <obs id="99477" conceptId="99477" answerConceptIds="90166,90167"
+                            <obs id="99477" conceptId="99477" answerConceptIds="90166,90001"
                                  answerLabels="1 - Positive ,2 - Negative ,3 - Don't know" style="radio"/>
                         </td>
                     </tr>
@@ -579,7 +579,7 @@
                             <label>HIV Recency Test Result:</label>
                         </td>
                         <td>
-                            <obs id="141520" conceptId="141520" answerConceptIds="141518,141519,90167,163611" answerLabels="1 - Recent,2 - Long Term,3 - Negative,4 - Invalid"/>
+                            <obs id="141520" conceptId="141520" answerConceptIds="141518,141519,664,163611" answerLabels="1 - Recent,2 - Long Term,3 - Negative,4 - Invalid"/>
                         </td>
                     </tr>
                 </excludeIf>
