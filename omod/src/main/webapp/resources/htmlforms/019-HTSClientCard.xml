@@ -73,6 +73,9 @@
               if(jq("#162965").find("input[type$='text']").val()==''){
                     jq("#162965").find("input[type$='text']").attr("disabled",true);
               }
+              if(jq("#165184").find("input[type$='text']").val()==''){
+                    jq("#165184").find("input[type$='text']").attr("disabled",true);
+              }
             </ifMode>
             <ifMode mode="ENTER">
                 disable_fields(165160);
@@ -83,6 +86,7 @@
                 disable_fields(165159);
                 disable_fields(165167);
                 disable_fields(141520);
+                disable_fields(165184);
                 jq("#99477").find("input[type$='radio']").attr("disabled",true);
                 jq("#99481").find("input[type$='radio']").attr("disabled",true);
                 jq("#165178").find("input[type$='radio']").attr("disabled",true);
@@ -135,6 +139,10 @@
 
                 jq('#162982').change(function () {
                     enable_disable('162982', '90211', '1065');
+                });
+
+                jq('#165169').change(function () {
+                    enable_disable('165169', '165184', '90002');
                 });
 
 
@@ -446,15 +454,15 @@
                     </td>
                     <td colspan="3">
                             <span>
-                                <obs conceptId="165169"
+                                <obs conceptId="165169" id="165169"
                                      answerConceptIds="162277,160666,165125,165126,162198,159674,165127,90041,99601,165132,162558,90002"
                                      answerLabels="1 - Prisoners,2 - PWIDs,3 - Uniformed men,4 - Migrant workers,
                                      5 - Truckers,6 - Fisher Folks,7 - Refugees,8 - Pregnant,9 - Breastfeeding,10 - AGYW,11 - People with Disabilities (PWD), 12 - Others (specify)"/>
                             </span>
 
                         <span>
-<!--                                     <obs id="5622" conceptId="5622" class="horizontal-layout-options"/>-->
-                                </span>
+                            <obs id="165184" conceptId="165184" class="horizontal-layout-options"/>
+                        </span>
                     </td>
                 </tr>
 
