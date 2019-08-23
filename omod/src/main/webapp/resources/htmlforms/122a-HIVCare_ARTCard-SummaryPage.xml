@@ -1048,7 +1048,7 @@
             <ul>
                 <li>
                     <a href="#care-entry-section">
-                       Care Entry &amp; Treatment Supporter
+                       Care Entry &amp; Family
                     </a>
                 </li>
                 <li>
@@ -1071,7 +1071,6 @@
 
             </ul>
         <section id="care-entry-section">
-        <section>
             <table class="enrollment">
                 <tbody>
                 <tr>
@@ -1098,10 +1097,20 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <label>HIV Care Transfer in from: </label>
+                        <obs conceptId="99109" labelText=""/>
+                    </td>
+                    <td class="HIVCareEnableDisable1">
+                        <label>Date of registration at this site:</label>
+                        <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
+                    </td>
                     <td id="comfirmedDate">
-                        <label>Date Confirmed HIV +Ve:</label>
+                        <label>Date verification HIV test:</label>
                         <obs id="90267" conceptId="90267"/>
                     </td>
+                </tr>
+                <tr>
                     <td>
                         <label>Test type</label>
                         <obs conceptId="99080" answerConceptIds="99079,99080"
@@ -1110,6 +1119,43 @@
                     <td>
                         <label>Where</label>
                         <obs conceptId="99081" size="20"/>
+                    </td>
+
+                    <td>
+                    <includeIf velocityTest="$patient.age &lt; 20 &amp;&amp; $patient.age &gt;=5">
+                        <label>In School (5 -19 years):</label>
+                        <obs conceptId="5629" answerConceptIds="1065,1066"
+                             answerLabels="Yes,No"  style="radio"/>
+                    </includeIf>
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td>
+                        <label>Special Categories</label>
+
+                    </td>
+                    <td colspan="3">
+                      <span>
+                         <obs conceptId="165169" answerConceptId="162277" answerLabel="1 - Prisoners" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="160666" answerLabel="2 - PWIDs" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="165125" answerLabel="3 - Uniformed Men" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="165126" answerLabel="4 - Migrant workers" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="162198" answerLabel="5 - Truckers" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="159674" answerLabel="6 - Fisher Folks" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="165127" answerLabel="7 - Refugees" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="90041" answerLabel="8 - Pregnant" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="99601" answerLabel="9 - Breastfeeding" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="165132" answerLabel="10 - AGYW" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="162558" answerLabel="11 - People with Disabilities (PWD)" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="165185" answerLabel="12 - KP Clinic" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="90002" answerLabel="13 - Others (specify)" style="checkbox" class="horizontal-layout-options" />
+                       </span>
+
+                        <span>
+                            <obs id="165184" conceptId="165184" class="horizontal-layout-options"/>
+                        </span>
                     </td>
                 </tr>
                 <tr style="background: #F7F7F7;">
@@ -1134,18 +1180,6 @@
                 </tr>
                 </tbody>
             </table>
-        </section>
-        <section>
-            <h3>Directions to Residence</h3>
-            <table>
-                <tbody>
-                    <tr>
-                        <td>
-                            <obs style="textarea" rows="3" conceptId="90265"/>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
             <h3>Treatment Supporter</h3>
             <table>
                 <tbody>
@@ -1157,22 +1191,9 @@
                 </tr>
                 <tr>
                     <td>
-                        <label>District</label>
-                        <obs conceptId="99138" size="12"/>
-                    </td>
-                    <td>
-                        <label>Division/SubCounty</label>
-                        <obs conceptId="99139" size="12"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <label>Parish</label>
-                        <obs conceptId="99140" size="12"/>
-                    </td>
-                    <td>
-                        <label>Village</label>
-                        <obs conceptId="99141" size="12"/>
+                        <label>Relationship to index clients</label>
+                        <obs conceptId="99725" answerConceptIds="90286,90280,90288,90284,90279,5618,90002"
+                             answerLabels="Cousin,Child,Partner/Spouse,GrandChild,Parent,Friend,Other"/>
                     </td>
                 </tr>
                 <tr>
@@ -1183,733 +1204,18 @@
                         <label>whose</label>
                         <obs conceptId="99118"/>
                     </td>
-                    <td>
-                        <label>Home Care provided by:</label>
-                        <obs conceptId="99124" size="20" labelText=""/>
-                    </td>
                 </tr>
                 </tbody>
             </table>
-        </section>
         </section>
         <section id="family-members-section">
         <section>
-            <h3>Family members and Partners</h3>
-            <table border="0" style="background-color: #EEE; width:100%;">
-                <tbody style="overflow-y: scroll; height:400px; display:block;">
-                <tr>
-                    <td style="color: #404040; padding: 15px;width: 20%;">
-                        <b>Name of family members and Partners</b>
-                    </td>
-                    <td style="color: #404040; padding: 15px;width: 20%;">
-                        <b>Age</b>
-                        <br/>
-                        (if &lt;=2yrs, write in mths)
-                    </td>
-                    <td style="color: #404040; padding: 15px;width: 20%;">
-                        HIV
-                        <b> U/N/P
-                        </b>
-                    </td>
-                    <td style="color: #404040; padding: 15px;width: 20%;">
-                        HIV
-                        Care<b> Y/N
-                    </b>
-                    </td>
-                    <td style="color: #404040; padding: 15px;width: 20%;">
-                        <b>Unique
-                            No</b>
-                    </td>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99075">
-                        <td>
-                            <obs conceptId="99073" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99074"/>
-                            <obs conceptId="99725" answerConceptIds="1074,99726"
-                                 answerLabels="Yrs,Mths"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisable1">
-                            <obs conceptId="90253" answerConceptIds="90001,90167,90166"
-                                 answerLabels="U,N,P"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableChildren1">
-                            <obs conceptId="90270" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N" onchange="return val()"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableGrandChildren1">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99075">
-                        <td>
-                            <obs conceptId="99073" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99074"/>
-                            <obs conceptId="99725" answerConceptIds="1074,99726"
-                                 answerLabels="Yrs,Mths"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisable2">
-                            <obs conceptId="90253" answerConceptIds="90001,90167,90166"
-                                 answerLabels="U,N,P"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableChildren2">
-                            <obs conceptId="90270" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableGrandChildren2">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99075">
-                        <td>
-                            <obs conceptId="99073" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99074"/>
-                            <obs conceptId="99725" answerConceptIds="1074,99726"
-                                 answerLabels="Yrs,Mths"/>
-                        </td>
-
-                        <td class="FamilyMemberEnableDisable3">
-                            <obs conceptId="90253" answerConceptIds="90001,90167,90166"
-                                 answerLabels="U,N,P"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableChildren3">
-                            <obs conceptId="90270" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableGrandChildren3">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99075">
-                        <td>
-                            <obs conceptId="99073" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99074"/>
-                            <obs conceptId="99725" answerConceptIds="1074,99726"
-                                 answerLabels="Yrs,Mths"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisable4">
-                            <obs conceptId="90253" answerConceptIds="90001,90167,90166"
-                                 answerLabels="U,N,P"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableChildren4">
-                            <obs conceptId="90270" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableGrandChildren4">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99075">
-                        <td>
-                            <obs conceptId="99073" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99074"/>
-                            <obs conceptId="99725" answerConceptIds="1074,99726"
-                                 answerLabels="Yrs,Mths"/>
-                        </td>
-
-                        <td class="FamilyMemberEnableDisable5">
-                            <obs conceptId="90253" answerConceptIds="90001,90167,90166"
-                                 answerLabels="U,N,P"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableChildren5">
-                            <obs conceptId="90270" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableGrandChildren5">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99075">
-                        <td>
-                            <obs conceptId="99073" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99074"/>
-                            <obs conceptId="99725" answerConceptIds="1074,99726"
-                                 answerLabels="Yrs,Mths"/>
-                        </td>
-
-                        <td class="FamilyMemberEnableDisable5">
-                            <obs conceptId="90253" answerConceptIds="90001,90167,90166"
-                                 answerLabels="U,N,P"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableChildren5">
-                            <obs conceptId="90270" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableGrandChildren5">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99075">
-                        <td>
-                            <obs conceptId="99073" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99074"/>
-                            <obs conceptId="99725" answerConceptIds="1074,99726"
-                                 answerLabels="Yrs,Mths"/>
-                        </td>
-
-                        <td class="FamilyMemberEnableDisable5">
-                            <obs conceptId="90253" answerConceptIds="90001,90167,90166"
-                                 answerLabels="U,N,P"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableChildren5">
-                            <obs conceptId="90270" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableGrandChildren5">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99075">
-                        <td>
-                            <obs conceptId="99073" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99074"/>
-                            <obs conceptId="99725" answerConceptIds="1074,99726"
-                                 answerLabels="Yrs,Mths"/>
-                        </td>
-
-                        <td class="FamilyMemberEnableDisable5">
-                            <obs conceptId="90253" answerConceptIds="90001,90167,90166"
-                                 answerLabels="U,N,P"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableChildren5">
-                            <obs conceptId="90270" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td class="FamilyMemberEnableDisableGrandChildren5">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-        <section class="exposed-infant">
-            <h3>Exposed Infant Follow-up</h3>
-            <table border="0" style="background-color: #EEE">
-                <thead>
-                <tr>
-                    <th rowspan="2">
-                        Exposed Infant <br/>(Name#)
-                    </th>
-                    <th rowspan="2">
-                        DOB
-                    </th>
-                    <th colspan="2">
-                        Infant
-                        feeding Status
-                    </th>
-                    <th rowspan="2">
-                        CTX
-                        started at 2 mths
-                    </th>
-                    <th rowspan="2">
-                        Date
-                        of 1st PCR/Result
-                    </th>
-                    <th rowspan="2">
-                        Final
-                        status
-                    </th>
-                    <th rowspan="2">
-                        (If
-                        Confirm + Unique ID)
-                    </th>
-                </tr>
-
-                <tr>
-                    <th>
-                        &lt;6
-                        mths
-                    </th>
-                    <th>
-                        &gt;=6
-                        mths
-                    </th>
-                </tr>
-                </thead>
-
-                <tr>
-                    <obsgroup groupingConceptId="99078">
-                        <td>
-                            <obs conceptId="99077" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="90261"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99607" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99608" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99076" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td>
-                            <span class="ExposedInfantPCRResultEnableDisable1">
-                                <obs conceptId="99606" size="5"/>
-                            </span>
-                            <span class="ExposedInfantPCRResultEnableDisableChildren1">
-                                <obs conceptId="99153" answerConceptIds="90001,90167,90166" answerLabels="U,N,P"/>
-                            </span>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisable1">
-                            <obs conceptId="99121" answerConceptIds="90166,90167,99122,99112,90001"
-                                 answerLabels="P,N,N/BF,Dead,U"/>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisableChildren1">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-
-                <tr>
-                    <obsgroup groupingConceptId="99078">
-                        <td>
-                            <obs conceptId="99077" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="90261"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99607" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99608" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99076" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td>
-                            <span class="ExposedInfantPCRResultEnableDisable2">
-                                 <obs conceptId="99606" size="5"/>
-                            </span>
-                            <span class="ExposedInfantPCRResultEnableDisableChildren2">
-                                <obs conceptId="99153" answerConceptIds="90001,90167,90166" answerLabels="U,N,P"/>
-                            </span>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisable2">
-                            <obs conceptId="99121" answerConceptIds="90166,90167,99122,99112,90001"
-                                 answerLabels="P,N,N/BF,Dead,U"/>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisableChildren2">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-
-                <tr>
-                    <obsgroup groupingConceptId="99078">
-                        <td>
-                            <obs conceptId="99077" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="90261"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99607" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99608" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99076" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td>
-                            <span class="ExposedInfantPCRResultEnableDisable3">
-                                <obs conceptId="99606" size="5"/>
-                            </span>
-                            <span class="ExposedInfantPCRResultEnableDisableChildren3">
-                                <obs conceptId="99153" answerConceptIds="90001,90167,90166"
-                                     answerLabels="U,N,P"/>
-                            </span>
-
-
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisable3">
-                            <obs conceptId="99121" answerConceptIds="90166,90167,99122,99112,90001"
-                                 answerLabels="P,N,N/BF,Dead,U"/>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisableChildren3">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-
-                <tr>
-                    <obsgroup groupingConceptId="99078">
-                        <td>
-                            <obs conceptId="99077" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="90261"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99607" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99608" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99076" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td>
-                            <span class="ExposedInfantPCRResultEnableDisable4">
-                            <obs conceptId="99606" size="5"/>
-                            </span>
-                            <span class="ExposedInfantPCRResultEnableDisableChildren4">
-                                <obs conceptId="99153" answerConceptIds="90001,90167,90166"
-                                     answerLabels="U,N,P"/>
-                            </span>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisable4">
-                            <obs conceptId="99121" answerConceptIds="90166,90167,99122,99112,90001"
-                                 answerLabels="P,N,N/BF,Dead,U"/>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisableChildren4">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-
-                <tr>
-                    <obsgroup groupingConceptId="99078">
-                        <td>
-                            <obs conceptId="99077" size="20"/>
-                        </td>
-                        <td>
-                            <obs conceptId="90261"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99607" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99608" labelText="" answerConceptIds="5526,99089,6046"
-                                 answerLabels="EBF - Exclusive Breast Feeding,RF - Replacement Feeding,MF - Mixed Feeding"/>
-                        </td>
-                        <td>
-                            <obs conceptId="99076" answerConceptIds="90003,90004"
-                                 answerLabels="Y,N"/>
-                        </td>
-                        <td>
-                            <span class="ExposedInfantPCRResultEnableDisable5">
-                                <obs conceptId="99606" size="5"/>
-                            </span>
-                            <span class="ExposedInfantPCRResultEnableDisableChildren5">
-                                <obs conceptId="99153" answerConceptIds="90001,90167,90166"
-                                     answerLabels="U,N,P"/>
-                            </span>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisable5">
-                            <obs conceptId="99121" answerConceptIds="90166,90167,99122,99112,90001"
-                                 answerLabels="P,N,N/BF,Dead,U"/>
-                        </td>
-                        <td class="ExposedInfantFinalStatusEnableDisableChildren5">
-                            <obs conceptId="90263" size="20"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-            </table>
-        </section>
-        </section>
-        <section id="prior-art-section">
-        <section>
-            <h3>Prior ART</h3>
-            <table border="0" id="art-history" style="background-color: #EEE">
-                <tbody>
-                <tr style="background: beige;">
-                    <td>
-
-                    </td>
-                    <td colspan="3" class="PriorYesNoEnableDisable1">
-                        <label><b>Prior ART</b></label>
-                        <obs conceptId="99055" answerConceptIds="90003,90004"
-                             answerLabels="Yes,None"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Y (&#10003;) Prior ART
-                    </td>
-                    <td>
-                        <b>Date</b>
-                    </td>
-                    <td>
-                        <b>Where</b>
-                    </td>
-                    <td>
-                        <b>ARVs</b>
-                    </td>
-                </tr>
-                <tr class="enableDisable">
-                    <obsgroup groupingConceptId="99066">
-                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                            <obs conceptId="99056" answerConceptId="90003" answerLabel="PEP:"
-                            />
-                        </td>
-                        <td id="disabled">
-                            <obs id="second" conceptId="99154" labelText=""/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="third" conceptId="99057"/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="fourth" conceptId="99130"
-                                 answerConceptIds="630,99276,99275,99277,99278,99279,99006,99016,99046,99280,99281,90002"
-                                 answerLabels="AZT-3TC, AZT-FTC, TDF-3TC, TDF-FTC, d4T-3TC, d4T-FTC,AZT-3TC-EFV,D4T-3TC-EFV,AZT-3TC-LPV/r,AZT-3TC-NFV,d4T-3TC-LPV/r, Other"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr class="enableDisable">
-                    <obsgroup groupingConceptId="99598">
-                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                            <obs conceptId="99594" answerConceptId="90003" answerLabel="Hep-B:"/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="second" conceptId="99595" labelText=""/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="third" conceptId="99596"/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="fourth" conceptId="99597"
-                                 answerConceptIds="630,99276,99275,99277,99278,99279,99006,99016,99046,99280,99281,90002"
-                                 answerLabels="AZT-3TC, AZT-FTC, TDF-3TC, TDF-FTC, d4T-3TC, d4T-FTC,AZT-3TC-EFV,D4T-3TC-EFV,AZT-3TC-LPV/r,AZT-3TC-NFV,d4T-3TC-LPV/r, Other"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <excludeIf velocityTest="$patient.gender =='M' ">
-                    <tr class="enableDisable">
-                        <obsgroup groupingConceptId="99067">
-                            <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                                <obs conceptId="90012" answerConceptId="90003"
-                                     answerLabel="PMTCT Only:"/>
-                            </td>
-                            <td id="disabled">
-                                <obs id="second" conceptId="99155" labelText=""/>
-                            </td>
-                            <td id="disabled">
-                                <obs id="third" conceptId="99058"/>
-                            </td>
-                            <td id="disabled">
-                                <obs id="fourth" conceptId="99131"
-                                     answerConceptIds="631,97,628,630,99005,99006,99039,99040,99041,99042,90002"
-                                     answerLabels="NVP, AZT,3TC, AZT-3TC, AZT-3TC-NVP,AZT-3TC-EFV,TDF-3TC-NVP, TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,Other"/>
-                            </td>
-                        </obsgroup>
-                    </tr>
-                </excludeIf>
-                <tr class="enableDisable">
-                    <obsgroup groupingConceptId="99068">
-                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                            <obs conceptId="99059" answerConceptId="90003"
-                                 answerLabel="Earlier ARV not transfer:"/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="second" conceptId="99156" labelText=""/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="third" conceptId="99060"/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="fourth" conceptId="99129"
-                                 answerConceptIds="99015,99016,99005,99006,99039,99040,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,90002"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,ZDV-3TC-ATV/r,Other"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <h3>HIV Care</h3>
-            <table border="0" id="hiv-care" style="background-color: #EEE">
-                <tr>
-                    <th>HIV Care</th>
-                    <th>Date</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>HIV enrolled</td>
-                    <td class="HIVCareEnableDisable1">
-                        <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
-                    </td>
-                    <td class="checkboxGroup">
-                        <div class="enableDisable">
-                        <span id="trigger">
-                            <obs conceptId="99110" answerConceptId="90003"
-                                 answerLabel="HIV care"/>
-                        </span>
-                        <span id="disabled">
-                            <b>Transfer in from</b>
-                            <obs conceptId="99109" labelText=""/>
-                        </span>
-                    </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Eligible for ART</td>
-                    <td>
-                        <obs id="90297" conceptId="90297" allowFutureDates="false"/>
-                    </td>
-                    <td rowspan="2">
-                        <b>Clinical Stage:</b>
-
-                        <p>
-                            <obs conceptId="99083" answerConceptIds="1204,1205,1206,1207"
-                                 answerLabels="1, 2, 3, 4"/>
-                        </p>
-                        <p>
-                            <obs conceptId="99082" labelText="Cd4:"/>
-                        </p>
-                        <p>
-                            <obs conceptId="99600" style="checkbox" labelText="TB"/>
-                        </p>
-                        <p>
-                            <excludeIf velocityTest="$patient.age > 9 ">
-                                <obs conceptId="99123" style="checkbox"
-                                     labelText="Presumptive HIV Diagnosis of severe HIV infection in infants"/>
-                            </excludeIf>
-                        </p>
-                        <excludeIf velocityTest="$patient.age > 9 ">
-                            <p>
-                                <obs conceptId="99149" style="checkbox" labelText="PCR-Infant"/>
-                            </p>
-                        </excludeIf>
-                        <excludeIf velocityTest="$patient.gender =='M' ">
-                            <p>
-                                <obs conceptId="99601" style="checkbox" labelText="Breast feeding"/>
-                            </p>
-
-                            <p>
-                                <obs conceptId="99602" style="checkbox" labelText="Pregnancy"/>
-                            </p>
-                        </excludeIf>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Eligible and ready</td>
-                    <td class="HIVCareEnableDisableChild1">
-                        <obs id="90299" conceptId="90299" allowFutureDates="true"/>
-                    </td>
-                </tr>
-            </table>
-        </section>
-        </section>
-        <section id="drug-allergies-and-art-care">
-        <section>
-            <div class="row">
-                <div class="row-col2">
-                    <section>
-                        <h3>Drug allergies</h3>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <obsgroup groupingConceptId="90230">
-                                        <label>1</label>
-                                        <obs conceptId="142" size="30"/>
-                                        <br/>
-                                        <label>2</label>
-                                        <obs conceptId="142" size="30"/>
-                                        <br/>
-                                        <label>3</label>
-                                        <obs conceptId="142" size="30"/>
-                                        <br/>
-                                        <label>4</label>
-                                        <obs conceptId="142" size="30"/>
-                                        <br/>
-                                        <label>5</label>
-                                        <obs conceptId="142" size="30"/>
-                                    </obsgroup>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </section>
-                </div>
-                <div class="row-col2">
-                    <section>
-                        <h3>Relevant medical conditions</h3>
-                        <table>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <obsgroup groupingConceptId="99104">
-                                        <label>1</label>
-                                        <obs conceptId="99111" size="30"/>
-                                        <br/>
-                                        <label>2</label>
-                                        <obs conceptId="99111" size="30"/>
-                                        <br/>
-                                        <label>3</label>
-                                        <obs conceptId="99111" size="30"/>
-                                        <br/>
-                                        <label>4</label>
-                                        <obs conceptId="99111" size="30"/>
-                                        <br/>
-
-                                        <label>5</label>
-                                        <obs conceptId="99111" size="30"/>
-                                    </obsgroup>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </section>
-                </div>
-            </div>
-        </section>
-        <section>
-            <h3>ART Care</h3>
+            <h3>ART Care COHORT</h3>
             <table border="0" id="art-care" style="width:100%;">
                 <tbody style="display:block;">
                 <tr>
-                    <th rowspan="12" style="width:5%;background: white;">1st line</th>
-                    <th colspan="4" style="background-color: #377F9C;color: white;text-align: center;">Start ART</th>
+                    <th rowspan="12" style="width:5%;background: white;">Date:</th>
+                    <th colspan="4" style="background-color: #377F9C;color: white;text-align: center;">Start ART 1st Line Initial Regimen</th>
                 </tr>
                 <tr>
                     <obsgroup groupingConceptId="99162">
@@ -2230,6 +1536,258 @@
                 </tr>
                 </tbody>
             </table>
+        </section>
+        <section id="prior-art-section">
+        <section>
+            <h3>Prior ART</h3>
+            <table border="0" id="art-history" style="background-color: #EEE">
+                <tbody>
+                <tr style="background: beige;">
+                    <td>
+
+                    </td>
+                    <td colspan="3" class="PriorYesNoEnableDisable1">
+                        <label><b>Prior ART</b></label>
+                        <obs conceptId="99055" answerConceptIds="90003,90004"
+                             answerLabels="Yes,None"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Y (&#10003;) Prior ART
+                    </td>
+                    <td>
+                        <b>Date</b>
+                    </td>
+                    <td>
+                        <b>Where</b>
+                    </td>
+                    <td>
+                        <b>ARVs</b>
+                    </td>
+                </tr>
+                <tr class="enableDisable">
+                    <obsgroup groupingConceptId="99066">
+                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                            <obs conceptId="99056" answerConceptId="90003" answerLabel="PEP:"
+                            />
+                        </td>
+                        <td id="disabled">
+                            <obs id="second" conceptId="99154" labelText=""/>
+                        </td>
+                        <td id="disabled">
+                            <obs id="third" conceptId="99057"/>
+                        </td>
+                        <td id="disabled">
+                            <obs id="fourth" conceptId="99130"
+                                 answerConceptIds="630,99276,99275,99277,99278,99279,99006,99016,99046,99280,99281,90002"
+                                 answerLabels="AZT-3TC, AZT-FTC, TDF-3TC, TDF-FTC, d4T-3TC, d4T-FTC,AZT-3TC-EFV,D4T-3TC-EFV,AZT-3TC-LPV/r,AZT-3TC-NFV,d4T-3TC-LPV/r, Other"/>
+                        </td>
+                    </obsgroup>
+                </tr>
+                <tr class="enableDisable">
+                    <obsgroup groupingConceptId="99598">
+                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                            <obs conceptId="99594" answerConceptId="90003" answerLabel="Hep-B:"/>
+                        </td>
+                        <td id="disabled">
+                            <obs id="second" conceptId="99595" labelText=""/>
+                        </td>
+                        <td id="disabled">
+                            <obs id="third" conceptId="99596"/>
+                        </td>
+                        <td id="disabled">
+                            <obs id="fourth" conceptId="99597"
+                                 answerConceptIds="630,99276,99275,99277,99278,99279,99006,99016,99046,99280,99281,90002"
+                                 answerLabels="AZT-3TC, AZT-FTC, TDF-3TC, TDF-FTC, d4T-3TC, d4T-FTC,AZT-3TC-EFV,D4T-3TC-EFV,AZT-3TC-LPV/r,AZT-3TC-NFV,d4T-3TC-LPV/r, Other"/>
+                        </td>
+                    </obsgroup>
+                </tr>
+                <excludeIf velocityTest="$patient.gender =='M' ">
+                    <tr class="enableDisable">
+                        <obsgroup groupingConceptId="99067">
+                            <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                                <obs conceptId="90012" answerConceptId="90003"
+                                     answerLabel="PMTCT Only:"/>
+                            </td>
+                            <td id="disabled">
+                                <obs id="second" conceptId="99155" labelText=""/>
+                            </td>
+                            <td id="disabled">
+                                <obs id="third" conceptId="99058"/>
+                            </td>
+                            <td id="disabled">
+                                <obs id="fourth" conceptId="99131"
+                                     answerConceptIds="631,97,628,630,99005,99006,99039,99040,99041,99042,90002"
+                                     answerLabels="NVP, AZT,3TC, AZT-3TC, AZT-3TC-NVP,AZT-3TC-EFV,TDF-3TC-NVP, TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,Other"/>
+                            </td>
+                        </obsgroup>
+                    </tr>
+                </excludeIf>
+                <tr class="enableDisable">
+                    <obsgroup groupingConceptId="99068">
+                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                            <obs conceptId="99059" answerConceptId="90003"
+                                 answerLabel="Earlier ARV not transfer:"/>
+                        </td>
+                        <td id="disabled">
+                            <obs id="second" conceptId="99156" labelText=""/>
+                        </td>
+                        <td id="disabled">
+                            <obs id="third" conceptId="99060"/>
+                        </td>
+                        <td id="disabled">
+                            <obs id="fourth" conceptId="99129"
+                                 answerConceptIds="99015,99016,99005,99006,99039,99040,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,90002"
+                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,ZDV-3TC-ATV/r,Other"/>
+                        </td>
+                    </obsgroup>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+        <section>
+            <h3>HIV Care</h3>
+            <table border="0" id="hiv-care" style="background-color: #EEE">
+                <tr>
+                    <th>HIV Care</th>
+                    <th>Date</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td>HIV enrolled</td>
+                    <td class="HIVCareEnableDisable1">
+                        <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
+                    </td>
+                    <td class="checkboxGroup">
+                        <div class="enableDisable">
+                        <span id="trigger">
+                            <obs conceptId="99110" answerConceptId="90003"
+                                 answerLabel="HIV care"/>
+                        </span>
+                        <span id="disabled">
+                            <b>Transfer in from</b>
+                            <obs conceptId="99109" labelText=""/>
+                        </span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Eligible for ART</td>
+                    <td>
+                        <obs id="90297" conceptId="90297" allowFutureDates="false"/>
+                    </td>
+                    <td rowspan="2">
+                        <b>Clinical Stage:</b>
+
+                        <p>
+                            <obs conceptId="99083" answerConceptIds="1204,1205,1206,1207"
+                                 answerLabels="1, 2, 3, 4"/>
+                        </p>
+                        <p>
+                            <obs conceptId="99082" labelText="Cd4:"/>
+                        </p>
+                        <p>
+                            <obs conceptId="99600" style="checkbox" labelText="TB"/>
+                        </p>
+                        <p>
+                            <excludeIf velocityTest="$patient.age > 9 ">
+                                <obs conceptId="99123" style="checkbox"
+                                     labelText="Presumptive HIV Diagnosis of severe HIV infection in infants"/>
+                            </excludeIf>
+                        </p>
+                        <excludeIf velocityTest="$patient.age > 9 ">
+                            <p>
+                                <obs conceptId="99149" style="checkbox" labelText="PCR-Infant"/>
+                            </p>
+                        </excludeIf>
+                        <excludeIf velocityTest="$patient.gender =='M' ">
+                            <p>
+                                <obs conceptId="99601" style="checkbox" labelText="Breast feeding"/>
+                            </p>
+
+                            <p>
+                                <obs conceptId="99602" style="checkbox" labelText="Pregnancy"/>
+                            </p>
+                        </excludeIf>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Eligible and ready</td>
+                    <td class="HIVCareEnableDisableChild1">
+                        <obs id="90299" conceptId="90299" allowFutureDates="true"/>
+                    </td>
+                </tr>
+            </table>
+        </section>
+        </section>
+        <section id="drug-allergies-and-art-care">
+        <section>
+            <div class="row">
+                <div class="row-col2">
+                    <section>
+                        <h3>Drug allergies</h3>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <obsgroup groupingConceptId="90230">
+                                        <label>1</label>
+                                        <obs conceptId="142" size="30"/>
+                                        <br/>
+                                        <label>2</label>
+                                        <obs conceptId="142" size="30"/>
+                                        <br/>
+                                        <label>3</label>
+                                        <obs conceptId="142" size="30"/>
+                                        <br/>
+                                        <label>4</label>
+                                        <obs conceptId="142" size="30"/>
+                                        <br/>
+                                        <label>5</label>
+                                        <obs conceptId="142" size="30"/>
+                                    </obsgroup>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+                <div class="row-col2">
+                    <section>
+                        <h3>Relevant medical conditions</h3>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <td>
+                                    <obsgroup groupingConceptId="99104">
+                                        <label>1</label>
+                                        <obs conceptId="99111" size="30"/>
+                                        <br/>
+                                        <label>2</label>
+                                        <obs conceptId="99111" size="30"/>
+                                        <br/>
+                                        <label>3</label>
+                                        <obs conceptId="99111" size="30"/>
+                                        <br/>
+                                        <label>4</label>
+                                        <obs conceptId="99111" size="30"/>
+                                        <br/>
+
+                                        <label>5</label>
+                                        <obs conceptId="99111" size="30"/>
+                                    </obsgroup>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </section>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h3>ART Care</h3>
+
         </section>
         <section>
             <h3>ART treatment interruptions - STOP or MISSED drug pick up</h3>
