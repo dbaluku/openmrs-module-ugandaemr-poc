@@ -1660,186 +1660,240 @@
             </section>
         </section>
         <section id="prior-art-section">
-        <section>
-            <h3>Prior ART</h3>
-            <table border="0" id="art-history" style="background-color: #EEE">
-                <tbody>
-                <tr style="background: beige;">
-                    <td>
+            <section>
+                <h3>ART/TPT/Fluconazole/ TB  Interruptions </h3>
+                <table>
+                    <tbody>
+                    <tr>
+                        <td>
+                            <obsgroup groupingConceptId="99086">
+                                <label>
+                                    <b>Stop/Lost</b>
+                                </label>
 
-                    </td>
-                    <td colspan="3" class="PriorYesNoEnableDisable1">
-                        <label><b>Prior ART</b></label>
-                        <obs conceptId="99055" answerConceptIds="90003,90004"
-                             answerLabels="Yes,None"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        Y (&#10003;) Prior ART
-                    </td>
-                    <td>
-                        <b>Date</b>
-                    </td>
-                    <td>
-                        <b>Where</b>
-                    </td>
-                    <td>
-                        <b>ARVs</b>
-                    </td>
-                </tr>
-                <tr class="enableDisable">
-                    <obsgroup groupingConceptId="99066">
-                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                            <obs conceptId="99056" answerConceptId="90003" answerLabel="PEP:"
-                            />
+                                <div class="ARTTreatmentInterruptionEnableDisable1">
+                                    <obs conceptId="99132" answerConceptIds="1363,99133"
+                                         answerLabels="Stopped,Lost"/>
+                                </div>
+
+                                <div class="ARTTreatmentInterruptionEnableDisableChild1">
+                                    <b>Date</b>
+                                    <br/>
+                                    <obs conceptId="99084"/>
+                                    <br/>
+                                </div>
+                                <div class="ARTTreatmentInterruptionEnableDisableGrandChild1">
+                                    <b>Why</b>
+                                    <br/>
+
+                                    <obs conceptId="1252" labelText=""
+                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
+                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
+                                </div>
+                                <div class="ARTTreatmentInterruptionEnableDisableChild1">
+                                    <br/>
+                                    <b>Date if Restart/Re-activated</b>
+                                    <br/>
+                                    <obs conceptId="99085"/>
+                                </div>
+                            </obsgroup>
                         </td>
-                        <td id="disabled">
-                            <obs id="second" conceptId="99154" labelText=""/>
+                        <td>
+                            <obsgroup groupingConceptId="99086">
+                                <label>
+                                    <b>Stop/Lost</b>
+                                </label>
+                                <span class="ARTTreatmentInterruptionEnableDisable2">
+                                    <obs conceptId="99132" answerConceptIds="1363,99133"
+                                         answerLabels="Stopped,  Lost"/>
+                                </span>
+
+                                <span class="ARTTreatmentInterruptionEnableDisableChild2">
+
+                                    <b>Date</b>
+                                    <br/>
+                                    <obs conceptId="99084"/>
+                                    </span>
+                                <br/>
+                                <span class="ARTTreatmentInterruptionEnableDisableGrandChild2">
+                                    <b>Why</b>
+                                    <br/>
+
+                                    <obs conceptId="1252" labelText=""
+                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
+                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
+                                </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableChild2">
+                                <br/>
+                                    <b>Date if Restart/Re-activated</b>
+                                    <br/>
+                                    <obs conceptId="99085"/>
+                                </span>
+                            </obsgroup>
                         </td>
-                        <td id="disabled">
-                            <obs id="third" conceptId="99057"/>
+                        <td>
+                            <obsgroup groupingConceptId="99086">
+                                <label>
+                                    <b>Stop/Lost</b>
+                                </label>
+                                <span class="ARTTreatmentInterruptionEnableDisable3">
+                                    <obs conceptId="99132" answerConceptIds="1363,99133"
+                                         answerLabels="Stopped,  Lost"/>
+                                </span>
+
+                                <span class="ARTTreatmentInterruptionEnableDisableChild3">
+                                    <b>Date</b>
+                                    <br/>
+                                    <obs conceptId="99084"/>
+                                    <br/>
+                                    </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableGrandChild3">
+                                    <b>Why</b>
+                                    <br/>
+                                    <obs conceptId="1252" labelText=""
+                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
+                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
+                                 </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableChild3">
+                                 <br/>
+                                    <b>Date if Restart/Re-activated</b>
+                                    <br/>
+                                    <obs conceptId="99085"/>
+                                </span>
+                            </obsgroup>
                         </td>
-                        <td id="disabled">
-                            <obs id="fourth" conceptId="99130"
-                                 answerConceptIds="630,99276,99275,99277,99278,99279,99006,99016,99046,99280,99281,90002"
-                                 answerLabels="AZT-3TC, AZT-FTC, TDF-3TC, TDF-FTC, d4T-3TC, d4T-FTC,AZT-3TC-EFV,D4T-3TC-EFV,AZT-3TC-LPV/r,AZT-3TC-NFV,d4T-3TC-LPV/r, Other"/>
+                        <td>
+                            <obsgroup groupingConceptId="99086">
+                                <label>
+                                    <b>Stop/Lost</b>
+                                </label>
+                                <span class="ARTTreatmentInterruptionEnableDisable4">
+                                    <obs conceptId="99132" answerConceptIds="1363,99133"
+                                         answerLabels=" Stopped,  Lost"/>
+                                </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableChild4">
+                                    <b>Date</b>
+                                    <br/>
+                                    <obs conceptId="99084"/>
+                                    <br/>
+                                    </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableGrandChild4">
+                                    <b>Why</b>
+                                    <br/>
+                                    <obs conceptId="1252" labelText=""
+                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
+                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
+                                   </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableChild4">
+                                    <br/>
+                                    <b>Date if Restart/Re-activated</b>
+                                    <br/>
+                                    <obs conceptId="99085"/>
+                                </span>
+                            </obsgroup>
                         </td>
-                    </obsgroup>
-                </tr>
-                <tr class="enableDisable">
-                    <obsgroup groupingConceptId="99598">
-                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                            <obs conceptId="99594" answerConceptId="90003" answerLabel="Hep-B:"/>
+                        <td>
+                            <obsgroup groupingConceptId="99086">
+                                <label>
+                                    <b>Stop/Lost</b>
+                                </label>
+                                <span class="ARTTreatmentInterruptionEnableDisable5">
+                                    <obs conceptId="99132" answerConceptIds="1363,99133"
+                                         answerLabels=" Stopped,  Lost"/>
+                                </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableChild5">
+                                    <b>Date</b>
+                                    <br/>
+                                    <obs conceptId="99084"/>
+                                    </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableGrandChildChild5">
+                                    <br/>
+                                    <b>Why</b>
+                                    <br/>
+                                    <obs conceptId="1252" labelText=""
+                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
+                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
+                                    <br/>
+                                </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableChild5">
+                                    <b>Date if Restart/Re-activated</b>
+                                    <br/>
+                                    <obs conceptId="99085"/>
+                                </span>
+                            </obsgroup>
                         </td>
-                        <td id="disabled">
-                            <obs id="second" conceptId="99595" labelText=""/>
+                        <td>
+                            <obsgroup groupingConceptId="99086">
+                                <label>
+                                    <b>Stop/Lost</b>
+                                </label>
+                                <span class="ARTTreatmentInterruptionEnableDisable6">
+                                    <obs conceptId="99132" answerConceptIds="1363,99133"
+                                         answerLabels="Stopped,  Lost"/>
+                                </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableChild6">
+                                    <b>Date</b>
+                                    <br/>
+                                    <obs conceptId="99084"/>
+                                    <br/>
+                                    </span>
+                                <span class="ARTTreatmentInterruptionEnableDisablGrandeChild6">
+                                    <b>Why</b>
+                                    <br/>
+                                    <obs conceptId="1252" labelText=""
+                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
+                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
+                                 </span>
+                                <span class="ARTTreatmentInterruptionEnableDisableChild6">
+                                 <br/>
+                                    <b>Date if Restart/Re-activated</b>
+                                    <br/>
+                                    <obs conceptId="99085"/>
+                                </span>
+                            </obsgroup>
                         </td>
-                        <td id="disabled">
-                            <obs id="third" conceptId="99596"/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="fourth" conceptId="99597"
-                                 answerConceptIds="630,99276,99275,99277,99278,99279,99006,99016,99046,99280,99281,90002"
-                                 answerLabels="AZT-3TC, AZT-FTC, TDF-3TC, TDF-FTC, d4T-3TC, d4T-FTC,AZT-3TC-EFV,D4T-3TC-EFV,AZT-3TC-LPV/r,AZT-3TC-NFV,d4T-3TC-LPV/r, Other"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <excludeIf velocityTest="$patient.gender =='M' ">
-                    <tr class="enableDisable">
-                        <obsgroup groupingConceptId="99067">
-                            <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                                <obs conceptId="90012" answerConceptId="90003"
-                                     answerLabel="PMTCT Only:"/>
-                            </td>
-                            <td id="disabled">
-                                <obs id="second" conceptId="99155" labelText=""/>
-                            </td>
-                            <td id="disabled">
-                                <obs id="third" conceptId="99058"/>
-                            </td>
-                            <td id="disabled">
-                                <obs id="fourth" conceptId="99131"
-                                     answerConceptIds="631,97,628,630,99005,99006,99039,99040,99041,99042,90002"
-                                     answerLabels="NVP, AZT,3TC, AZT-3TC, AZT-3TC-NVP,AZT-3TC-EFV,TDF-3TC-NVP, TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,Other"/>
-                            </td>
-                        </obsgroup>
+
                     </tr>
-                </excludeIf>
+                    </tbody>
+                </table>
+            </section>
+        <section>
+            <h3>Interruptions &amp; Outcomes</h3>
+            <table border="0" id="art-care"
+                   style="padding: 10px; margin: 5px; border: solid 1px #D2D2D2;">
+                <tbody>
+                <tr>
+                    <td style="color: #404040; background-color: #F3F3F3">Status</td>
+                    <td style="color: #404040; background-color: #F3F3F3">Date</td>
+                    <td style="color: #404040; background-color: #F3F3F3"></td>
+                </tr>
                 <tr class="enableDisable">
-                    <obsgroup groupingConceptId="99068">
-                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                            <obs conceptId="99059" answerConceptId="90003"
-                                 answerLabel="Earlier ARV not transfer:"/>
+                    <obsgroup groupingConceptId="99166">
+                        <td id="trigger">
+                            <obs id="90306" conceptId="90306" answerConceptId="90003"
+                                 answerLabel="Transfer out:"/>
                         </td>
                         <td id="disabled">
-                            <obs id="second" conceptId="99156" labelText=""/>
+                            <obs id="99165" conceptId="99165"/>
                         </td>
                         <td id="disabled">
-                            <obs id="third" conceptId="99060"/>
+                            <obs conceptId="90211" labelText="Where"/>
+                        </td>
+                    </obsgroup>
+                </tr>
+                <tr class="enableDisable">
+                    <obsgroup groupingConceptId="99167">
+                        <td id="trigger">
+                            <obs id="5240" conceptId="5240" answerConceptId="90003"
+                                 answerLabel="Lost to follow-up (drop):"/>
                         </td>
                         <td id="disabled">
-                            <obs id="fourth" conceptId="99129"
-                                 answerConceptIds="99015,99016,99005,99006,99039,99040,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,90002"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,ZDV-3TC-ATV/r,Other"/>
+                            <obs id="90209" conceptId="90209"/>
                         </td>
+                        <td></td>
                     </obsgroup>
                 </tr>
                 </tbody>
-            </table>
-        </section>
-        <section>
-            <h3>HIV Care</h3>
-            <table border="0" id="hiv-care" style="background-color: #EEE">
-                <tr>
-                    <th>HIV Care</th>
-                    <th>Date</th>
-                    <th></th>
-                </tr>
-                <tr>
-                    <td>HIV enrolled</td>
-                    <td class="HIVCareEnableDisable1">
-                        <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
-                    </td>
-                    <td class="checkboxGroup">
-                        <div class="enableDisable">
-                        <span id="trigger">
-                            <obs conceptId="99110" answerConceptId="90003"
-                                 answerLabel="HIV care"/>
-                        </span>
-                        <span id="disabled">
-                            <b>Transfer in from</b>
-                            <obs conceptId="99109" labelText=""/>
-                        </span>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Eligible for ART</td>
-                    <td>
-                        <obs id="90297" conceptId="90297" allowFutureDates="false"/>
-                    </td>
-                    <td rowspan="2">
-                        <b>Clinical Stage:</b>
-
-                        <p>
-                            <obs conceptId="99083" answerConceptIds="1204,1205,1206,1207"
-                                 answerLabels="1, 2, 3, 4"/>
-                        </p>
-                        <p>
-                            <obs conceptId="99082" labelText="Cd4:"/>
-                        </p>
-                        <p>
-                            <obs conceptId="99600" style="checkbox" labelText="TB"/>
-                        </p>
-                        <p>
-                            <excludeIf velocityTest="$patient.age > 9 ">
-                                <obs conceptId="99123" style="checkbox"
-                                     labelText="Presumptive HIV Diagnosis of severe HIV infection in infants"/>
-                            </excludeIf>
-                        </p>
-                        <excludeIf velocityTest="$patient.age > 9 ">
-                            <p>
-                                <obs conceptId="99149" style="checkbox" labelText="PCR-Infant"/>
-                            </p>
-                        </excludeIf>
-                        <excludeIf velocityTest="$patient.gender =='M' ">
-                            <p>
-                                <obs conceptId="99601" style="checkbox" labelText="Breast feeding"/>
-                            </p>
-
-                            <p>
-                                <obs conceptId="99602" style="checkbox" labelText="Pregnancy"/>
-                            </p>
-                        </excludeIf>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Eligible and ready</td>
-                    <td class="HIVCareEnableDisableChild1">
-                        <obs id="90299" conceptId="90299" allowFutureDates="true"/>
-                    </td>
-                </tr>
             </table>
         </section>
         </section>
@@ -1906,245 +1960,6 @@
                     </section>
                 </div>
             </div>
-        </section>
-        <section>
-            <h3>ART Care</h3>
-
-        </section>
-        <section>
-            <h3>ART treatment interruptions - STOP or MISSED drug pick up</h3>
-            <table>
-                <tbody>
-                <tr>
-                    <td>
-                        <obsgroup groupingConceptId="99086">
-                            <label>
-                                <b>Stop/Lost</b>
-                            </label>
-
-                            <div class="ARTTreatmentInterruptionEnableDisable1">
-                                <obs conceptId="99132" answerConceptIds="1363,99133"
-                                     answerLabels="Stopped,Lost"/>
-                            </div>
-
-                            <div class="ARTTreatmentInterruptionEnableDisableChild1">
-                                <b>Date</b>
-                                <br/>
-                                <obs conceptId="99084"/>
-                                <br/>
-                            </div>
-                            <div class="ARTTreatmentInterruptionEnableDisableGrandChild1">
-                                <b>Why</b>
-                                <br/>
-
-                                <obs conceptId="1252" labelText=""
-                                     answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
-                                     answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
-                            </div>
-                            <div class="ARTTreatmentInterruptionEnableDisableChild1">
-                                <br/>
-                                <b>Date if Restart/Re-activated</b>
-                                <br/>
-                                <obs conceptId="99085"/>
-                            </div>
-                        </obsgroup>
-                    </td>
-                    <td>
-                        <obsgroup groupingConceptId="99086">
-                            <label>
-                                <b>Stop/Lost</b>
-                            </label>
-                            <span class="ARTTreatmentInterruptionEnableDisable2">
-                                    <obs conceptId="99132" answerConceptIds="1363,99133"
-                                         answerLabels="Stopped,  Lost"/>
-                                </span>
-
-                            <span class="ARTTreatmentInterruptionEnableDisableChild2">
-
-                                    <b>Date</b>
-                                    <br/>
-                                    <obs conceptId="99084"/>
-                                    </span>
-                            <br/>
-                            <span class="ARTTreatmentInterruptionEnableDisableGrandChild2">
-                                    <b>Why</b>
-                                    <br/>
-
-                                    <obs conceptId="1252" labelText=""
-                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
-                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
-                                </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableChild2">
-                                <br/>
-                                    <b>Date if Restart/Re-activated</b>
-                                    <br/>
-                                    <obs conceptId="99085"/>
-                                </span>
-                        </obsgroup>
-                    </td>
-                    <td>
-                        <obsgroup groupingConceptId="99086">
-                            <label>
-                                <b>Stop/Lost</b>
-                            </label>
-                            <span class="ARTTreatmentInterruptionEnableDisable3">
-                                    <obs conceptId="99132" answerConceptIds="1363,99133"
-                                         answerLabels="Stopped,  Lost"/>
-                                </span>
-
-                            <span class="ARTTreatmentInterruptionEnableDisableChild3">
-                                    <b>Date</b>
-                                    <br/>
-                                    <obs conceptId="99084"/>
-                                    <br/>
-                                    </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableGrandChild3">
-                                    <b>Why</b>
-                                    <br/>
-                                    <obs conceptId="1252" labelText=""
-                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
-                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
-                                 </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableChild3">
-                                 <br/>
-                                    <b>Date if Restart/Re-activated</b>
-                                    <br/>
-                                    <obs conceptId="99085"/>
-                                </span>
-                        </obsgroup>
-                    </td>
-                    <td>
-                        <obsgroup groupingConceptId="99086">
-                            <label>
-                                <b>Stop/Lost</b>
-                            </label>
-                            <span class="ARTTreatmentInterruptionEnableDisable4">
-                                    <obs conceptId="99132" answerConceptIds="1363,99133"
-                                         answerLabels=" Stopped,  Lost"/>
-                                </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableChild4">
-                                    <b>Date</b>
-                                    <br/>
-                                    <obs conceptId="99084"/>
-                                    <br/>
-                                    </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableGrandChild4">
-                                    <b>Why</b>
-                                    <br/>
-                                    <obs conceptId="1252" labelText=""
-                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
-                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
-                                   </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableChild4">
-                                    <br/>
-                                    <b>Date if Restart/Re-activated</b>
-                                    <br/>
-                                    <obs conceptId="99085"/>
-                                </span>
-                        </obsgroup>
-                    </td>
-                    <td>
-                        <obsgroup groupingConceptId="99086">
-                            <label>
-                                <b>Stop/Lost</b>
-                            </label>
-                            <span class="ARTTreatmentInterruptionEnableDisable5">
-                                    <obs conceptId="99132" answerConceptIds="1363,99133"
-                                         answerLabels=" Stopped,  Lost"/>
-                                </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableChild5">
-                                    <b>Date</b>
-                                    <br/>
-                                    <obs conceptId="99084"/>
-                                    </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableGrandChildChild5">
-                                    <br/>
-                                    <b>Why</b>
-                                    <br/>
-                                    <obs conceptId="1252" labelText=""
-                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
-                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
-                                    <br/>
-                                </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableChild5">
-                                    <b>Date if Restart/Re-activated</b>
-                                    <br/>
-                                    <obs conceptId="99085"/>
-                                </span>
-                        </obsgroup>
-                    </td>
-                    <td>
-                        <obsgroup groupingConceptId="99086">
-                            <label>
-                                <b>Stop/Lost</b>
-                            </label>
-                            <span class="ARTTreatmentInterruptionEnableDisable6">
-                                    <obs conceptId="99132" answerConceptIds="1363,99133"
-                                         answerLabels="Stopped,  Lost"/>
-                                </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableChild6">
-                                    <b>Date</b>
-                                    <br/>
-                                    <obs conceptId="99084"/>
-                                    <br/>
-                                    </span>
-                            <span class="ARTTreatmentInterruptionEnableDisablGrandeChild6">
-                                    <b>Why</b>
-                                    <br/>
-                                    <obs conceptId="1252" labelText=""
-                                         answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
-                                         answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
-                                 </span>
-                            <span class="ARTTreatmentInterruptionEnableDisableChild6">
-                                 <br/>
-                                    <b>Date if Restart/Re-activated</b>
-                                    <br/>
-                                    <obs conceptId="99085"/>
-                                </span>
-                        </obsgroup>
-                    </td>
-
-                </tr>
-                </tbody>
-            </table>
-        </section>
-        <section>
-            <table border="0" id="art-care"
-                   style="padding: 10px; margin: 5px; border: solid 1px #D2D2D2;">
-                <tbody>
-                <tr>
-                    <td style="color: #404040; background-color: #F3F3F3">Status</td>
-                    <td style="color: #404040; background-color: #F3F3F3">Date</td>
-                    <td style="color: #404040; background-color: #F3F3F3"></td>
-                </tr>
-                <tr class="enableDisable">
-                    <obsgroup groupingConceptId="99166">
-                        <td id="trigger">
-                            <obs id="90306" conceptId="90306" answerConceptId="90003"
-                                 answerLabel="Transfer out:"/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="99165" conceptId="99165"/>
-                        </td>
-                        <td id="disabled">
-                            <obs conceptId="90211" labelText="Where"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr class="enableDisable">
-                    <obsgroup groupingConceptId="99167">
-                        <td id="trigger">
-                            <obs id="5240" conceptId="5240" answerConceptId="90003"
-                                 answerLabel="Lost to follow-up (drop):"/>
-                        </td>
-                        <td id="disabled">
-                            <obs id="90209" conceptId="90209"/>
-                        </td>
-                        <td></td>
-                    </obsgroup>
-                </tr>
-                </tbody>
-            </table>
         </section>
         </section>
      </div>
