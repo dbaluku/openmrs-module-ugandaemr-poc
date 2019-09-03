@@ -1,3 +1,4 @@
+
 function enable_disable_fm(selected_option) {
 
     var class_name = jq(selected_option).attr("class");
@@ -76,6 +77,7 @@ function enable_disable_fm(selected_option) {
     });
 
 }
+
 function enable_disable(field, class_name_prefix, conditions, input_type) {
 
     var class_name = jq(field).attr("class");
