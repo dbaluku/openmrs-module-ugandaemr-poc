@@ -923,14 +923,8 @@
             color: red;
         }
 
-
-        table td {
-            background: #B6D6E6;
-            color: #404040;
-        }
-
         form#htmlform div.ai-page-frame table tbody td {
-            background: #B6D6E6;
+            /*background: #B6D6E6;*/
             color: #404040;
             padding: 0px 5px;
         }
@@ -962,7 +956,7 @@
         }
 
         table th, table td {
-            border: 1px solid #BDBDBD;
+            /*border: 1px solid #BDBDBD;*/
             text-align: left;
             vertical-align: top;
         }
@@ -1079,7 +1073,7 @@
                          <obs conceptId="165169" answerConceptId="99601" answerLabel="9 - Breastfeeding" style="checkbox" class="horizontal-layout-options" />
                          <obs conceptId="165169" answerConceptId="165132" answerLabel="10 - AGYW" style="checkbox" class="horizontal-layout-options" />
                          <obs conceptId="165169" answerConceptId="162558" answerLabel="11 - People with Disabilities (PWD)" style="checkbox" class="horizontal-layout-options" />
-                         <obs conceptId="165169" answerConceptId="165185" answerLabel="12 - KP Clinic" style="checkbox" class="horizontal-layout-options" />
+                         <obs conceptId="165169" answerConceptId="165224" answerLabel="12 - KP Clinic" style="checkbox" class="horizontal-layout-options" />
                          <obs conceptId="165169" answerConceptId="90002" answerLabel="13 - Others (specify)" style="checkbox" class="horizontal-layout-options" />
                        </span>
 
@@ -1193,53 +1187,64 @@
             </table>
             </section>
             <section>
-                <h4>ART Transfer</h4>
-          <table>
+                <h4>ART Transfer In</h4>
+          <table class="multi">
             <tbody>
+            <repeat>
+                <template>
+                    <obsgroup groupingConceptId="99065">
+                        <tr>
+                            <td class="ARTStartEnableDisable2">
+                                <obs id="99160" conceptId="99160" labelText="Date transfered:"/>
+                            </td>
+                            <td class="ARTStartEnableDisableChild2">
+                                <obs conceptId="90206" size="20" labelText="Transfered from:"/>
+                            </td>
+                            <td colspan="2" class="ARTStartEnableDisableChild2">
+                                <span class="ArtCareEnableDisable1">
+                                <small>
+                                    <obs labelText="ARVs" conceptId="99064"
+                                         answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,164978,163017,90002"
+                                         answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,ABC-3TC-DTG,ABC-3TC-LPV/r,Other"/>
+                                </small>
+                                    </span>
+                                <span class="ArtCareEnableDisableChild1">
+                                    <obs conceptId="99269" size="12" labelText="Other:"/>
+                                </span>
 
-                <tr>
-                    <td class="ARTStartEnableDisable2">
-                        <obs id="99160" conceptId="99160" labelText="Date transfered:"/>
-                    </td>
-                    <td class="ARTStartEnableDisableChild2">
-                        <obs conceptId="90206" size="20" labelText="Transfered from:"/>
-                    </td>
-                    <td colspan="2" class="ARTStartEnableDisableChild2">
-                        <span class="ArtCareEnableDisable1">
-                        <small>
-                            <obs labelText="ARVs" conceptId="99064"
-                                 answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,164978,163017,90002"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,ABC-3TC-DTG,ABC-3TC-LPV/r,Other"/>
-                        </small>
-                            </span>
-                        <span class="ArtCareEnableDisableChild1">
-                            <obs conceptId="99269" size="12" labelText="Other:"/>
-                        </span>
+                            </td>
+                            <td></td>
+                            <td align="center">
+                                <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                            </td>
+                        </tr>
+                    </obsgroup>
+                </template>
+                <render/>
+                <render/>
+                <render/>
+                <render/>
+                <render/>
+            </repeat>
 
-                    </td>
-                    <td></td>
-                </tr>
             </tbody>
           </table>
             </section>
             <section>
                 <h4>Substitutions</h4>
-            <table>
+                <h5 style="background: #404040; color: white;">Substitution within 1st line</h5>
+            <table class="multi">
                 <tbody>
-                <tr>
-                    <td colspan="4" style="background: #404040; color: white;">Substitution within 1st line</td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td>New Regimen</td>
-                    <td colspan="2">Why</td>
-                </tr>
-                <tr>
+                <repeat>
+                    <template>
                     <obsgroup groupingConceptId="99062">
+                        <tr>
                         <td class="ARTStartEnableDisable3">
+                            <label>Date</label>
                             <obs id="99163_1" conceptId="99163"/>
                         </td>
                         <td class="ARTStartEnableDisableChild3">
+                            <label>New Regimen</label>
                             <span class="ArtCareEnableDisable3">
                             <obs conceptId="90315"
                                  answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99884,99885,164978,163017,99143"
@@ -1250,175 +1255,86 @@
                             </span>
                         </td>
                         <td colspan="2" class="ARTStartEnableDisableChild3">
+                            <label>Why</label>
                             <obs conceptId="90246" answerConceptIds="90040,90043,90044,90045,90002"
                                  answerLabels="1.Toxi,2.NewTB,3.NewDrug,4.Drug Stock,5.Other"/>
                         </td>
+                            <td align="center">
+                                <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                            </td>
+                        </tr>
                     </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99062">
-                        <td class="ARTStartEnableDisable4">
-                            <obs id="99163_2" conceptId="99163"/>
-                        </td>
-                        <td class="ARTStartEnableDisableChild4">
-                            <span class="ArtCareEnableDisable4">
-                            <obs conceptId="90315"
-                                 answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99884,99885,164978,163017,99143"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3CT-LPV/r,Other"/>
-                            </span>
-                            <span class="ArtCareEnableDisableChild4">
-                                <obs size="20" conceptId="99146" labelText="Other"/>
-                            </span>
-                        </td>
-                        <td colspan="2" class="ARTStartEnableDisableChild4">
-                            <obs conceptId="90246" answerConceptIds="90040,90043,90044,90045,90002"
-                                 answerLabels="1.Toxi,2.NewTB,3.NewDrug,4.Drug Stock,5.Other"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99062">
-                        <td class="ARTStartEnableDisable5">
-                            <obs id="99163_3" conceptId="99163"/>
-                        </td>
-                        <td class="ARTStartEnableDisableChild5">
-                            <span class="ArtCareEnableDisable5">
-                            <obs conceptId="90315"
-                                 answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99884,99885,164978,163017,99143"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3CT-LPV/r,Other"/>
-                            </span>
-                            <span class="ArtCareEnableDisableChild5">
-                                <obs size="20" conceptId="99146" labelText="Other"/>
-                            </span>
-                        </td>
-                        <td colspan="2" class="ARTStartEnableDisableChild5">
-                            <obs conceptId="90246" answerConceptIds="90040,90043,90044,90045,90002"
-                                 answerLabels="1.Toxi,2.NewTB,3.NewDrug,4.Drug Stock,5.Other"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99062">
-                        <td class="ARTStartEnableDisable6">
-                            <obs id="99163_4" conceptId="99163"/>
-                        </td>
-                        <td class="ARTStartEnableDisableChild6">
-                        <span class="ArtCareEnableDisable6">
-                            <obs conceptId="90315"
-                                 answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99884,99885,164978,163017,99143"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3CT-LPV/r,Other"/>
-                            </span>
-                            <span class="ArtCareEnableDisableChild6">
-                                <obs size="20" conceptId="99146" labelText="Other"/>
-                            </span>
-                        </td>
-                        <td colspan="2" class="ARTStartEnableDisableChild6">
-                            <obs conceptId="90246" answerConceptIds="90040,90043,90044,90045,90002"
-                                 answerLabels="1.Toxi,2.NewTB,3.NewDrug,4.Drug Stock,5.Other"/>
-                        </td>
-                    </obsgroup>
-                </tr>
+                    </template>
+                    <render/>
+                    <render/>
+                    <render/>
+                    <render/>
+                    <render/>
+                </repeat>
                 </tbody>
             </table>
             </section>
             <section>
-                <table>
+                <h5 style="background-color: #377F9C;color: white;">Switch to 2nd
+                    Line or Substitution within 2nd Line
+                </h5>
+                <table class="multi">
                     <tbody>
-                <tr>
-                    <td colspan="4" style="background-color: #377F9C;color: white;">Switch to 2nd
-                        Line or Substitution within 2nd Line
-                    </td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td>New Regimen</td>
-                    <td colspan="2">Why</td>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99063">
-                        <td class="ARTStartEnableDisable7">
-                            <obs id="99164_1" conceptId="99164"/>
-                        </td>
-                        <td class="ARTStartEnableDisableChild7">
-                        <span class="ArtCareEnableDisable7">
-                            <small>
-                                <obs conceptId="90315"
-                                     answerConceptIds="99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,99046,99887,99888,99144"
-                                     answerLabels="ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,TDF-3TC-ATV/r,ABC-3TC-ATV/r,Other"/>
-                            </small>
-                            </span>
-                            <span class="ArtCareEnableDisableChild7">
-                                <obs size="20" conceptId="99147" labelText="Other"/>
-                            </span>
-                        </td>
-                        <td colspan="2" class="ArtCareEnableDisableChild7">
-                            <obs conceptId="90247" answerConceptIds="90046,90047,99889"
-                                 answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99063">
-                        <td class="ARTStartEnableDisable8">
-                            <obs id="99164_2" conceptId="99164"/>
-                        </td>
-                        <td class="ARTStartEnableDisableChild8">
-                            <span class="ArtCareEnableDisable8">
-                            <small>
-                                <obs conceptId="90315"
-                                     answerConceptIds="99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,99046,99887,99888,99144"
-                                     answerLabels="ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,TDF-3TC-ATV/r,ABC-3TC-ATV/r,Other"/>
-                            </small>
-                                </span>
-                            <span class="ArtCareEnableDisableChild8">
-                                <obs size="20" conceptId="99147" labelText="Other"/>
-                            </span>
-                        </td>
-                        <td colspan="2" class="ARTStartEnableDisableChild8">
-                            <obs conceptId="90247" answerConceptIds="90046,90047,99889"
-                                 answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="99063">
-                        <td class="ARTStartEnableDisable9">
-                            <obs id="99164_3" conceptId="99164"/>
-                        </td>
-                        <td class="ARTStartEnableDisableChild9">
-                                <span class="ArtCareEnableDisable9">
-                            <small>
-                                <obs conceptId="90315"
-                                     answerConceptIds="99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,99046,99887,99888,99144"
-                                     answerLabels="ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,TDF-3TC-ATV/r,ABC-3TC-ATV/r,Other"/>
-                            </small>
+                    <repeat>
+                        <template>
+                            <obsgroup groupingConceptId="99063">
+                                <tr>
+                                <td class="ARTStartEnableDisable7">
+                                    <label>Date</label>
+                                    <obs id="99164_1" conceptId="99164"/>
+                                </td>
+                                <td class="ARTStartEnableDisableChild7">
+                                    <label>New Regimen</label>
+                                <span class="ArtCareEnableDisable7">
+                                    <small>
+                                        <obs conceptId="90315"
+                                             answerConceptIds="99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,99046,99887,99888,99144"
+                                             answerLabels="ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,TDF-3TC-ATV/r,ABC-3TC-ATV/r,Other"/>
+                                    </small>
                                     </span>
-                            <span class="ArtCareEnableDisableChild9">
-                                <obs size="20" conceptId="99147" labelText="Other"/>
-                            </span>
-                        </td>
-                        <td colspan="2" class="ARTStartEnableDisableChild9">
-                            <obs conceptId="90247" answerConceptIds="90046,90047,99889"
-                                 answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <td colspan="4" style="background-color: #377F9C;color: white;">Switch to 3rd
-                        line Or Substitution with 3rd Line
-                    </td>
-                </tr>
-                <tr>
-                    <td>Date</td>
-                    <td>New Regimen</td>
-                    <td colspan="2">Why</td>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="162988">
+                                    <span class="ArtCareEnableDisableChild7">
+                                        <obs size="20" conceptId="99147" labelText="Other"/>
+                                    </span>
+                                </td>
+                                <td colspan="2" class="ArtCareEnableDisableChild7">
+                                    <label>Why</label>
+                                    <obs conceptId="90247" answerConceptIds="90046,90047,99889"
+                                         answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
+                                </td>
+                                <td align="center">
+                                    <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                </td>
+                                </tr>
+                            </obsgroup>
+                        </template>
+                        <render/>
+                        <render/>
+                        <render/>
+                        <render/>
+                        <render/>
+                    </repeat>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h5 style="background-color: #377F9C;color: white;">Switch to 3rd line Or Substitution with 3rd Line </h5>
+             <table class="multi">
+               <tbody>
+                <repeat>
+                    <template>
+                        <obsgroup groupingConceptId="162988">
+                        <tr>
                         <td class="ARTStart3EnableDisable1">
+                            <label>Date</label>
                             <obs id="162991_1" conceptId="162991"/>
                         </td>
                         <td class="ARTStart3EnableDisableChild1">
+                            <label>New Regimen</label>
                             <span class="ArtCareEnableDisable10">
                                 <small>
                                     <obs conceptId="162990"/>
@@ -1429,55 +1345,21 @@
                             </span>
                         </td>
                         <td colspan="2" class="ARTStart3EnableDisableChild1">
+                            <label>Why</label>
                             <obs conceptId="90247" answerConceptIds="90046,90047,99889"
                                  answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
                         </td>
+                        <td align="center">
+                            <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                        </td>
+                        </tr>
                     </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="162988">
-                        <td class="ARTStart3EnableDisable2">
-                            <obs id="162991_2" conceptId="162991"/>
-                        </td>
-                        <td class="ARTStart3EnableDisableChild2">
-                            <span class="ArtCareEnableDisable11">
-                                <small>
-                                    <obs conceptId="162990"/>
-                                </small>
-                            </span>
-
-                            <span class="ArtCareEnableDisableChild11">
-                                <obs size="20" conceptId="162989" labelText="Other"/>
-                            </span>
-                        </td>
-                        <td colspan="2" class="ARTStart3EnableDisableChild2">
-                            <obs conceptId="90247" answerConceptIds="90046,90047,99889"
-                                 answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <obsgroup groupingConceptId="162988">
-                        <td class="ARTStart3EnableDisable3">
-                            <obs id="162991_3" conceptId="162991"/>
-                        </td>
-                        <td class="ARTStart3EnableDisableChild3">
-                            <span class="ArtCareEnableDisable12">
-                            <small>
-                                <obs conceptId="162990"/>
-                            </small>
-                            </span>
-
-                            <span class="ArtCareEnableDisableChild12">
-                                <obs size="20" conceptId="162989" labelText="Other"/>
-                            </span>
-                        </td>
-                        <td colspan="2" class="ARTStart3EnableDisableChild3">
-                            <obs conceptId="90247" answerConceptIds="90046,90047,99889"
-                                 answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
-                        </td>
-                    </obsgroup>
-                </tr>
+                    </template>
+                    <render/>
+                    <render/>
+                    <render/>
+                    <render/>
+                </repeat>
                 </tbody>
             </table>
             </section>
@@ -1596,7 +1478,7 @@
                     <tbody>
                         <repeat>
                             <template>
-                                <obsgroup groupingConceptId="99086">
+                                <obsgroup groupingConceptId="165232">
                                     <tr>
                                         <td>
 
@@ -1605,7 +1487,7 @@
                                             </label>
 
                                             <div class="ARTTreatmentInterruptionEnableDisable1">
-                                                <obs conceptId="99132" answerConceptIds="163012,99133,747,58"
+                                                <obs conceptId="165228" answerConceptIds="99132,165225,747,58"
                                                      answerLabels="ART,TPT,Fluconazole,TB Drugs"/>
                                             </div>
                                         </td>
@@ -1614,7 +1496,7 @@
                                                 <b>Interruption (Stop/Lost)</b>
                                             </label>
                                             <span class="ARTTreatmentInterruptionEnableDisable2">
-                                                        <obs conceptId="99132" answerConceptIds="1363,99133"
+                                                        <obs conceptId="165229" answerConceptIds="1363,99133"
                                                              answerLabels="Stopped,  Lost"/>
                                                     </span>
                                         </td>
@@ -1622,7 +1504,7 @@
                                             <div>
                                                 <b>Stop Date</b>
                                                 <br/>
-                                                <obs conceptId="99084"/>
+                                                <obs conceptId="165230"/>
                                                 <br/>
                                             </div>
                                         </td>
@@ -1631,7 +1513,7 @@
                                                 <b>Why</b>
                                                 <br/>
 
-                                                <obs conceptId="1252" labelText=""
+                                                <obs conceptId="165231" labelText=""
                                                      answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
                                                      answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
                                             </div>
@@ -1641,7 +1523,7 @@
                                                 <br/>
                                                 <b>Date if Restart/Re-activated</b>
                                                 <br/>
-                                                <obs conceptId="99085"/>
+                                                <obs conceptId="160738"/>
                                             </div>
 
                                         </td>
@@ -1703,16 +1585,33 @@
         </section>
         <section id="drug-allergies-and-art-care">
         <section>
+            <section>
+            <div class="row">
+                <div class="row-col12">
+                    <h5>TPT INITIATION/COMPLETION DATES</h5>
+                </div>
+            </div>
+            <div class="row section  ui-widget-content ui-corner-bottom">
+                    <div class="row-col2">
+                        <label>Date TPT started: </label>
+                        <obs conceptId="165226"/>
+                    </div>
+                    <div class="row-col2">
+                       <label>Date TPT Completed: </label>
+                        <obs conceptId="165227"/>
+                    </div>
+            </div>
+            </section>
             <div class="row">
                 <div class="row-col2">
                     <section>
                         <h3>Drug allergies</h3>
-                        <table>
+                        <table style="border:0;">
                             <tbody>
                             <tr>
                                 <td>
                                     <obsgroup groupingConceptId="90230">
-                                        <label>1</label>
+                                        <label class="label">1</label>
                                         <obs conceptId="142" size="30"/>
                                         <br/>
                                         <label>2</label>
