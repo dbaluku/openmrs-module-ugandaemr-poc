@@ -1572,6 +1572,133 @@
                 </section>
             </section>
             <section id="prior-art-section">
+                <section class="row">
+                    <div>
+                        <div class="row">
+                            <div class="col-12 card-header"><h3>Periodic Screening(Semi Annual)</h3></div>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-3 label"></div>
+                                <div class="col-3 label">Date Tested </div>
+                                <div class="col-3 label">Result</div>
+                                <div class="col-3 label"></div>
+                            </div>
+                            <div>
+                                <table class="multi">
+                                    <tbody>
+                                    <repeat>
+                                        <template>
+                                                <obsgroup groupingConceptId="165255">
+                                                    <tr>
+                                                        <td class="col-3">
+                                                            <div>
+                                                               Hep-B
+                                                            </div>
+                                                        </td>
+                                                        <td class="col-3">
+                                                    <span>
+                                                        <obs conceptId="165247" />
+                                                    </span>
+                                                        </td>
+                                                        <td class="col-3">
+                                                            <obs conceptId="1322"
+                                                                 answerConceptIds="703,664,1138" />
+                                                        </td>
+                                                        <td align="center" class="col-3">
+                                                            <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                        </td>
+                                                    </tr>
+                                                </obsgroup>
+                                        </template>
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                    </repeat>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div>
+                                <table class="multi">
+                                    <tbody>
+                                    <repeat>
+                                        <template>
+                                            <obsgroup groupingConceptId="165256">
+                                                <tr>
+                                                    <td class="col-3">
+                                                        <div>
+                                                            Hep-C
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-3">
+                                                    <span>
+                                                        <obs conceptId="165248" />
+                                                    </span>
+                                                    </td>
+                                                    <td class="col-3">
+                                                        <obs conceptId="1325"
+                                                             answerConceptIds="703,664,1138" />
+                                                    </td>
+                                                    <td align="center" class="col-3">
+                                                        <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                    </td>
+                                                </tr>
+                                            </obsgroup>
+                                        </template>
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                    </repeat>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div>
+                                <table class="multi">
+                                    <tbody>
+                                    <repeat>
+                                        <template>
+                                            <obsgroup groupingConceptId="165257">
+                                                <tr>
+                                                    <td class="col-3">
+                                                        <div>
+                                                           Random Blood Sugar
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-3">
+                                                    <span>
+                                                        <obs conceptId="165249" />
+                                                    </span>
+                                                    </td>
+                                                    <td class="col-3">
+                                                        <obs conceptId="165254"/>
+                                                    </td>
+                                                    <td align="center" class="col-3">
+                                                        <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                    </td>
+                                                </tr>
+                                            </obsgroup>
+                                        </template>
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                        <render />
+                                    </repeat>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </section>
                 <section>
                     <div class="row">
                         <div class="col-12 card-header"><h3>ART/TPT/Fluconazole/ TB  Interruptions </h3></div>
