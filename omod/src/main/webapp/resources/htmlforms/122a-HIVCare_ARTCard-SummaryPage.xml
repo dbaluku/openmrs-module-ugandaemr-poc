@@ -1,4 +1,4 @@
-<htmlform formName="HMIS 122a HIV Care ART Card - Summary Form"
+<htmlform formName="HMIS 003 HIV Care ART Card - Summary Form"
           formDescription="Summary entry form for patients enrolled for ART"
           formEncounterType="8d5b27bc-c2cc-11de-8d13-0010c6dffd0f"
           formUuid="52653a60-8300-4c13-be4d-4b746da06fee"
@@ -1481,7 +1481,7 @@
                             <td colspan="3" class="PriorYesNoEnableDisable1">
                                 <label><b>Prior ARV/ART</b></label>
                                 <obs conceptId="99055" answerConceptIds="90003,90004"
-                                     answerLabels="Yes,No" style=" radio"/>
+                                     answerLabels="Yes,No" style="radio"/>
                             </td>
                         </tr>
                         <tr>
@@ -1506,14 +1506,22 @@
                                     <obs id="second" conceptId="99154" labelText=""/>
                                 </td>
                                 <td id="disabled">
-                                    <obs id="third" conceptId="99057"/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="fourth" conceptId="99130"
-                                         answerConceptIds="630,99276,99275,99277,99278,99279,99006,99016,99046,99280,99281,90002"
-                                         answerLabels="AZT-3TC, AZT-FTC, TDF-3TC, TDF-FTC, d4T-3TC, d4T-FTC,AZT-3TC-EFV,D4T-3TC-EFV,AZT-3TC-LPV/r,AZT-3TC-NFV,d4T-3TC-LPV/r, Other"/>
+                                    <obs id="third" conceptId="165252"/>
                                 </td>
                             </obsgroup>
+                        </tr>
+
+                        <tr class="enableDisable">
+                                <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                                    <obs conceptId="165163" answerConceptId="90003" answerLabel="PreP:"
+                                    />
+                                </td>
+                                <td id="disabled">
+                                    <obs id="second" conceptId="165250" labelText=""/>
+                                </td>
+                                <td id="disabled">
+                                    <obs id="third" conceptId="165251"/>
+                                </td>
                         </tr>
                         <tr class="enableDisable">
                             <obsgroup groupingConceptId="99598">
@@ -1524,12 +1532,7 @@
                                     <obs id="second" conceptId="99595" labelText=""/>
                                 </td>
                                 <td id="disabled">
-                                    <obs id="third" conceptId="99596"/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="fourth" conceptId="99597"
-                                         answerConceptIds="630,99276,99275,99277,99278,99279,99006,99016,99046,99280,99281,90002"
-                                         answerLabels="AZT-3TC, AZT-FTC, TDF-3TC, TDF-FTC, d4T-3TC, d4T-FTC,AZT-3TC-EFV,D4T-3TC-EFV,AZT-3TC-LPV/r,AZT-3TC-NFV,d4T-3TC-LPV/r, Other"/>
+                                    <obs id="third" conceptId="165253"/>
                                 </td>
                             </obsgroup>
                         </tr>
@@ -1544,12 +1547,7 @@
                                         <obs id="second" conceptId="99155" labelText=""/>
                                     </td>
                                     <td id="disabled">
-                                        <obs id="third" conceptId="99058"/>
-                                    </td>
-                                    <td id="disabled">
-                                        <obs id="fourth" conceptId="99131"
-                                             answerConceptIds="631,97,628,630,99005,99006,99039,99040,99041,99042,90002"
-                                             answerLabels="NVP, AZT,3TC, AZT-3TC, AZT-3TC-NVP,AZT-3TC-EFV,TDF-3TC-NVP, TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,Other"/>
+                                        <obs id="third" conceptId="165258"/>
                                     </td>
                                 </obsgroup>
                             </tr>
@@ -1564,12 +1562,7 @@
                                     <obs id="second" conceptId="99156" labelText=""/>
                                 </td>
                                 <td id="disabled">
-                                    <obs id="third" conceptId="99060"/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="fourth" conceptId="99129"
-                                         answerConceptIds="99015,99016,99005,99006,99039,99040,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,90002"
-                                         answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,ZDV-3TC-ATV/r,Other"/>
+                                    <obs id="third" conceptId="165259"/>
                                 </td>
                             </obsgroup>
                         </tr>
