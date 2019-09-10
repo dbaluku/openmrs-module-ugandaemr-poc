@@ -1259,7 +1259,6 @@
                             <tbody>
                             <repeat>
                                 <template>
-                                    <div class="row">
                                     <obsgroup groupingConceptId="99065">
                                         <tr>
                                             <td class="ARTStartEnableDisable2 col-3">
@@ -1286,7 +1285,6 @@
                                             </td>
                                         </tr>
                                     </obsgroup>
-                                    </div>
                                 </template>
                                 <render/>
                                 <render/>
@@ -1317,7 +1315,6 @@
                             <tbody>
                             <repeat>
                                 <template>
-                                    <div class="row">
                                     <obsgroup groupingConceptId="99062">
                                         <tr>
                                             <td class="ARTStartEnableDisable3 col-3">
@@ -1342,7 +1339,6 @@
                                             </td>
                                         </tr>
                                     </obsgroup>
-                                    </div>
                                 </template>
                                 <render/>
                                 <render/>
@@ -1374,7 +1370,6 @@
                             <tbody>
                             <repeat>
                                 <template>
-                                    <div class="row">
                                     <obsgroup groupingConceptId="99063">
                                         <tr>
                                             <td class="ARTStartEnableDisable7 col-3">
@@ -1401,7 +1396,6 @@
                                             </td>
                                         </tr>
                                     </obsgroup>
-                                    </div>
                                 </template>
                                 <render/>
                                 <render/>
@@ -1432,7 +1426,6 @@
                             <tbody>
                             <repeat>
                                 <template>
-                                    <div class="row">
                                     <obsgroup groupingConceptId="162988">
                                         <tr>
                                             <td class="ARTStart3EnableDisable1 col-3">
@@ -1457,7 +1450,6 @@
                                             </td>
                                         </tr>
                                     </obsgroup>
-                                    </div>
                                 </template>
                                 <render/>
                                 <render/>
@@ -1718,7 +1710,6 @@
                         <tbody>
                         <repeat>
                             <template>
-                                <div class="row">
                                 <obsgroup groupingConceptId="165232">
                                     <tr>
                                         <td class="col-2">
@@ -1749,7 +1740,6 @@
                                         </td>
                                     </tr>
                                 </obsgroup>
-                                </div>
                             </template>
                             <render />
                             <render />
