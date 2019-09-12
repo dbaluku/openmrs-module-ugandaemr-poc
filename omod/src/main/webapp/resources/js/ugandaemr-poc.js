@@ -127,4 +127,49 @@ function enable_disable(field, class_name_prefix, conditions, input_type) {
             }
         }
     });
+
+    jq(".checkboxGroup").each(function () {
+        var group = jq(this);
+        var uncheckAll = function () {
+            group.find("input[type$='checkbox']").attr("checked", false);
+            group.find("input[type$='checkbox']").change();
+        }
+
+        var uncheckRadioAndAll = function () {
+            group.find("#checkboxAll,#checkboxRadio").find("input[type$='checkbox']").attr("checked", false);
+            group.find("#checkboxAll,#checkboxRadio").find("input[type$='checkbox']").change();
+        }
+
+
+        group.find("#checkboxAll").find("input").click(
+            function () {
+                var flip;
+                var checked = jq(this).siblings(":checkbox:first").attr("checked");
+                if (jq(this).attr("name") == jq(this).parents("#checkboxAll:first").find(":checkbox:first").attr("name")) {
+                    checked = jq(this).attr("checked");
+                    flip = checked;
+                } else {
+                    flip = !checked;
+                }
+                if (jq.attr("type") == "text") if (flip == false) flip = !filp;
+                /* this is so the user doesn't go to check thecheckbox, then uncheck it when they hit the input.uncheckAll();*/
+                jq(this).parents("#checkboxAll:first").find(":checkbox").attr("checked", flip);
+                jq(this).parents("#checkboxAll:first").find(":checkbox").change();
+            }
+        );
+
+
+        group.find("#checkboxRadio").find("input[type$='checkbox']").click(function () {
+            uncheckAll();
+            jq(this).siblings("input[type$='checkbox']").attr("checked", false);
+            jq(this).attr("checked", true);
+            jq(this).change();
+        });
+
+        group.find("#checkboxCheckbox").click(
+            function () {
+                uncheckRadioAndAll();
+            }
+        );
+    });
 }

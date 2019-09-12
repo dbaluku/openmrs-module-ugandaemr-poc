@@ -1,4 +1,4 @@
-<htmlform formName="HMIS 003 HIV Care ART Card - Summary Form"
+<htmlform formName="HMIS HIV 003: HIV CARE/ART CARD - Summary Form"
           formDescription="Summary entry form for patients enrolled for ART"
           formEncounterType="8d5b27bc-c2cc-11de-8d13-0010c6dffd0f"
           formUuid="52653a60-8300-4c13-be4d-4b746da06fee"
@@ -49,21 +49,6 @@
             //Validation for Date Confirmed HIV +Ve
             submitValStage.push(dateValidator("90267", "encounterDate", "", message4, "", "greater_than", true));
 
-            //Validation for Start ART date
-            if (getValue("99161" + '.value') != "" &amp;&amp; getValue("99160" + '.value') == "") {
-                submitValStage.push(dateValidator("99161", "90299", "encounterDate", message3, message1, "less_than", false));
-            }
-            //Validation for ART Transfer Date
-            if (getValue("99160" + '.value') != "") {
-                submitValStage.push(dateValidator("99160", "90299", "encounterDate", message3, message1, "less_than", false));
-            }
-
-            if (getValue("99160" + '.value') == "") {
-                //Validation for Eligible and ready Date
-                submitValStage.push(dateValidator("90299", "90297", "encounterDate", message2, message1, "less_than", false));
-                //Validation for Eligible for ART Date
-                submitValStage.push(dateValidator("90297", "encounterDate", "", message1, "", "less_than", true));
-            }
             //Validation for Transfer out Date
             submitValStage.push(validateRequiredField("99165", "90306", "Can Not Be Null", "check_box"));
             //Validation for Lost to follow-up Date
@@ -81,137 +66,6 @@
 
             return submitVal;
         });
-
-        function enable_disable_ei_final_status(selected_option) {
-
-            var class_name = jq(selected_option).attr("class");
-
-            var length = class_name.length;
-
-            var class_id = parseInt(class_name.substring(length - 1, length));
-
-            var row_id = class_id;
-
-            var disable = true;
-
-            var row_1 = '[class^="ExposedInfantFinalStatus"][class*="Children1"]';
-            var row_2 = '[class^="ExposedInfantFinalStatus"][class*="Children2"]';
-            var row_3 = '[class^="ExposedInfantFinalStatus"][class*="Children3"]';
-            var row_4 = '[class^="ExposedInfantFinalStatus"][class*="Children4"]';
-            var row_5 = '[class^="ExposedInfantFinalStatus"][class*="Children5"]';
-
-            var xx = row_1;
-            var selected_value = jq(selected_option).find(":selected").text();
-
-            if (selected_value.toLowerCase() == "p") {
-                disable = false;
-            }
-            else {
-                disable = true;
-            }
-
-            switch (row_id) {
-                case 1:
-                    xx = row_1;
-                    break;
-                case 2:
-                    xx = row_2;
-                    break;
-                case 3:
-                    xx = row_3;
-                    break;
-                case 4:
-                    xx = row_4;
-                    break;
-                case 5:
-                    xx = row_5;
-                    break;
-            }
-
-
-            jq(xx).each(function () {
-                var group = jq(this);
-                if (class_name.indexOf('Children') == -1) {
-                    /* group.find("input").attr("value", "");*/
-                    group.find("input").attr("disabled", disable);
-
-                    if (disable) {
-                        /* fade out the fields that are disabled*/
-                        group.find("input").fadeTo(250, 0.25);
-                    } else {
-                        /* remove the fade on the fields*/
-                        group.find("input").fadeTo(250, 1);
-                    }
-                }
-
-            });
-
-        }
-
-        function enable_disable_ei_pcr_result(selected_option) {
-
-            var class_name = jq(selected_option).attr("class");
-
-            var length = class_name.length;
-
-            var class_id = parseInt(class_name.substring(length - 1, length));
-
-            var row_id = class_id;
-
-            var disable = true;
-
-            var row_1 = '[class^="ExposedInfantPCRResult"][class*="Children1"]';
-            var row_2 = '[class^="ExposedInfantPCRResult"][class*="Children2"]';
-            var row_3 = '[class^="ExposedInfantPCRResult"][class*="Children3"]';
-            var row_4 = '[class^="ExposedInfantPCRResult"][class*="Children4"]';
-            var row_5 = '[class^="ExposedInfantPCRResult"][class*="Children5"]';
-
-            var xx = row_1;
-            var selected_value = jq(selected_option).find("input").val();
-
-            if (selected_value != "") {
-                disable = false;
-            }
-
-            switch (row_id) {
-                case 1:
-                    xx = row_1;
-                    break;
-                case 2:
-                    xx = row_2;
-                    break;
-                case 3:
-                    xx = row_3;
-                    break;
-                case 4:
-                    xx = row_4;
-                    break;
-                case 5:
-                    xx = row_5;
-                    break;
-            }
-
-
-            jq(xx).each(function () {
-                var group = jq(this);
-                if (class_name.indexOf('Children') == -1) {
-                    /* group.find("input").attr("value", "");*/
-                    group.find("input").attr("disabled", disable);
-                    group.find("select").attr("disabled", disable);
-
-                    if (disable) {
-                        /* fade out the fields that are disabled*/
-                        group.find("input").fadeTo(250, 0.25);
-                        group.find("select").fadeTo(250, 0.25);
-                    } else {
-                        /* remove the fade on the fields*/
-                        group.find("input").fadeTo(250, 1);
-                        group.find("select").fadeTo(250, 0.25);
-                    }
-
-                }
-            });
-        }
 
 
         function enable_disable_ac(selected_option) {
@@ -673,23 +527,6 @@
                 });
 
 
-                jq('[class^="ExposedInfantFinalStatusEnableDisable"]').change(function () {
-                    enable_disable_ei_final_status(jq(this));
-                });
-
-                jq('[class^="ExposedInfantFinalStatusEnableDisable"]').each(function () {
-                    enable_disable_ei_final_status(jq(this));
-                });
-
-                jq('[class^="ExposedInfantPCRResultEnableDisable"]').change(function () {
-                    enable_disable_ei_pcr_result(jq(this));
-                });
-
-                jq('[class^="ExposedInfantPCRResultEnableDisable"]').each(function () {
-                    enable_disable_ei_pcr_result(jq(this));
-                });
-
-
                 jq('[class^="ArtCareEnableDisable"]').change(function () {
                     enable_disable_ac(jq(this));
                 });
@@ -786,52 +623,6 @@
                     });
                 });
 
-
-                jq(".checkboxGroup").each(function () {
-                    var group = jq(this);
-                    var uncheckAll = function () {
-                        group.find("input[type$='checkbox']").attr("checked", false);
-                        group.find("input[type$='checkbox']").change();
-                    }
-
-                    var uncheckRadioAndAll = function () {
-                        group.find("#checkboxAll,#checkboxRadio").find("input[type$='checkbox']").attr("checked", false);
-                        group.find("#checkboxAll,#checkboxRadio").find("input[type$='checkbox']").change();
-                    }
-
-
-                    group.find("#checkboxAll").find("input").click(
-                        function () {
-                            var flip;
-                            var checked = jq(this).siblings(":checkbox:first").attr("checked");
-                            if (jq(this).attr("name") == jq(this).parents("#checkboxAll:first").find(":checkbox:first").attr("name")) {
-                                checked = jq(this).attr("checked");
-                                flip = checked;
-                            } else {
-                                flip = !checked;
-                            }
-                            if (jq.attr("type") == "text") if (flip == false) flip = !filp;
-                            /* this is so the user doesn't go to check thecheckbox, then uncheck it when they hit the input.uncheckAll();*/
-                            jq(this).parents("#checkboxAll:first").find(":checkbox").attr("checked", flip);
-                            jq(this).parents("#checkboxAll:first").find(":checkbox").change();
-                        }
-                    );
-
-
-                    group.find("#checkboxRadio").find("input[type$='checkbox']").click(function () {
-                        uncheckAll();
-                        jq(this).siblings("input[type$='checkbox']").attr("checked", false);
-                        jq(this).attr("checked", true);
-                        jq(this).change();
-                    });
-
-                    group.find("#checkboxCheckbox").click(
-                        function () {
-                            uncheckRadioAndAll();
-                        }
-                    );
-                });
-
                 var $allTables,
                     $allRows,
                     $otherRows,
@@ -919,121 +710,43 @@
     </script>
 
     <style type="text/css">
-        .error {
-            color: red;
-        }
 
-        form#htmlform div.ai-page-frame table tbody td {
-            background:#F7F7F7;
-            color: #404040;
-            padding: 0px 5px;
-        }
-
-        form select, .form select {
-            min-width: 0px;
-        }
-
-        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form
-        ul.select {
-            background-color: #FBFBFB;
-            border: 1px solid #404040;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            padding: 10px;
-            min-width: 50%;
-        }
-
-        .row {
-            width: 100%;
-            float: left;
-            display: inline-flex;
-            clear: both;
-        }
-
-        .row .row-col2 {
-            float: left;
-            width: 50%;
-        }
-
-        table th, table td {
-            /*border: 1px solid #BDBDBD;*/
-            text-align: left;
-            vertical-align: top;
-        }
-
-        .form-row {
-            display: -ms-flexbox;
-            display: flex;
-            -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-            margin-right: -5px;
-            margin-left: -5px;
-        }
-
-        .form-row > .col,
-        .form-row > [class*="col-"] {
-            padding-right: 5px;
-            padding-left: 5px;
-        }
 
         select, .hasDatepicker,input[type=text]{
             width:200px;
         }
 
-        table {
-            border-collapse:separate;
-            border:0;
-            border-radius:6px;
-            -moz-border-radius:6px;
+        .art-care-card{
+            background: #F7F7F7;
         }
 
-        table tbody tr td {
-            border:0;
-            background:#F7F7F7;
-        }
+
     </style>
 
     <!-- Beging of HTML Form -->
     <div class="ai-page-frame">
-        <div class="headers" style="text-align: center;">
+        <div class="headers center-block">
             <h3>HIV Care/ART CARD - Summary Page</h3>
         </div>
-        <div id="tabs" style="background: #F7F7F7;">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="care-entry-section-tab" data-toggle="tab" href="#care-entry-section" role="tab" aria-controls="nav-home" aria-selected="true">Care Entry &amp; Family</a>
+                <a class="nav-item nav-link" id="art-care-cohort-tab" data-toggle="tab" href="#art-care-cohort-section" role="tab" aria-controls="nav-profile" aria-selected="false">ART Care Cohort</a>
+                <a class="nav-item nav-link" id="prior-art-tab" data-toggle="tab" href="#prior-art-section" role="tab" aria-controls="nav-contact" aria-selected="false">Treatment Interruptions</a>
+                <a class="nav-item nav-link" id="drug-allergies-and-art-care-tab1" data-toggle="tab" href="#drug-allergies-and-art-care" role="tab" aria-controls="nav-contact" aria-selected="false">Drug Allergies</a>
+            </div>
+        </nav>
 
-            <ul>
-                <li>
-                    <a href="#care-entry-section">
-                        Care Entry &amp; Family
-                    </a>
-                </li>
-                <li>
-                    <a href="#art-care-cohort-section">
-                        ART Care Cohort
-                    </a>
-                </li>
+        <div class="tab-content art-care-card" id="nav-tabContent">
 
-                <li>
-                    <a href="#prior-art-section">
-                        Treatment Interruptions
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#drug-allergies-and-art-care">
-                        Drug Allergies &amp; ART Care
-                    </a>
-                </li>
-            </ul>
-
-            <div id="care-entry-section">
-                <section>
-                    <div class="form-group row">
-                        <div class="form-group col-md-2">
+            <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-profile-tab" id="care-entry-section">
+                    <div class="row">
+                        <div class="col-2">
                             <label><span class="required">*</span>Attending Clinician:</label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                         <encounterProvider role="Provider" style="autocomplete"/>
-                            <span style="display: none;">
+                            <span class="d-none">
                         <encounterLocation default="629d78e9-93e5-43b0-ad8a-48313fd99117"
                                            order="629d78e9-93e5-43b0-ad8a-48313fd99117"/>
                         </span>
@@ -1041,61 +754,61 @@
 
                         <includeIf
                                 velocityTest="$fn.globalProperty('ugandaemr.showARTPatientNumberIdentifier') == true">
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                                 <label>ART Patient No.</label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                                 <patient field="identifier" identifierTypeId="3c76abfd-5e2d-4194-b0d4-00b73c7fc1ac"
                                          required="false"/>
                         </div>
                         </includeIf>
-                        <div class="form-group col-md-2" required="true">
+                        <div class="col-2" required="true">
                             <label><span class="required">*</span>Pt Clinic #:</label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                         <patient field="identifier" identifierTypeId="e1731641-30ab-102d-86b0-7a5022ba4115" required="false"/>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <label>HIV Care Transfer in from: </label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <obs conceptId="99109" labelText=""/>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <label>Date of registration at this site:</label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                         <encounterDate default="today" disallowMultipleEncountersOnDate="block" class="form-control"/>
                         </div>
-                        <div class="form-group col-md-2" id="comfirmedDate">
+                        <div class="col-2" id="comfirmedDate">
                             <label>Date verification HIV test:</label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <obs id="90267" conceptId="90267"/>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <label>Test type</label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <obs conceptId="99080" answerConceptIds="99079,99080" answerLabels="Ab,PCR"/>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <label>Where</label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <obs conceptId="99081"/>
                         </div>
 
                         <includeIf velocityTest="$patient.age &lt; 20 &amp;&amp; $patient.age &gt;=5">
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                                 <label>In School (5 -19 years):</label>
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                                  <obs conceptId="5629" answerConceptIds="1065,1066"
                                      answerLabels="Yes,No"  style="radio"/>
                         </div>
@@ -1103,10 +816,10 @@
                     </div>
 
                     <div class="row">
-                        <div class="form-group col-md-2">
+                        <div class="col-2">
                             <label>Special Categories</label>
                         </div>
-                        <div class="form-group col-md-10">
+                        <div class="col-10">
 
                         <obs conceptId="165169" answerConceptId="162277" answerLabel="1 - Prisoners" style="checkbox" class="horizontal-layout-options" />
                         <obs conceptId="165169" answerConceptId="160666" answerLabel="2 - PWIDs" style="checkbox"   class="horizontal-layout-options" />
@@ -1129,10 +842,10 @@
 
                     <div class="row">
                         <obsgroup groupingConceptId="99116">
-                            <div class="form-group col-2">
+                            <div class="col-2">
                                 <label>Care Entry Point:</label>
                             </div>
-                            <div class="form-group col-2">
+                            <div class="col-2">
                                 <span class="ARTCareEntryPointEnableDisable1">
                                         <obs conceptId="90200"
                                              answerConceptIds="90012,90016,99593,99610,90019,90013,90015,90018,165224,90002"
@@ -1140,66 +853,69 @@
                                              required="true"/>
                                 </span>
                             </div>
-                            <div class="form-group col-2">
+                            <div class="col-2">
                                 <label>Other (Specify)</label>
                             </div>
-                            <div class="form-group col-2">
+                            <div class="col-2">
                                 <span class="ARTCareEntryPointEnableDisableChild1">
                                     <obs conceptId="99115" labelText=""/>
                                 </span>
                             </div>
                         </obsgroup>
                     </div>
-                </section>
-                <section>
-                <table>
-                    <div class="row">
-                        <div class="col-2" >
-                            <label>Medicine pick-up if ill:</label>
-                        </div>
-                        <div class="col-2" >
-                            <obs size="15" conceptId="99142"/>
-                        </div>
-                    </div>
 
-                    <div class="row">
-                        <div class="col-2" >
-                            <label>Relationship to index clients</label>
-                        </div>
-                        <div class="col-2" >
-                            <obs conceptId="99725" answerConceptIds="90286,90280,90288,90284,90279,5618,90002"
-                                 answerLabels="Cousin,Child,Partner/Spouse,GrandChild,Parent,Friend,Other"/>
-                        </div>
+                <h3 class="card-header">Treatment Supporter</h3>
+                <section>
+                    <div class="card-body">
+                        <table>
+                            <div class="row">
+                                <div class="col-2" >
+                                    <label>Medicine pick-up if ill:</label>
+                                </div>
+                                <div class="col-2" >
+                                    <obs size="15" conceptId="99142"/>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-2" >
+                                    <label>Relationship to index clients</label>
+                                </div>
+                                <div class="col-2" >
+                                    <obs conceptId="99725" answerConceptIds="90286,90280,90288,90284,90279,5618,90002"
+                                         answerLabels="Cousin,Child,Partner/Spouse,GrandChild,Parent,Friend,Other"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-2" >
+                                    <label>Telephone</label>
+                                </div>
+                                <div class="col-2" >
+                                    <obs conceptId="90278" size="12" class="ugphone" id="90278"/>
+                                </div>
+                                <div class="col-2" >
+                                    <label>Whose</label>
+                                </div>
+                                <div class="col-2" >
+                                    <obs conceptId="99118"/>
+                                </div>
+                            </div>
+                        </table>
                     </div>
-                    <div class="row">
-                        <div class="col-2" >
-                            <label>Telephone</label>
-                        </div>
-                        <div class="col-2" >
-                            <obs conceptId="90278" size="12" class="ugphone" id="90278"/>
-                        </div>
-                        <div class="col-2" >
-                            <label>Whose</label>
-                        </div>
-                        <div class="col-2" >
-                            <obs conceptId="99118"/>
-                        </div>
-                    </div>
-                </table>
                 </section>
             </div>
 
-            <section id="art-care-cohort-section">
+            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="art-care-cohort-section">
                 <section>
-                    <h3>ART Care Start</h3>
+                    <h3 class="card-header">ART Care Start</h3>
                     <section>
                         <div id="art-care">
                             <div  class="row">
                                 <obsgroup groupingConceptId="99162">
-                                    <div style="width:10%;" class="ARTStartEnableDisable1 col-3">
+                                    <div  class="ARTStartEnableDisable1 col-3">
                                         <obs id="99161" conceptId="99161" labelText="At Start ART:"/>
                                     </div>
-                                    <div class="ARTStartEnableDisableChild1 col-3" style="width:10%;">
+                                    <div class="ARTStartEnableDisableChild1 col-3">
                                         <span class="ArtCareEnableDisable2">
                                         <obs conceptId="99061"
                                              answerConceptIds="99005,99006,164979,99015,99016,99039,99040,164977,99041,99042,99884,99885,164978,163017,99143"
@@ -1211,10 +927,10 @@
                                         </span>
                                     </div>
                                 </obsgroup>
-                                <div style="width:20%;" class="ARTStartEnableDisableChild1 col-3">
+                                <div class="ARTStartEnableDisableChild1 col-3">
                                     <obs conceptId="99069" labelText="Wt"/>
                                 </div>
-                                <div style="width:20%;" class="ARTStartEnableDisableChild1 col-3">
+                                <div  class="ARTStartEnableDisableChild1 col-3">
                                     <obs conceptId="99070" answerConceptIds="1204,1205,1206,1207"
                                          answerLabels="1,2,3,4" labelText="CI.Stage" style="dropdown"/>
                                 </div>
@@ -1244,9 +960,7 @@
                         </div>
                     </section>
                     <section>
-                        <div class="row">
-                           <div class="col-12 card-header">ART Transfer In</div>
-                        </div>
+                        <h4 class="card-header">ART Transfer In</h4>
                         <div>
                             <div class="row">
                                 <div class="col-3 label">Date Transferred:</div>
@@ -1297,12 +1011,8 @@
                             </div>
                         </div>
                     <section>
-                            <div class="row">
-                                <div class="col-12 card-header"><h4>Substitutions</h4></div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 card-header"><h5 style="background: #404040; color: white;">Substitution within 1st line</h5></div>
-                            </div>
+                            <h4 class="card-header">Substitutions</h4>
+                            <h5 class="card-header">Substitution within 1st line</h5>
                             <div>
                                 <div class="row">
                                     <div class="col-3 label">Date </div>
@@ -1318,7 +1028,7 @@
                                     <obsgroup groupingConceptId="99062">
                                         <tr>
                                             <td class="ARTStartEnableDisable3 col-3">
-                                                <obs id="99163_1" conceptId="99163"/>
+                                                <obs id="99163_{n}" conceptId="99163"/>
                                             </td>
                                             <td class="ARTStartEnableDisableChild3 col-3">
                                                 <span class="ArtCareEnableDisable3">
@@ -1340,11 +1050,10 @@
                                         </tr>
                                     </obsgroup>
                                 </template>
-                                <render/>
-                                <render/>
-                                <render/>
-                                <render/>
-                                <render/>
+                                <render n="1"/>
+                                <render n="2"/>
+                                <render n="3"/>
+                                <render n="4"/>
                             </repeat>
                             </tbody>
                         </table>
@@ -1352,11 +1061,9 @@
                             </div>
                     </section>
                     <section>
-                        <div class="row">
-                            <div class="col-12 card-header"> <h5 style="background-color: #377F9C;color: white;">Switch to 2nd
+                         <h5 class="card-header">Switch to 2nd
                                 Line or Substitution within 2nd Line
-                            </h5></div>
-                        </div>
+                            </h5>
                         <div>
                             <div class="row">
                                 <div class="col-3 label">Date </div>
@@ -1373,7 +1080,7 @@
                                     <obsgroup groupingConceptId="99063">
                                         <tr>
                                             <td class="ARTStartEnableDisable7 col-3">
-                                                <obs id="99164_1" conceptId="99164"/>
+                                                <obs id="99164_{n}" conceptId="99164"/>
                                             </td>
                                             <td class="ARTStartEnableDisableChild7 col-3">
                                                 <span class="ArtCareEnableDisable7">
@@ -1397,11 +1104,10 @@
                                         </tr>
                                     </obsgroup>
                                 </template>
-                                <render/>
-                                <render/>
-                                <render/>
-                                <render/>
-                                <render/>
+                                <render n="1"/>
+                                <render n="2"/>
+                                <render n="3"/>
+                                <render n="4"/>
                             </repeat>
                             </tbody>
                         </table>
@@ -1409,11 +1115,7 @@
                         </div>
                     </section>
                     <section>
-                        <div class="row">
-                            <div class="col-12 card-header">
-                                <h5 style="background-color: #377F9C;color: white;">Switch to 3rd line Or Substitution with 3rd Line </h5>
-                            </div>
-                        </div>
+                        <h5 class="card-header">Switch to 3rd line Or Substitution with 3rd Line </h5>
                         <div>
                             <div class="row">
                                 <div class="col-3 label">Date </div>
@@ -1429,7 +1131,7 @@
                                     <obsgroup groupingConceptId="162988">
                                         <tr>
                                             <td class="ARTStart3EnableDisable1 col-3">
-                                                <obs id="162991_1" conceptId="162991"/>
+                                                <obs id="162991_{n}" conceptId="162991"/>
                                             </td>
                                             <td class="ARTStart3EnableDisableChild1 col-3">
                                                 <span class="ArtCareEnableDisable10">
@@ -1451,10 +1153,10 @@
                                         </tr>
                                     </obsgroup>
                                 </template>
-                                <render/>
-                                <render/>
-                                <render/>
-                                <render/>
+                                <render n="1"/>
+                                <render n="2"/>
+                                <render n="3"/>
+                                <render n="4"/>
                             </repeat>
                             </tbody>
                         </table>
@@ -1463,17 +1165,17 @@
                     </section>
                 </section>
                 <section>
-                    <h3>Prior ART</h3>
-                    <table border="0" id="art-history">
+                    <h3 class="card-header">Prior ART</h3>
+                    <table id="art-history">
                         <tbody>
-                        <tr style="background: beige;">
+                        <tr>
                             <td>
 
                             </td>
                             <td colspan="3" class="PriorYesNoEnableDisable1">
                                 <label><b>Prior ARV/ART</b></label>
                                 <obs conceptId="99055" answerConceptIds="90003,90004"
-                                     answerLabels="Yes,No" style="radio"/>
+                                     answerLabels="Yes,No"/>
                             </td>
                         </tr>
                         <tr>
@@ -1562,13 +1264,64 @@
                     </table>
                 </section>
                 </section>
-            </section>
-            <section id="prior-art-section">
+            </div>
+            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="prior-art-section">
                 <section class="row">
                     <div>
+                        <h3 class="card-header">Relevant Medical Conditions &amp; Drug Allergies</h3>
                         <div class="row">
-                            <div class="col-12 card-header"><h3>Periodic Screening(Semi Annual)</h3></div>
+                            <div class="col-6">
+                                <h3> Relevant Medical Conditions</h3>
+                                <table class="multi">
+                                    <tbody>
+                                    <repeat>
+                                        <template>
+                                            <tr>
+                                                <td>
+
+                                                </td>
+                                                <td align="center" class="col-3">
+                                                    <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                </td>
+                                            </tr>
+                                        </template>
+                                        <render/>
+                                        <render/>
+                                        <render/>
+                                        <render/>
+                                    </repeat>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <h3>Drug allergies</h3>
+                                <table class="multi">
+                                    <tbody>
+                                    <repeat>
+                                        <template>
+                                            <tr>
+                                                <td>
+                                                    <obsgroup groupingConceptId="90230">
+                                                        <obs conceptId="142" size="30"/>
+                                                    </obsgroup>
+                                                </td>
+                                                <td align="center" class="col-3">
+                                                    <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                </td>
+                                            </tr>
+                                        </template>
+                                        <render/>
+                                        <render/>
+                                        <render/>
+                                        <render/>
+                                    </repeat>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+                    </div>
+                    <div>
+                        <h3 class="card-header">Periodic Screening(Semi Annual)</h3>
                         <div>
                             <div class="row">
                                 <div class="col-3 label"></div>
@@ -1692,9 +1445,7 @@
                     </div>
                 </section>
                 <section>
-                    <div class="row">
-                        <div class="col-12 card-header"><h3>ART/TPT/Fluconazole/ TB  Interruptions </h3></div>
-                    </div>
+                    <h3 class="card-header">ART/TPT/Fluconazole/ TB  Interruptions </h3>
                     <div>
                         <divs class="row">
                             <div class="col-2 label">Treatment type</div>
@@ -1754,14 +1505,13 @@
                     </div>
                 </section>
                 <section>
-                    <h3>Interruptions &amp; Outcomes</h3>
-                    <table border="0" id="art-care"
-                           style="padding: 10px; margin: 5px; border: solid 1px #D2D2D2;">
+                    <h3 class="card-header">Interruptions &amp; Outcomes</h3>
+                    <table border="0" id="art-care">
                         <tbody>
                         <tr>
-                            <td style="color: #404040; background-color: #F3F3F3">Status</td>
-                            <td style="color: #404040; background-color: #F3F3F3">Date</td>
-                            <td style="color: #404040; background-color: #F3F3F3"></td>
+                            <td>Status</td>
+                            <td>Date</td>
+                            <td></td>
                         </tr>
                         <tr class="enableDisable">
                             <obsgroup groupingConceptId="99166">
@@ -1792,8 +1542,8 @@
                         </tbody>
                     </table>
                 </section>
-            </section>
-            <section id="drug-allergies-and-art-care">
+            </div>
+            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="drug-allergies-and-art-care">
                 <section>
                     <section>
                         <div class="row">
@@ -1816,7 +1566,7 @@
                         <div class="row-col2">
                             <section>
                                 <h3>Drug allergies</h3>
-                                <table style="border:0;">
+                                <table class="table-borderless">
                                     <tbody>
                                     <tr>
                                         <td>
@@ -1874,7 +1624,7 @@
                         </div>
                     </div>
                 </section>
-            </section>
+            </div>
         </div>
         <postSubmissionAction class="org.openmrs.module.aijar.htmlformentry.DSDSProgramSubmissionAction"/>
         <section>
