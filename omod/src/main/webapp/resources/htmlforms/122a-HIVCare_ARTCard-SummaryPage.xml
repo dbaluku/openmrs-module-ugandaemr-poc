@@ -499,11 +499,7 @@
         if (jQuery) {
             jq(document).ready(function () {
                 jq("#tabs").tabs();
-                if (jq.browser.msie) {
-                    jq(":checkbox").click(function () {
-                        jq(this).change();
-                    });
-                }
+
 
                 /* add JQuery validator classes and rules*/
                 jq("#90278 input").addClass("ugphone");
