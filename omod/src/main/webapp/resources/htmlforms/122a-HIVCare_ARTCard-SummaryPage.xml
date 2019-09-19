@@ -1268,26 +1268,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <h3> Relevant Medical Conditions</h3>
-                                <table class="multi">
-                                    <tbody>
-                                    <repeat>
-                                        <template>
-                                            <tr>
-                                                <td>
-
-                                                </td>
-                                                <td align="center" class="col-3">
-                                                    <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
-                                                </td>
-                                            </tr>
-                                        </template>
-                                        <render/>
-                                        <render/>
-                                        <render/>
-                                        <render/>
-                                    </repeat>
-                                    </tbody>
-                                </table>
+                                <encounterDiagnoses selectedDiagnosesTarget="#relevant-medical-conditions" diagnosisSets="99104"/>
                             </div>
                             <div class="col-6">
                                 <h3>Drug allergies</h3>
