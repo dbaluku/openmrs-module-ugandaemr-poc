@@ -712,901 +712,899 @@
             width:200px;
         }
 
-        .art-care-card{
-            background: #F7F7F7;
-        }
-
 
     </style>
 
     <!-- Beging of HTML Form -->
     <div class="ai-page-frame">
-        <div class="headers center-block">
+        <div class="row">
+        <div class="col-md-6">
             <h3>HIV Care/ART CARD - Summary Page</h3>
         </div>
-        <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="care-entry-section-tab" data-toggle="tab" href="#care-entry-section" role="tab" aria-controls="nav-home" aria-selected="true">Care Entry &amp; Family</a>
-                <a class="nav-item nav-link" id="art-care-cohort-tab" data-toggle="tab" href="#art-care-cohort-section" role="tab" aria-controls="nav-profile" aria-selected="false">ART Care Cohort</a>
-                <a class="nav-item nav-link" id="prior-art-tab" data-toggle="tab" href="#prior-art-section" role="tab" aria-controls="nav-contact" aria-selected="false">Treatment Interruptions</a>
-                <a class="nav-item nav-link" id="drug-allergies-and-art-care-tab1" data-toggle="tab" href="#drug-allergies-and-art-care" role="tab" aria-controls="nav-contact" aria-selected="false">Drug Allergies</a>
-            </div>
-        </nav>
-
-        <div class="tab-content art-care-card" id="nav-tabContent">
-
-            <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-profile-tab" id="care-entry-section">
-                    <div class="row">
-                        <div class="col-2">
-                            <label><span class="required">*</span>Attending Clinician:</label>
-                        </div>
-                        <div class="col-2">
-                        <encounterProvider role="Provider" style="autocomplete"/>
-                            <span class="d-none">
-                        <encounterLocation default="629d78e9-93e5-43b0-ad8a-48313fd99117"
-                                           order="629d78e9-93e5-43b0-ad8a-48313fd99117"/>
-                        </span>
-                        </div>
-
-                        <includeIf
-                                velocityTest="$fn.globalProperty('ugandaemr.showARTPatientNumberIdentifier') == true">
-                        <div class="col-2">
-                                <label>ART Patient No.</label>
-                        </div>
-                        <div class="col-2">
-                                <patient field="identifier" identifierTypeId="3c76abfd-5e2d-4194-b0d4-00b73c7fc1ac"
-                                         required="false"/>
-                        </div>
-                        </includeIf>
-                        <div class="col-2" required="true">
-                            <label><span class="required">*</span>Pt Clinic #:</label>
-                        </div>
-                        <div class="col-2">
-                        <patient field="identifier" identifierTypeId="e1731641-30ab-102d-86b0-7a5022ba4115" required="false"/>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-2">
-                            <label>HIV Care Transfer in from: </label>
-                        </div>
-                        <div class="col-2">
-                            <obs conceptId="99109" labelText=""/>
-                        </div>
-                        <div class="col-2">
-                            <label>Date of registration at this site:</label>
-                        </div>
-                        <div class="col-2">
-                        <encounterDate default="today" disallowMultipleEncountersOnDate="block" class="form-control"/>
-                        </div>
-                        <div class="col-2" id="comfirmedDate">
-                            <label>Date verification HIV test:</label>
-                        </div>
-                        <div class="col-2">
-                            <obs id="90267" conceptId="90267"/>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <label>Test type</label>
-                        </div>
-                        <div class="col-2">
-                            <obs conceptId="99080" answerConceptIds="99079,99080" answerLabels="Ab,PCR"/>
-                        </div>
-                        <div class="col-2">
-                            <label>Where</label>
-                        </div>
-                        <div class="col-2">
-                            <obs conceptId="99081"/>
-                        </div>
-
-                        <includeIf velocityTest="$patient.age &lt; 20 &amp;&amp; $patient.age &gt;=5">
-                        <div class="col-2">
-                                <label>In School (5 -19 years):</label>
-                        </div>
-                        <div class="col-2">
-                                 <obs conceptId="5629" answerConceptIds="1065,1066"
-                                     answerLabels="Yes,No"  style="radio"/>
-                        </div>
-                        </includeIf>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-2">
-                            <label>Special Categories</label>
-                        </div>
-                        <div class="col-10">
-
-                        <obs conceptId="165169" answerConceptId="162277" answerLabel="1 - Prisoners" style="checkbox" class="horizontal-layout-options" />
-                        <obs conceptId="165169" answerConceptId="160666" answerLabel="2 - PWIDs" style="checkbox"   class="horizontal-layout-options" />
-                        <obs conceptId="165169" answerConceptId="165125" answerLabel="3 - Uniformed Men" style="checkbox"  class="horizontal-layout-options"  />
-                        <obs conceptId="165169" answerConceptId="165126" answerLabel="4 - Migrant workers" style="checkbox"  class="horizontal-layout-options" />
-                        <obs conceptId="165169" answerConceptId="162198" answerLabel="5 - Truckers" style="checkbox"  class="horizontal-layout-options" />
-                        <obs conceptId="165169" answerConceptId="159674" answerLabel="6 - Fisher Folks" style="checkbox"  class="horizontal-layout-options"  />
-                        <obs conceptId="165169" answerConceptId="165127" answerLabel="7 - Refugees" style="checkbox"  class="horizontal-layout-options"  />
-                        <obs conceptId="165169" answerConceptId="90041" answerLabel="8 - Pregnant" style="checkbox"   class="horizontal-layout-options" />
-                        <obs conceptId="165169" answerConceptId="99601" answerLabel="9 - Breastfeeding" style="checkbox"  class="horizontal-layout-options"   />
-                        <obs conceptId="165169" answerConceptId="165132" answerLabel="10 - AGYW" style="checkbox"  class="horizontal-layout-options" />
-                        <obs conceptId="165169" answerConceptId="162558" answerLabel="11 - People with Disabilities (PWD)" style="checkbox"  class="horizontal-layout-options"  />
-                        <obs conceptId="165169" answerConceptId="90002" answerLabel="12 - Others (specify)" style="checkbox"  class="horizontal-layout-options" />
-
-                        <span>
-                            <obs id="165184" conceptId="165184" class="horizontal-layout-options"/>
-                        </span>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <obsgroup groupingConceptId="99116">
-                            <div class="col-2">
-                                <label>Care Entry Point:</label>
-                            </div>
-                            <div class="col-2">
-                                <span class="ARTCareEntryPointEnableDisable1">
-                                        <obs conceptId="90200"
-                                             answerConceptIds="90012,90016,99593,99610,90019,90013,90015,90018,165224,90002"
-                                             answerLabels="eMTCT,TB,YCC,SMC,Outreach,Out Patient,STI,Inpatient,KP Clinic,Other"
-                                             required="true"/>
-                                </span>
-                            </div>
-                            <div class="col-2">
-                                <label>Other (Specify)</label>
-                            </div>
-                            <div class="col-2">
-                                <span class="ARTCareEntryPointEnableDisableChild1">
-                                    <obs conceptId="99115" labelText=""/>
-                                </span>
-                            </div>
-                        </obsgroup>
-                    </div>
-
-                <h3 class="card-header">Treatment Supporter</h3>
+            <div class="col-md-6">
                 <section>
+                    <submit/>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="care-entry-section-tab" data-toggle="tab" href="#care-entry-section" role="tab" aria-controls="nav-home" aria-selected="true">Care Entry &amp; Family</a>
+                                <a class="nav-item nav-link" id="art-care-cohort-tab" data-toggle="tab" href="#art-care-cohort-section" role="tab" aria-controls="nav-profile" aria-selected="false">ART Care Cohort</a>
+                                <a class="nav-item nav-link" id="prior-art-tab" data-toggle="tab" href="#prior-art-section" role="tab" aria-controls="nav-contact" aria-selected="false">Treatment Interruptions</a>
+                                <a class="nav-item nav-link" id="drug-allergies-and-art-care-tab1" data-toggle="tab" href="#drug-allergies-and-art-care" role="tab" aria-controls="nav-contact" aria-selected="false">Drug Allergies</a>
+                            </div>
+                        </nav>
+                    </div>
                     <div class="card-body">
-                        <table>
-                            <div class="row">
-                                <div class="col-2" >
-                                    <label>Medicine pick-up if ill:</label>
-                                </div>
-                                <div class="col-2" >
-                                    <obs size="15" conceptId="99142"/>
-                                </div>
-                            </div>
+                        <div class="tab-content art-care-card" id="nav-tabContent">
 
-                            <div class="row">
-                                <div class="col-2" >
-                                    <label>Relationship to index clients</label>
-                                </div>
-                                <div class="col-2" >
-                                    <obs conceptId="99725" answerConceptIds="90286,90280,90288,90284,90279,5618,90002"
-                                         answerLabels="Cousin,Child,Partner/Spouse,GrandChild,Parent,Friend,Other"/>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-2" >
-                                    <label>Telephone</label>
-                                </div>
-                                <div class="col-2" >
-                                    <obs conceptId="90278" size="12" class="ugphone" id="90278"/>
-                                </div>
-                                <div class="col-2" >
-                                    <label>Whose</label>
-                                </div>
-                                <div class="col-2" >
-                                    <obs conceptId="99118"/>
-                                </div>
-                            </div>
-                        </table>
-                    </div>
-                </section>
-            </div>
+                            <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="nav-profile-tab" id="care-entry-section">
 
-            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="art-care-cohort-section">
-                <section>
-                    <h3 class="card-header">ART Care Start</h3>
-                    <section>
-                        <div id="art-care">
-                            <div  class="row">
-                                <obsgroup groupingConceptId="99162">
-                                    <div  class="ARTStartEnableDisable1 col-3">
-                                        <obs id="99161" conceptId="99161" labelText="At Start ART:"/>
+                                    <div class="row">
+                                        <includeIf velocityTest="$fn.globalProperty('ugandaemr.showARTPatientNumberIdentifier') == true">
+                                            <div class="col-2">
+                                                <label>ART Patient No.</label>
+                                            </div>
+                                            <div class="col-2">
+                                                <patient field="identifier" identifierTypeId="3c76abfd-5e2d-4194-b0d4-00b73c7fc1ac"
+                                                             required="false"/>
+                                            </div>
+                                        </includeIf>
+                                        <div class="col-2" required="true">
+                                            <label><span class="required">*</span>Pt Clinic #:</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <patient field="identifier" identifierTypeId="e1731641-30ab-102d-86b0-7a5022ba4115" required="false"/>
+                                        </div>
                                     </div>
-                                    <div class="ARTStartEnableDisableChild1 col-3">
-                                        <span class="ArtCareEnableDisable2">
-                                        <obs conceptId="99061"
-                                             answerConceptIds="99005,99006,164979,99015,99016,99039,99040,164977,99041,99042,99884,99885,164978,163017,99143"
-                                             answerLabels="AZT-3TC-NVP, AZT-3TC-EFV,AZT-3TC-DTG, D4T-3TC-NVP, D4T-3TC-EFV, TDF-3TC-NVP, TDF-3TC-EFV, TDF-3TC-DTG, TDF-FTC-NVP, TDF-FTC-EFV,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-LPV/r,OTHER"
-                                             labelText="Start ART 1st Line Initial Regimen"/>
+
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <label>Enrollment into HIV Care Transfer in from: </label>
+                                        </div>
+                                        <div class="col-2">
+                                            <obs conceptId="99109" labelText=""/>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>Date of registration at this site:</label>
+                                        </div>
+                                        <div class="col-2">
+                                        <encounterDate default="today" disallowMultipleEncountersOnDate="block" class="form-control"/>
+                                        </div>
+                                        <div class="col-2" id="comfirmedDate">
+                                            <label>Date verification HIV test:</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <obs id="90267" conceptId="90267"/>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-2">
+                                            <label>Test type</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <obs conceptId="99080" answerConceptIds="99079,99080" answerLabels="Ab,PCR"/>
+                                        </div>
+                                        <div class="col-2">
+                                            <label>Where</label>
+                                        </div>
+                                        <div class="col-2">
+                                            <obs conceptId="99081"/>
+                                        </div>
+
+                                        <includeIf velocityTest="$patient.age &lt; 20 &amp;&amp; $patient.age &gt;=5">
+                                        <div class="col-2">
+                                                <label>In School (5 -19 years):</label>
+                                        </div>
+                                        <div class="col-2">
+                                                 <obs conceptId="5629" answerConceptIds="1065,1066"
+                                                     answerLabels="Yes,No"  style="radio"/>
+                                        </div>
+                                        </includeIf>
+                                    </div>
+
+                                    <div class="row">
+                                        <obsgroup groupingConceptId="99116">
+                                            <div class="col-2">
+                                                <label>Care Entry Point:</label>
+                                            </div>
+                                            <div class="col-2">
+                                                    <span class="ARTCareEntryPointEnableDisable1">
+                                                            <obs conceptId="90200"
+                                                                 answerConceptIds="90012,90016,99593,99610,90019,90013,90015,90018,165224,90002"
+                                                                 answerLabels="eMTCT,TB,YCC,SMC,Outreach,Out Patient,STI,Inpatient,KP Clinic,Other"
+                                                                 required="true"/>
+                                                    </span>
+                                            </div>
+                                            <div class="col-2">
+                                                <label>Other (Specify)</label>
+                                            </div>
+                                            <div class="col-2">
+                                                    <span class="ARTCareEntryPointEnableDisableChild1">
+                                                        <obs conceptId="99115" labelText=""/>
+                                                    </span>
+                                            </div>
+                                        </obsgroup>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <b>Special Categories</b>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="162277" answerLabel="1 - Prisoners" style="checkbox"/>
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="160666" answerLabel="2 - PWIDs" style="checkbox"  />
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="165125" answerLabel="3 - Uniformed Men" style="checkbox"  />
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="165126" answerLabel="4 - Migrant workers" style="checkbox" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="162198" answerLabel="5 - Truckers" style="checkbox" />
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="159674" answerLabel="6 - Fisher Folks" style="checkbox"  />
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="165127" answerLabel="7 - Refugees" style="checkbox"  />
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="90041" answerLabel="8 - Pregnant" style="checkbox"  />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="99601" answerLabel="9 - Breastfeeding" style="checkbox"   />
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="165132" answerLabel="10 - AGYW" style="checkbox" />
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="162558" answerLabel="11 - People with Disabilities" style="checkbox"  />
+                                        </div>
+                                        <div class="col-md-3">
+                                        <obs conceptId="165169" answerConceptId="90002" answerLabel="12 - Others (specify)" style="checkbox" />
+
+                                            <span class="">
+                                            <obs id="165184" conceptId="165184" />
                                             </span>
-                                        <span class="ArtCareEnableDisableChild2">
-                                        <obs conceptId="99268" labelText="Others"/>
-                                        </span>
+                                        </div>
                                     </div>
-                                </obsgroup>
-                                <div class="ARTStartEnableDisableChild1 col-3">
-                                    <obs conceptId="99069" labelText="Wt"/>
-                                </div>
-                                <div  class="ARTStartEnableDisableChild1 col-3">
-                                    <obs conceptId="99070" answerConceptIds="1204,1205,1206,1207"
-                                         answerLabels="1,2,3,4" labelText="CI.Stage" style="dropdown"/>
-                                </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="ARTStartEnableDisableChild1 col-3">
-                                    <obs conceptId="99071" labelText="CD4"/>
-                                </div>
+                                <div class="row card">
+                                <div class="card-header h5">Treatment Supporter</div>
+                                    <div class="card-body">
 
-                                <div class="ARTStartEnableDisableChild1 col-3">
-                                    <excludeIf velocityTest="$patient.gender =='M' ">
-                                        <obs conceptId="99072" answerConceptIds="90003,90004"
-                                             answerLabels="Y, N" labelText="Preg"/>
-                                    </excludeIf>
-                                </div>
+                                            <div class="row">
+                                                <div class="col-2" >
+                                                    <label>Medicine pick-up if ill:</label>
+                                                </div>
+                                                <div class="col-2" >
+                                                    <obs size="15" conceptId="99142"/>
+                                                </div>
 
-                                <div class="ARTStartEnableDisableChild1 col-3">
-                                    <excludeIf velocityTest="$patient.gender =='M' ">
-                                        <obs conceptId="99603" answerConceptIds="90003,90004"
-                                             answerLabels="Y, N" labelText="Lactating"/>
-                                    </excludeIf>
-                                </div>
-                                <div class="col-3"></div>
-                            </div>
-<!--                            <div class="row"><div class="col-12 ui-tabs"><hr/></div></div>-->
-                        </div>
-                    </section>
-                    <section>
-                        <h4 class="card-header">ART Transfer In</h4>
-                        <div>
-                            <div class="row">
-                                <div class="col-3 label">Date Transferred:</div>
-                                <div class="col-3 label">Transferred from:</div>
-                                <div class="col-3 label">ARVs:</div>
-                                <div class="col-3 label"></div>
-                            </div>
-                            <div>
-                        <table class="multi">
-                            <tbody>
-                            <repeat>
-                                <template>
-                                    <obsgroup groupingConceptId="99065">
-                                        <tr>
-                                            <td class="ARTStartEnableDisable2 col-3">
-                                                <obs id="99160" conceptId="99160"/>
-                                            </td>
-                                            <td class="ARTStartEnableDisableChild2 col-3">
-                                                <obs conceptId="90206" size="20"/>
-                                            </td>
-                                            <td colspan="2" class="ARTStartEnableDisableChild2 col-3">
-                                <span class="ArtCareEnableDisable1">
-                                <small>
-                                    <obs conceptId="99064"
-                                         answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,164978,163017,90002"
-                                         answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,ABC-3TC-DTG,ABC-3TC-LPV/r,Other"/>
-                                </small>
-                                    </span>
-                                                <span class="ArtCareEnableDisableChild1">
-                                    <obs conceptId="99269" size="12" labelText="Other:"/>
-                                </span>
-
-                                            </td>
-                                            <td class="col-3" align="center">
-                                                <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
-                                            </td>
-                                        </tr>
-                                    </obsgroup>
-                                </template>
-                                <render/>
-                                <render/>
-                                <render/>
-                                <render/>
-                                <render/>
-                            </repeat>
-                            </tbody>
-                        </table>
-                            </div>
-                        </div>
-                    <section>
-                            <h4 class="card-header">Substitutions</h4>
-                            <h5 class="card-header">Substitution within 1st line</h5>
-                            <div>
-                                <div class="row">
-                                    <div class="col-3 label">Date </div>
-                                    <div class="col-3 label">New Regimen</div>
-                                    <div class="col-3 label">Why</div>
-                                    <div class="col-3 label"></div>
-                                </div>
-                                <div>
-                        <table class="multi">
-                            <tbody>
-                            <repeat>
-                                <template>
-                                    <obsgroup groupingConceptId="99062">
-                                        <tr>
-                                            <td class="ARTStartEnableDisable3 col-3">
-                                                <obs id="99163_{n}" conceptId="99163"/>
-                                            </td>
-                                            <td class="ARTStartEnableDisableChild3 col-3">
-                                                <span class="ArtCareEnableDisable3">
-                            <obs conceptId="90315"
-                                 answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99884,99885,164978,163017,99143"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3CT-LPV/r,Other"/>
-                            </span>
-                                                <span class="ArtCareEnableDisableChild3">
-                                <obs size="20" conceptId="99146" labelText="Other"/>
-                            </span>
-                                            </td>
-                                            <td colspan="2" class="ARTStartEnableDisableChild3 col-3">
-                                                <obs conceptId="90246" answerConceptIds="90040,90043,90044,90045,90002"
-                                                     answerLabels="1.Toxi,2.NewTB,3.NewDrug,4.Drug Stock,5.Other"/>
-                                            </td>
-                                            <td align="center" class="col-3">
-                                                <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
-                                            </td>
-                                        </tr>
-                                    </obsgroup>
-                                </template>
-                                <render n="1"/>
-                                <render n="2"/>
-                                <render n="3"/>
-                                <render n="4"/>
-                            </repeat>
-                            </tbody>
-                        </table>
+                                                <div class="col-2" >
+                                                    <label>Relationship to index clients</label>
+                                                </div>
+                                                <div class="col-2" >
+                                                    <obs conceptId="99725" answerConceptIds="90286,90280,90288,90284,90279,5618,90002"
+                                                         answerLabels="Cousin,Child,Partner/Spouse,GrandChild,Parent,Friend,Other"/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-2" >
+                                                    <label>Telephone</label>
+                                                </div>
+                                                <div class="col-2" >
+                                                    <obs conceptId="90278" size="12" class="ugphone" id="90278"/>
+                                                </div>
+                                                <div class="col-2" >
+                                                    <label>Whose</label>
+                                                </div>
+                                                <div class="col-2" >
+                                                    <obs conceptId="99118"/>
+                                                </div>
+                                            </div>
+                                    </div>
                                 </div>
                             </div>
-                    </section>
-                    <section>
-                         <h5 class="card-header">Switch to 2nd
-                                Line or Substitution within 2nd Line
-                            </h5>
-                        <div>
-                            <div class="row">
-                                <div class="col-3 label">Date </div>
-                                <div class="col-3 label">New Regimen</div>
-                                <div class="col-3 label">Why</div>
-                                <div class="col-3 label"></div>
-                            </div>
-                            <div>
 
-                        <table class="multi">
-                            <tbody>
-                            <repeat>
-                                <template>
-                                    <obsgroup groupingConceptId="99063">
-                                        <tr>
-                                            <td class="ARTStartEnableDisable7 col-3">
-                                                <obs id="99164_{n}" conceptId="99164"/>
-                                            </td>
-                                            <td class="ARTStartEnableDisableChild7 col-3">
-                                                <span class="ArtCareEnableDisable7">
-                                    <small>
-                                        <obs conceptId="90315"
-                                             answerConceptIds="99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,99046,99887,99888,99144"
-                                             answerLabels="ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,TDF-3TC-ATV/r,ABC-3TC-ATV/r,Other"/>
-                                    </small>
-                                    </span>
-                                                <span class="ArtCareEnableDisableChild7">
-                                        <obs size="20" conceptId="99147" labelText="Other"/>
-                                    </span>
-                                            </td>
-                                            <td  class="ArtCareEnableDisableChild7 col-3">
-                                                <obs conceptId="90247" answerConceptIds="90046,90047,99889"
-                                                     answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
-                                            </td>
-                                            <td align="center" class="col-3">
-                                                <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
-                                            </td>
-                                        </tr>
-                                    </obsgroup>
-                                </template>
-                                <render n="1"/>
-                                <render n="2"/>
-                                <render n="3"/>
-                                <render n="4"/>
-                            </repeat>
-                            </tbody>
-                        </table>
-                            </div>
-                        </div>
-                    </section>
-                    <section>
-                        <h5 class="card-header">Switch to 3rd line Or Substitution with 3rd Line </h5>
-                        <div>
-                            <div class="row">
-                                <div class="col-3 label">Date </div>
-                                <div class="col-3 label">New Regimen</div>
-                                <div class="col-3 label">Why</div>
-                                <div class="col-3 label"></div>
-                            </div>
-                            <div>
-                        <table class="multi">
-                            <tbody>
-                            <repeat>
-                                <template>
-                                    <obsgroup groupingConceptId="162988">
-                                        <tr>
-                                            <td class="ARTStart3EnableDisable1 col-3">
-                                                <obs id="162991_{n}" conceptId="162991"/>
-                                            </td>
-                                            <td class="ARTStart3EnableDisableChild1 col-3">
-                                                <span class="ArtCareEnableDisable10">
-                                <small>
-                                    <obs conceptId="162990"/>
-                                </small>
-                            </span>
-                                                <span class="ArtCareEnableDisableChild10">
-                                <obs size="20" conceptId="162989" labelText="Other"/>
-                            </span>
-                                            </td>
-                                            <td colspan="2" class="ARTStart3EnableDisableChild1 col-3">
-                                                <obs conceptId="90247" answerConceptIds="90046,90047,99889"
-                                                     answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
-                                            </td>
-                                            <td align="center" class="col-3">
-                                                <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
-                                            </td>
-                                        </tr>
-                                    </obsgroup>
-                                </template>
-                                <render n="1"/>
-                                <render n="2"/>
-                                <render n="3"/>
-                                <render n="4"/>
-                            </repeat>
-                            </tbody>
-                        </table>
-                            </div>
-                        </div>
-                    </section>
-                </section>
-                <section>
-                    <h3 class="card-header">Prior ART</h3>
-                    <table id="art-history">
-                        <tbody>
-                        <tr>
-                            <td>
+                            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="art-care-cohort-section">
+                                <section>
+                                    <div class="card">
+                                    <div class="card-header h5">ART Care Start</div>
+                                    <div class="card-body">
+                                        <div id="art-care">
+                                            <div  class="row">
+                                                <obsgroup groupingConceptId="99162">
+                                                    <div  class="ARTStartEnableDisable1 col-md-3">
+                                                        <obs id="99161" conceptId="99161" labelText="At Start ART:"/>
+                                                    </div>
+                                                    <div class="ARTStartEnableDisableChild1 co-md-3">
+                                                        <span class="ArtCareEnableDisable2">
+                                                        <obs conceptId="99061"
+                                                             answerConceptIds="99005,99006,164979,99015,99016,99039,99040,164977,99041,99042,99884,99885,164978,163017,99143"
+                                                             answerLabels="AZT-3TC-NVP, AZT-3TC-EFV,AZT-3TC-DTG, D4T-3TC-NVP, D4T-3TC-EFV, TDF-3TC-NVP, TDF-3TC-EFV, TDF-3TC-DTG, TDF-FTC-NVP, TDF-FTC-EFV,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-LPV/r,OTHER"
+                                                             labelText="Start ART 1st Line Initial Regimen"/>
+                                                            </span>
+                                                    </div>
 
-                            </td>
-                            <td colspan="3" class="PriorYesNoEnableDisable1">
-                                <label><b>Prior ARV/ART</b></label>
-                                <obs conceptId="99055" answerConceptIds="90003,90004"
-                                     answerLabels="Yes,No"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
+                                                    <div class="col-md-3">
+                                                        <span class="ArtCareEnableDisableChild2">
+                                                            <obs conceptId="99268" labelText="Others"/>
+                                                        </span>
+                                                    </div>
 
-                            </td>
-                            <td>
-                                <b>Start Date</b>
-                            </td>
+                                                </obsgroup>
+                                                <div class="ARTStartEnableDisableChild1 col-md-3">
+                                                    <obs conceptId="99069" labelText="Wt"/>
+                                                </div>
+                                            </div>
 
-                            <td>
-                                <b>Duration in Months</b>
-                            </td>
-                        </tr>
-                        <tr class="enableDisable">
-                            <obsgroup groupingConceptId="99066">
-                                <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                                    <obs conceptId="99056" answerConceptId="90003" answerLabel="PEP:"
-                                    />
-                                </td>
-                                <td id="disabled">
-                                    <obs id="second" conceptId="99154" labelText=""/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="third" conceptId="165252"/>
-                                </td>
-                            </obsgroup>
-                        </tr>
+                                            <div class="row">
+                                                <div  class="ARTStartEnableDisableChild1 col-md-3">
+                                                    <obs conceptId="99070" answerConceptIds="1204,1205,1206,1207"
+                                                         answerLabels="1,2,3,4" labelText="CI.Stage" style="dropdown"/>
+                                                </div>
+                                                <div class="ARTStartEnableDisableChild1 col-md-3">
+                                                    <obs conceptId="99071" labelText="CD4"/>
+                                                </div>
 
-                        <tr class="enableDisable">
-                                <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                                    <obs conceptId="165163" answerConceptId="90003" answerLabel="PreP:"
-                                    />
-                                </td>
-                                <td id="disabled">
-                                    <obs id="second" conceptId="165250" labelText=""/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="third" conceptId="165251"/>
-                                </td>
-                        </tr>
-                        <tr class="enableDisable">
-                            <obsgroup groupingConceptId="99598">
-                                <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                                    <obs conceptId="99594" answerConceptId="90003" answerLabel="Hep-B:"/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="second" conceptId="99595" labelText=""/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="third" conceptId="165253"/>
-                                </td>
-                            </obsgroup>
-                        </tr>
-                        <excludeIf velocityTest="$patient.gender =='M' ">
-                            <tr class="enableDisable">
-                                <obsgroup groupingConceptId="99067">
-                                    <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                                        <obs conceptId="90012" answerConceptId="90003"
-                                             answerLabel="PMTCT Only:"/>
-                                    </td>
-                                    <td id="disabled">
-                                        <obs id="second" conceptId="99155" labelText=""/>
-                                    </td>
-                                    <td id="disabled">
-                                        <obs id="third" conceptId="165258"/>
-                                    </td>
-                                </obsgroup>
-                            </tr>
-                        </excludeIf>
-                        <tr class="enableDisable">
-                            <obsgroup groupingConceptId="99068">
-                                <td id="trigger" class="PriorYesNoEnableDisableChild1">
-                                    <obs conceptId="99059" answerConceptId="90003"
-                                         answerLabel="Earlier ARV not transfer:"/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="second" conceptId="99156" labelText=""/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="third" conceptId="165259"/>
-                                </td>
-                            </obsgroup>
-                        </tr>
-                        </tbody>
-                    </table>
-                </section>
-                </section>
-            </div>
-            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="prior-art-section">
-                <section class="row">
-                    <div>
-                        <h3 class="card-header">Relevant Medical Conditions &amp; Drug Allergies</h3>
-                        <div class="row">
-                            <div class="col-6">
-                                <h3> Relevant Medical Conditions</h3>
-                                <encounterDiagnoses selectedDiagnosesTarget="#relevant-medical-conditions" diagnosisSets="99104"/>
-                            </div>
-                            <div class="col-6">
-                                <h3>Drug allergies</h3>
-                                <table class="multi">
-                                    <tbody>
-                                    <repeat>
-                                        <template>
+                                                <div class="ARTStartEnableDisableChild1 col-md-3">
+                                                    <excludeIf velocityTest="$patient.gender =='M' ">
+                                                        <obs conceptId="99072" answerConceptIds="90003,90004"
+                                                             answerLabels="Y, N" labelText="Preg"/>
+                                                    </excludeIf>
+                                                </div>
+
+                                                <div class="ARTStartEnableDisableChild1 col-md-3">
+                                                    <excludeIf velocityTest="$patient.gender =='M' ">
+                                                        <obs conceptId="99603" answerConceptIds="90003,90004"
+                                                             answerLabels="Y, N" labelText="Lactating"/>
+                                                    </excludeIf>
+                                                </div>
+                                            </div>
+                <!--                            <div class="row"><div class="col-12 ui-tabs"><hr/></div></div>-->
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <p></p>
+                                    <section>
+                                        <div class="card">
+                                        <div class="card-header h5">ART Transfer In</div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-3 label">Date Transferred:</div>
+                                                <div class="col-3 label">Transferred from:</div>
+                                                <div class="col-3 label">ARVs:</div>
+                                                <div class="col-3 label"></div>
+                                            </div>
+                                            <div>
+                                        <table class="multi">
+                                            <tbody>
+                                            <repeat>
+                                                <template>
+                                                    <obsgroup groupingConceptId="99065">
+                                                        <tr>
+                                                            <td class="ARTStartEnableDisable2 col-3">
+                                                                <obs id="99160" conceptId="99160"/>
+                                                            </td>
+                                                            <td class="ARTStartEnableDisableChild2 col-3">
+                                                                <obs conceptId="90206" size="20"/>
+                                                            </td>
+                                                            <td colspan="2" class="ARTStartEnableDisableChild2 col-3">
+                                                <span class="ArtCareEnableDisable1">
+                                                <small>
+                                                    <obs conceptId="99064"
+                                                         answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,164978,163017,90002"
+                                                         answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,ABC-3TC-DTG,ABC-3TC-LPV/r,Other"/>
+                                                </small>
+                                                    </span>
+                                                                <span class="ArtCareEnableDisableChild1">
+                                                    <obs conceptId="99269" size="12" labelText="Other:"/>
+                                                </span>
+
+                                                            </td>
+                                                            <td class="col-3" align="center">
+                                                                <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                            </td>
+                                                        </tr>
+                                                    </obsgroup>
+                                                </template>
+                                                <render/>
+                                                <render/>
+                                                <render/>
+                                                <render/>
+                                                <render/>
+                                            </repeat>
+                                            </tbody>
+                                        </table>
+                                            </div>
+                                        </div>
+                                        </div>
+                                      <section>
+                                            <h4>Substitutions</h4>
+                                          <div class="card">
+                                            <div class="card-header h5">Substitution within 1st line</div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-3 label">Date </div>
+                                                    <div class="col-3 label">New Regimen</div>
+                                                    <div class="col-3 label">Why</div>
+                                                    <div class="col-3 label"></div>
+                                                </div>
+                                                <div>
+                                                    <table class="multi">
+                                                        <tbody>
+                                                        <repeat>
+                                                            <template>
+                                                                <obsgroup groupingConceptId="99062">
+                                                                    <tr>
+                                                                        <td class="ARTStartEnableDisable3 col-3">
+                                                                            <obs id="99163_{n}" conceptId="99163"/>
+                                                                        </td>
+                                                                        <td class="ARTStartEnableDisableChild3 col-3">
+                                                                            <span class="ArtCareEnableDisable3">
+                                                        <obs conceptId="90315"
+                                                             answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99884,99885,164978,163017,99143"
+                                                             answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3CT-LPV/r,Other"/>
+                                                        </span>
+                                                                            <span class="ArtCareEnableDisableChild3">
+                                                            <obs size="20" conceptId="99146" labelText="Other"/>
+                                                        </span>
+                                                                        </td>
+                                                                        <td colspan="2" class="ARTStartEnableDisableChild3 col-3">
+                                                                            <obs conceptId="90246" answerConceptIds="90040,90043,90044,90045,90002"
+                                                                                 answerLabels="1.Toxi,2.NewTB,3.NewDrug,4.Drug Stock,5.Other"/>
+                                                                        </td>
+                                                                        <td align="center" class="col-3">
+                                                                            <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </obsgroup>
+                                                            </template>
+                                                            <render n="1"/>
+                                                            <render n="2"/>
+                                                            <render n="3"/>
+                                                            <render n="4"/>
+                                                        </repeat>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                          </div>
+                                    </section>
+                                        <p></p>
+                                    <section>
+                                        <div class="card">
+                                         <div class="card-header h5">Switch to 2nd
+                                                Line or Substitution within 2nd Line
+                                            </div>
+                                          <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-3 label">Date </div>
+                                                <div class="col-3 label">New Regimen</div>
+                                                <div class="col-3 label">Why</div>
+                                                <div class="col-3 label"></div>
+                                            </div>
+                                            <div>
+
+                                                <table class="multi">
+                                                    <tbody>
+                                                    <repeat>
+                                                        <template>
+                                                            <obsgroup groupingConceptId="99063">
+                                                                <tr>
+                                                                    <td class="ARTStartEnableDisable7 col-3">
+                                                                        <obs id="99164_{n}" conceptId="99164"/>
+                                                                    </td>
+                                                                    <td class="ARTStartEnableDisableChild7 col-3">
+                                                                        <span class="ArtCareEnableDisable7">
+                                                            <small>
+                                                                <obs conceptId="90315"
+                                                                     answerConceptIds="99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,99046,99887,99888,99144"
+                                                                     answerLabels="ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,TDF-3TC-ATV/r,ABC-3TC-ATV/r,Other"/>
+                                                            </small>
+                                                            </span>
+                                                                        <span class="ArtCareEnableDisableChild7">
+                                                                <obs size="20" conceptId="99147" labelText="Other"/>
+                                                            </span>
+                                                                    </td>
+                                                                    <td  class="ArtCareEnableDisableChild7 col-3">
+                                                                        <obs conceptId="90247" answerConceptIds="90046,90047,99889"
+                                                                             answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
+                                                                    </td>
+                                                                    <td align="center" class="col-3">
+                                                                        <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </obsgroup>
+                                                        </template>
+                                                        <render n="1"/>
+                                                        <render n="2"/>
+                                                        <render n="3"/>
+                                                        <render n="4"/>
+                                                    </repeat>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                          </div>
+                                        </div>
+                                    </section>
+                                        <p></p>
+                                    <section>
+                                        <div class="card">
+                                        <div class="card-header h5">Switch to 3rd line Or Substitution with 3rd Line </div>
+                                        <div class="card-body">
+                                            <div class="row">
+                                                <div class="col-3 label">Date </div>
+                                                <div class="col-3 label">New Regimen</div>
+                                                <div class="col-3 label">Why</div>
+                                                <div class="col-3 label"></div>
+                                            </div>
+                                            <div>
+                                                <table class="multi">
+                                                    <tbody>
+                                                    <repeat>
+                                                        <template>
+                                                            <obsgroup groupingConceptId="162988">
+                                                                <tr>
+                                                                    <td class="ARTStart3EnableDisable1 col-3">
+                                                                        <obs id="162991_{n}" conceptId="162991"/>
+                                                                    </td>
+                                                                    <td class="ARTStart3EnableDisableChild1 col-3">
+                                                                        <span class="ArtCareEnableDisable10">
+                                                        <small>
+                                                            <obs conceptId="162990"/>
+                                                        </small>
+                                                    </span>
+                                                                        <span class="ArtCareEnableDisableChild10">
+                                                        <obs size="20" conceptId="162989" labelText="Other"/>
+                                                    </span>
+                                                                    </td>
+                                                                    <td colspan="2" class="ARTStart3EnableDisableChild1 col-3">
+                                                                        <obs conceptId="90247" answerConceptIds="90046,90047,99889"
+                                                                             answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
+                                                                    </td>
+                                                                    <td align="center" class="col-3">
+                                                                        <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                                    </td>
+                                                                </tr>
+                                                            </obsgroup>
+                                                        </template>
+                                                        <render n="1"/>
+                                                        <render n="2"/>
+                                                        <render n="3"/>
+                                                        <render n="4"/>
+                                                    </repeat>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </section>
+                                </section>
+                                    <p></p>
+                                <section>
+                                    <div class="card">
+                                        <div class="card-header h5">Prior ART</div>
+                                        <div class="card-body">
+                                        <table id="art-history">
+                                            <tbody>
                                             <tr>
                                                 <td>
-                                                    <obsgroup groupingConceptId="90230">
-                                                        <obs conceptId="142" size="30"/>
-                                                    </obsgroup>
+
                                                 </td>
-                                                <td align="center" class="col-3">
-                                                    <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                <td colspan="3" class="PriorYesNoEnableDisable1">
+                                                    <label><b>Prior ARV/ART</b></label>
+                                                    <obs conceptId="99055" answerConceptIds="90003,90004"
+                                                         answerLabels="Yes,No"/>
                                                 </td>
                                             </tr>
-                                        </template>
-                                        <render/>
-                                        <render/>
-                                        <render/>
-                                        <render/>
-                                    </repeat>
-                                    </tbody>
-                                </table>
+                                            <tr>
+                                                <td>
+
+                                                </td>
+                                                <td>
+                                                    <b>Start Date</b>
+                                                </td>
+
+                                                <td>
+                                                    <b>Duration in Months</b>
+                                                </td>
+                                            </tr>
+                                            <tr class="enableDisable">
+                                                <obsgroup groupingConceptId="99066">
+                                                    <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                                                        <obs conceptId="99056" answerConceptId="90003" answerLabel="PEP:"
+                                                        />
+                                                    </td>
+                                                    <td id="disabled">
+                                                        <obs id="second" conceptId="99154" labelText=""/>
+                                                    </td>
+                                                    <td id="disabled">
+                                                        <obs id="third" conceptId="165252"/>
+                                                    </td>
+                                                </obsgroup>
+                                            </tr>
+
+                                            <tr class="enableDisable">
+                                                    <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                                                        <obs conceptId="165163" answerConceptId="90003" answerLabel="PreP:"
+                                                        />
+                                                    </td>
+                                                    <td id="disabled">
+                                                        <obs id="second" conceptId="165250" labelText=""/>
+                                                    </td>
+                                                    <td id="disabled">
+                                                        <obs id="third" conceptId="165251"/>
+                                                    </td>
+                                            </tr>
+                                            <tr class="enableDisable">
+                                                <obsgroup groupingConceptId="99598">
+                                                    <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                                                        <obs conceptId="99594" answerConceptId="90003" answerLabel="Hep-B:"/>
+                                                    </td>
+                                                    <td id="disabled">
+                                                        <obs id="second" conceptId="99595" labelText=""/>
+                                                    </td>
+                                                    <td id="disabled">
+                                                        <obs id="third" conceptId="165253"/>
+                                                    </td>
+                                                </obsgroup>
+                                            </tr>
+                                            <excludeIf velocityTest="$patient.gender =='M' ">
+                                                <tr class="enableDisable">
+                                                    <obsgroup groupingConceptId="99067">
+                                                        <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                                                            <obs conceptId="90012" answerConceptId="90003"
+                                                                 answerLabel="PMTCT Only:"/>
+                                                        </td>
+                                                        <td id="disabled">
+                                                            <obs id="second" conceptId="99155" labelText=""/>
+                                                        </td>
+                                                        <td id="disabled">
+                                                            <obs id="third" conceptId="165258"/>
+                                                        </td>
+                                                    </obsgroup>
+                                                </tr>
+                                            </excludeIf>
+                                            <tr class="enableDisable">
+                                                <obsgroup groupingConceptId="99068">
+                                                    <td id="trigger" class="PriorYesNoEnableDisableChild1">
+                                                        <obs conceptId="99059" answerConceptId="90003"
+                                                             answerLabel="Earlier ARV not transfer:"/>
+                                                    </td>
+                                                    <td id="disabled">
+                                                        <obs id="second" conceptId="99156" labelText=""/>
+                                                    </td>
+                                                    <td id="disabled">
+                                                        <obs id="third" conceptId="165259"/>
+                                                    </td>
+                                                </obsgroup>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                    </div>
+                                </section>
+                                </section>
                             </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3 class="card-header">Periodic Screening(Semi Annual)</h3>
-                        <div>
-                            <div class="row">
-                                <div class="col-3 label"></div>
-                                <div class="col-3 label">Date Tested </div>
-                                <div class="col-3 label">Result</div>
-                                <div class="col-3 label"></div>
-                            </div>
-                            <div>
-                                <table class="multi">
-                                    <tbody>
-                                    <repeat>
-                                        <template>
-                                                <obsgroup groupingConceptId="165255">
+                            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="prior-art-section">
+
+                                <section>
+                                    <div class="card">
+                                    <div class="card-header h5">ART/TPT/Fluconazole/ TB  Interruptions </div>
+                                        <div class="card-body">
+                                    <div>
+                                        <divs class="row">
+                                            <div class="col-md-2 label">Treatment type</div>
+                                            <div class="col-md-2 label">Interruption (Stop/Lost)</div>
+                                            <div class="col-md-2 label">Stop Date</div>
+                                            <div class="col-md-2 label">Why</div>
+                                            <div class="col-md-2 label">Date if Restart/Re-activated</div>
+                                            <div class="col-md-2 label"></div>
+                                        </divs>
+                                        <div>
+
+                                    <table class="multi">
+                                        <tbody>
+                                        <repeat>
+                                            <template>
+                                                <obsgroup groupingConceptId="165232">
                                                     <tr>
-                                                        <td class="col-3">
-                                                            <div>
-                                                               Hep-B
+                                                        <td class="col-md-2">
+                                                            <div class="ARTTreatmentInterruptionEnableDisable1">
+                                                                <obs conceptId="165228" answerConceptIds="99132,165225,747,58"
+                                                                     answerLabels="ART,TPT,Fluconazole,TB Drugs"/>
                                                             </div>
                                                         </td>
-                                                        <td class="col-3">
-                                                    <span>
-                                                        <obs conceptId="165247" />
-                                                    </span>
+                                                        <td class="col-md-2">
+                                                            <span class="ARTTreatmentInterruptionEnableDisable2">
+                                                                        <obs conceptId="165229" answerConceptIds="1363,99133"
+                                                                             answerLabels="Stopped,  Lost"/>
+                                                                    </span>
                                                         </td>
-                                                        <td class="col-3">
-                                                            <obs conceptId="1322"
-                                                                 answerConceptIds="703,664,1138" />
+                                                        <td class="col-md-2">
+                                                                <obs conceptId="165230"/>
                                                         </td>
-                                                        <td align="center" class="col-3">
+                                                        <td class="col-md-2">
+                                                                <obs conceptId="165231" labelText=""
+                                                                     answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
+                                                                     answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
+                                                        </td>
+                                                        <td class="col-md-2">
+                                                                <obs conceptId="160738"/>
+                                                        </td>
+                                                        <td align="center" class="col-md-2">
                                                             <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
                                                         </td>
                                                     </tr>
                                                 </obsgroup>
-                                        </template>
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                    </repeat>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div>
-                                <table class="multi">
-                                    <tbody>
-                                    <repeat>
-                                        <template>
-                                            <obsgroup groupingConceptId="165256">
-                                                <tr>
-                                                    <td class="col-3">
-                                                        <div>
-                                                            Hep-C
-                                                        </div>
-                                                    </td>
-                                                    <td class="col-3">
-                                                    <span>
-                                                        <obs conceptId="165248" />
-                                                    </span>
-                                                    </td>
-                                                    <td class="col-3">
-                                                        <obs conceptId="1325"
-                                                             answerConceptIds="703,664,1138" />
-                                                    </td>
-                                                    <td align="center" class="col-3">
-                                                        <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
-                                                    </td>
-                                                </tr>
+                                            </template>
+                                            <render />
+                                            <render />
+                                            <render />
+                                            <render />
+                                            <render />
+                                            <render />
+                                        </repeat>
+                                        </tbody>
+                                    </table>
+                                        </div>
+                                    </div>
+                                        </div>
+                                    </div>
+                                </section>
+                                <p></p>
+                                <section>
+                                    <div class="card">
+                                    <div class="card-header h5">Interruptions &amp; Outcomes</div>
+                                    <div class="card-body">
+                                    <table border="0" id="art-care">
+                                        <tbody>
+                                        <tr>
+                                            <td>Status</td>
+                                            <td>Date</td>
+                                            <td></td>
+                                        </tr>
+                                        <tr class="enableDisable">
+                                            <obsgroup groupingConceptId="99166">
+                                                <td id="trigger">
+                                                    <obs id="90306" conceptId="90306" answerConceptId="90003"
+                                                         answerLabel="Transfer out:"/>
+                                                </td>
+                                                <td id="disabled">
+                                                    <obs id="99165" conceptId="99165"/>
+                                                </td>
+                                                <td id="disabled">
+                                                    <obs conceptId="90211" labelText="Where"/>
+                                                </td>
                                             </obsgroup>
-                                        </template>
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                    </repeat>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div>
-                                <table class="multi">
-                                    <tbody>
-                                    <repeat>
-                                        <template>
-                                            <obsgroup groupingConceptId="165257">
-                                                <tr>
-                                                    <td class="col-3">
-                                                        <div>
-                                                           Random Blood Sugar
-                                                        </div>
-                                                    </td>
-                                                    <td class="col-3">
-                                                    <span>
-                                                        <obs conceptId="165249" />
-                                                    </span>
-                                                    </td>
-                                                    <td class="col-3">
-                                                        <obs conceptId="165254"/>
-                                                    </td>
-                                                    <td align="center" class="col-3">
-                                                        <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
-                                                    </td>
-                                                </tr>
+                                        </tr>
+                                        <tr class="enableDisable">
+                                            <obsgroup groupingConceptId="99167">
+                                                <td id="trigger">
+                                                    <obs id="5240" conceptId="5240" answerConceptId="90003"
+                                                         answerLabel="Lost to follow-up (drop):"/>
+                                                </td>
+                                                <td id="disabled">
+                                                    <obs id="90209" conceptId="90209"/>
+                                                </td>
+                                                <td></td>
                                             </obsgroup>
-                                        </template>
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                        <render />
-                                    </repeat>
-                                    </tbody>
-                                </table>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    </div>
+                                    </div>
+                                </section>
                             </div>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <h3 class="card-header">ART/TPT/Fluconazole/ TB  Interruptions </h3>
-                    <div>
-                        <divs class="row">
-                            <div class="col-2 label">Treatment type</div>
-                            <div class="col-2 label">Interruption (Stop/Lost)</div>
-                            <div class="col-2 label">Stop Date</div>
-                            <div class="col-2 label">Why</div>
-                            <div class="col-2 label">Date if Restart/Re-activated</div>
-                            <div class="col-2 label"></div>
-                        </divs>
-                        <div>
-
-                    <table class="multi">
-                        <tbody>
-                        <repeat>
-                            <template>
-                                <obsgroup groupingConceptId="165232">
-                                    <tr>
-                                        <td class="col-2">
-                                            <div class="ARTTreatmentInterruptionEnableDisable1">
-                                                <obs conceptId="165228" answerConceptIds="99132,165225,747,58"
-                                                     answerLabels="ART,TPT,Fluconazole,TB Drugs"/>
+                            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="drug-allergies-and-art-care">
+                                <section>
+                                    <section>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <span>TPT INITIATION/COMPLETION DATES</span>
                                             </div>
-                                        </td>
-                                        <td class="col-2">
-                                            <span class="ARTTreatmentInterruptionEnableDisable2">
-                                                        <obs conceptId="165229" answerConceptIds="1363,99133"
-                                                             answerLabels="Stopped,  Lost"/>
-                                                    </span>
-                                        </td>
-                                        <td class="col-2">
-                                                <obs conceptId="165230"/>
-                                        </td>
-                                        <td class="col-2">
-                                                <obs conceptId="165231" labelText=""
-                                                     answerConceptIds="90040,90046,90158,90050,90045,90051,90052,90066,99289,90002"
-                                                     answerLabels="1.Toxicity/side effects,2.Treatment Failure,3. Poor Adherence, 4.Illness/hospitalization, 5.Drug out of stock, 6.Patient lacks Finances, 7. Other patient decision, 8.Patient Rx interruption intpn, 9.Excluded HIV Infection, 10.Other,"/>
-                                        </td>
-                                        <td class="col-2">
-                                                <obs conceptId="160738"/>
-                                        </td>
-                                        <td align="center" class="col-2">
-                                            <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
-                                        </td>
-                                    </tr>
-                                </obsgroup>
-                            </template>
-                            <render />
-                            <render />
-                            <render />
-                            <render />
-                            <render />
-                            <render />
-                        </repeat>
-                        </tbody>
-                    </table>
-                        </div>
-                    </div>
-                </section>
-                <section>
-                    <h3 class="card-header">Interruptions &amp; Outcomes</h3>
-                    <table border="0" id="art-care">
-                        <tbody>
-                        <tr>
-                            <td>Status</td>
-                            <td>Date</td>
-                            <td></td>
-                        </tr>
-                        <tr class="enableDisable">
-                            <obsgroup groupingConceptId="99166">
-                                <td id="trigger">
-                                    <obs id="90306" conceptId="90306" answerConceptId="90003"
-                                         answerLabel="Transfer out:"/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="99165" conceptId="99165"/>
-                                </td>
-                                <td id="disabled">
-                                    <obs conceptId="90211" labelText="Where"/>
-                                </td>
-                            </obsgroup>
-                        </tr>
-                        <tr class="enableDisable">
-                            <obsgroup groupingConceptId="99167">
-                                <td id="trigger">
-                                    <obs id="5240" conceptId="5240" answerConceptId="90003"
-                                         answerLabel="Lost to follow-up (drop):"/>
-                                </td>
-                                <td id="disabled">
-                                    <obs id="90209" conceptId="90209"/>
-                                </td>
-                                <td></td>
-                            </obsgroup>
-                        </tr>
-                        </tbody>
-                    </table>
-                </section>
-            </div>
-            <div class="tab-pane fade" role="tabpanel" aria-labelledby="nav-profile-tab" id="drug-allergies-and-art-care">
-                <section>
-                    <section>
-                        <div class="row">
-                            <div class="row-col12">
-                                <h5>TPT INITIATION/COMPLETION DATES</h5>
-                            </div>
-                        </div>
-                        <div class="row section  ui-widget-content ui-corner-bottom">
-                            <div class="row-col2">
-                                <label>Date TPT started: </label>
-                                <obs conceptId="165226"/>
-                            </div>
-                            <div class="row-col2">
-                                <label>Date TPT Completed: </label>
-                                <obs conceptId="165227"/>
-                            </div>
-                        </div>
-                    </section>
-                    <div class="row">
-                        <div class="row-col2">
-                            <section>
-                                <h3>Drug allergies</h3>
-                                <table class="table-borderless">
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <obsgroup groupingConceptId="90230">
-                                                <label class="label">1</label>
-                                                <obs conceptId="142" size="30"/>
-                                                <br/>
-                                                <label>2</label>
-                                                <obs conceptId="142" size="30"/>
-                                                <br/>
-                                                <label>3</label>
-                                                <obs conceptId="142" size="30"/>
-                                                <br/>
-                                                <label>4</label>
-                                                <obs conceptId="142" size="30"/>
-                                                <br/>
-                                                <label>5</label>
-                                                <obs conceptId="142" size="30"/>
-                                            </obsgroup>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </section>
-                        </div>
-                        <div class="row-col2">
-                            <section>
-                                <h3>Relevant medical conditions</h3>
-                                <table>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <obsgroup groupingConceptId="99104">
-                                                <label>1</label>
-                                                <obs conceptId="99111" size="30"/>
-                                                <br/>
-                                                <label>2</label>
-                                                <obs conceptId="99111" size="30"/>
-                                                <br/>
-                                                <label>3</label>
-                                                <obs conceptId="99111" size="30"/>
-                                                <br/>
-                                                <label>4</label>
-                                                <obs conceptId="99111" size="30"/>
-                                                <br/>
+                                        <div class="row cad-body">
+                                            <div class="col-md-6">
+                                                <label>Date TPT started: </label>
+                                                <obs conceptId="165226"/>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Date TPT Completed: </label>
+                                                <obs conceptId="165227"/>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </section>
+                                    <p></p>
+                                    <div class="card">
+                                        <div class="card-header h5">Relevant Medical Conditions &amp; Drug Allergies</div>
+                                        <div class="card-body">
+                                        <div class="row">
+                                            <div class="col-6">
+                                                <h3> Relevant Medical Conditions</h3>
+                                                <encounterDiagnoses selectedDiagnosesTarget="#relevant-medical-conditions" diagnosisSets="99104"/>
+                                            </div>
+                                            <div class="col-6">
+                                                <div class="card">
+                                                <h3>Drug allergies</h3>
+                                                <table class="multi">
+                                                    <tbody>
+                                                    <repeat>
+                                                        <template>
+                                                            <tr>
+                                                                <td>
+                                                                    <obsgroup groupingConceptId="90230">
+                                                                        <obs conceptId="142" size="30"/>
+                                                                    </obsgroup>
+                                                                </td>
+                                                                <td align="center" class="col-3">
+                                                                    <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                                </td>
+                                                            </tr>
+                                                        </template>
+                                                        <render/>
+                                                        <render/>
+                                                        <render/>
+                                                        <render/>
+                                                    </repeat>
+                                                    </tbody>
+                                                </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <p></p>
+                                    <section class="row">
+                                        <div class="card">
+                                            <div class="card-header">Periodic Screening(Semi Annual)</div>
+                                            <div class="card-body">
+                                                <div class="row">
+                                                    <div class="col-3 label"></div>
+                                                    <div class="col-3 label">Date Tested </div>
+                                                    <div class="col-3 label">Result</div>
+                                                    <div class="col-3 label"></div>
+                                                </div>
+                                                <div>
+                                                    <table class="multi">
+                                                        <tbody>
+                                                        <repeat>
+                                                            <template>
+                                                                <obsgroup groupingConceptId="165255">
+                                                                    <tr>
+                                                                        <td class="col-3">
+                                                                            <div>
+                                                                                Hep-B
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="col-3">
+                                                                    <span>
+                                                                        <obs conceptId="165247" />
+                                                                    </span>
+                                                                        </td>
+                                                                        <td class="col-3">
+                                                                            <obs conceptId="1322"
+                                                                                 answerConceptIds="703,664,1138" />
+                                                                        </td>
+                                                                        <td align="center" class="col-3">
+                                                                            <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </obsgroup>
+                                                            </template>
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                        </repeat>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
 
-                                                <label>5</label>
-                                                <obs conceptId="99111" size="30"/>
-                                            </obsgroup>
-                                        </td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </section>
+                                                <div>
+                                                    <table class="multi">
+                                                        <tbody>
+                                                        <repeat>
+                                                            <template>
+                                                                <obsgroup groupingConceptId="165256">
+                                                                    <tr>
+                                                                        <td class="col-3">
+                                                                            <div>
+                                                                                Hep-C
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="col-3">
+                                                                    <span>
+                                                                        <obs conceptId="165248" />
+                                                                    </span>
+                                                                        </td>
+                                                                        <td class="col-3">
+                                                                            <obs conceptId="1325"
+                                                                                 answerConceptIds="703,664,1138" />
+                                                                        </td>
+                                                                        <td align="center" class="col-3">
+                                                                            <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </obsgroup>
+                                                            </template>
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                        </repeat>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+
+                                                <div>
+                                                    <table class="multi">
+                                                        <tbody>
+                                                        <repeat>
+                                                            <template>
+                                                                <obsgroup groupingConceptId="165257">
+                                                                    <tr>
+                                                                        <td class="col-3">
+                                                                            <div>
+                                                                                Random Blood Sugar
+                                                                            </div>
+                                                                        </td>
+                                                                        <td class="col-3">
+                                                                    <span>
+                                                                        <obs conceptId="165249" />
+                                                                    </span>
+                                                                        </td>
+                                                                        <td class="col-3">
+                                                                            <obs conceptId="165254"/>
+                                                                        </td>
+                                                                        <td align="center" class="col-3">
+                                                                            <a href="#" class="add">Add</a> | <a href="#" class="remove">Remove</a>
+                                                                        </td>
+                                                                    </tr>
+                                                                </obsgroup>
+                                                            </template>
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                            <render />
+                                                        </repeat>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </section>
+                            </div>
                         </div>
                     </div>
-                </section>
+                </div>
+        <postSubmissionAction class="org.openmrs.module.aijar.htmlformentry.DSDSProgramSubmissionAction"/>
             </div>
         </div>
-        <postSubmissionAction class="org.openmrs.module.aijar.htmlformentry.DSDSProgramSubmissionAction"/>
-        <section>
-            <submit/>
-        </section>
     </div>
     <!-- End of HTML Form -->
     <ifMode mode="EDIT" include="false">
