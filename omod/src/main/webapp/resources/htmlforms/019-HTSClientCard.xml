@@ -529,7 +529,7 @@
                             <label style="float:right"><i>If yes, the most recent test results for the spouse</i></label>
                         </td>
                         <td class="PartnerTestedBeforeEnableDisableChild1">
-                            <obs id="99477" conceptId="99477" answerConceptIds="90166,90001"
+                            <obs id="99477" conceptId="99477" answerConceptIds="90166,90167,90001,"
                                  answerLabels="1 - Positive ,2 - Negative ,3 - Don't know" style="radio"/>
                         </td>
                     </tr>
