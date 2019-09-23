@@ -578,7 +578,7 @@
                     </td>
                     <td>
                         <!--                            concept of INC is not included as an answer here-->
-                        <obs id="br" conceptId="165172" answerConceptIds="90167,90166,162926" answerLabels="1 - Negative,2 - Positive,3 - Inconclusive" style="radio"/>
+                        <obs id="br" conceptId="165172" answerConceptIds="1228,1229" answerLabels="1 - Reactive,2 - Non-Reactive" style="radio"/>
                     </td>
                 </tr>
                 </includeIf>
