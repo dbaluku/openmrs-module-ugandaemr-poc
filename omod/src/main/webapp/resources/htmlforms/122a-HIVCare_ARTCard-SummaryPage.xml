@@ -1,4 +1,4 @@
-<htmlform formName="HMIS HIV 003: HIV CARE/ART CARD - Summary Form"
+<htmlform formName="HMIS ACP HIV 003: HIV CARE/ART CARD - Summary Form"
           formDescription="Summary entry form for patients enrolled for ART"
           formEncounterType="8d5b27bc-c2cc-11de-8d13-0010c6dffd0f"
           formUuid="52653a60-8300-4c13-be4d-4b746da06fee"
@@ -646,6 +646,7 @@
                 });
 
                 var $allTables,
+                    $allDivTables,
                     $allRows,
                     $otherRows,
                     $firstRow,
@@ -754,6 +755,33 @@
                     } else {
                         $firstRow.show();
                         $firstRow.find('.remove').hide();
+                    }
+                });
+
+                $allDivTables = jq('div.multi');
+                $allDivTables.each(function () {
+                    $allRowss = jq(this).find('div.template');
+                    $allRowss.hide();
+                    $nonEmptyBoxess = jq(this).find('div.template input[type=text], div.template select').filter(function() {
+                        return this.value.length &gt; 0;
+                    });
+
+                    if ($nonEmptyBoxess.length &gt; 0 ) {
+                        $nonEmptyBoxess.each(function() {
+                            $thisRows = jq(this).parents('div.template:first');
+                            console.log($thisRows);
+                            $thisRows.show();
+                            if ($thisRows.is($firstRows)) {
+                                $firstRows.find('.remove').hide();
+                            }
+                        });
+
+                        if ($nonEmptyBoxess.length == 1) {
+                            $nonEmptyBoxess.parents('div.template:first').find('.remove').hide(); //Hide the remove button if there is only one visible row
+                        }
+                    } else {
+                        $firstRows.show();
+                        $firstRows.find('.remove').hide();
                     }
                 });
             </ifMode>
