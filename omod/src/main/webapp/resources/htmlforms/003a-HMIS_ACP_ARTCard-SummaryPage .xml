@@ -1057,36 +1057,52 @@
                                                     <div class="row">
                                                         <div class="col-md-3">
                                                             <div class="row">
+                                                                <div class="col-md-12">
                                                                 <label>Medicine pick-up if ill:</label>
+                                                                </div>
                                                             </div>
                                                             <div class="row">
+                                                                <div class="col-md-12">
                                                                 <obs  conceptId="99142"/>
+                                                                </div>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-3" >
                                                             <div class="row">
+                                                                <div class="col-md-12">
                                                                 <label class="text-nowrap">Relationship to index clients</label>
+                                                                </div>
                                                             </div>
                                                             <div class="row">
+                                                                <div class="col-md-12">
                                                                 <obs conceptId="99725" answerConceptIds="90286,90280,90288,90284,90279,5618,90002"
                                                                      answerLabels="Cousin,Child,Partner/Spouse,GrandChild,Parent,Friend,Other"/>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3" >
                                                             <div class="row">
+                                                                <div class="col-md-12">
                                                                 <label>Telephone</label>
+                                                                </div>
                                                             </div>
                                                             <div class="row">
+                                                                <div class="col-md-12">
                                                                 <obs conceptId="90278"  class="ugphone" id="90278"/>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-3" >
                                                             <div class="row">
+                                                                <div class="col-md-12">
                                                                 <label>Whose</label>
+                                                                </div>
                                                             </div>
                                                             <div class="row">
+                                                                <div class="col-md-12">
                                                                 <obs conceptId="99118"/>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1105,39 +1121,111 @@
                                                     <obsgroup groupingConceptId="99075">
                                                     <tr class="FamilyTrackingEnableDisable">
                                                         <td>
-                                                            <div class="row"><label> Name</label></div>
-                                                            <div class="row"><obs conceptId="99073" /></div>
-                                                            <div class="row"><label>Relationship to client</label></div>
-                                                            <div class="row"><obs id="164352_{n}" conceptId="164352" answerConceptIds="90288,90280,5620,165274"
-                                                                                        answerLabels="Spouse,Child,Other relative,Other Sexual partner"  /></div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label> Name</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs conceptId="99073" />
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <label>Relationship to client</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs id="164352_{n}" conceptId="164352" answerConceptIds="90288,90280,5620,165274"
+                                                                                        answerLabels="Spouse,Child,Other relative,Other Sexual partner"  />
+                                                                </div>
+                                                                </div>
                                                         </td>
                                                         <td>
-                                                            <div class="row"><label>Age</label></div>
-                                                            <div class="row"><obs id="99074_{n}" conceptId="99074"/></div>
-                                                            <div class="row"> <label>EID Care (Y/N)</label></div>
-                                                            <div class="row"><obs id="99881_{n}" conceptId="99881" answerConceptIds="90003,90004"
-                                                                                  answerLabels="Yes,No" style="radio"/></div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label>Age</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs id="99074_{n}" conceptId="99074"/>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <label>EID Care (Y/N)</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs id="99881_{n}" conceptId="99881" answerConceptIds="90003,90004"
+                                                                                  answerLabels="Yes,No" style="radio"/>
+                                                                </div>
+                                                                </div>
                                                         </td>
                                                         <td>
-                                                            <div class="row"><label>Age Unit</label></div>
-                                                            <div class="row"><obs id="99725_{n}" conceptId="99725"
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <label>Age Unit</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs id="99725_{n}" conceptId="99725"
                                                                                   answerConceptIds="1074,99726"
-                                                                                  answerLabels="Yrs,Mths" /></div>
-                                                            <div class="row"><label>HIV Care (Y/N)</label></div>
-                                                            <div class="row"><obs id="90270_{n}" conceptId="90270" answerConceptIds="90003,90004"
-                                                                                  answerLabels="Yes,No" style="radio"/></div>
+                                                                                  answerLabels="Yrs,Mths" />
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <label>HIV Care (Y/N)</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs id="90270_{n}" conceptId="90270" answerConceptIds="90003,90004"
+                                                                                  answerLabels="Yes,No" style="radio"/>
+                                                                </div>
+                                                                </div>
                                                         </td>
                                                         <td>
-                                                            <div class="row"><label>HIV Status</label></div>
-                                                            <div class="row"> <obs id="165275_{n}" conceptId="165275" answerConceptIds="90166,90167,165165"
-                                                                                   answerLabels="Positive,Negative,Unknown"/></div>
-                                                            <div class="row"><label>EID No./Pt Clinic No.</label></div>
-                                                            <div class="row"><obs id="90263_{n}" conceptId="90263" /></div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <label>HIV Status</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs id="165275_{n}" conceptId="165275" answerConceptIds="90166,90167,165165"
+                                                                                   answerLabels="Positive,Negative,Unknown"/>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <label>EID No./Pt Clinic No.</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs id="90263_{n}" conceptId="90263" />
+                                                                </div>
+                                                                </div>
                                                         </td>
                                                         <td>
                                                             <obsgroup groupingConceptId="165277">
-                                                            <div class="row text-nowrap"><label>HIV Status Date</label></div>
-                                                            <div class="row"><obs conceptId="165276"/></div>
+                                                            <div class="row text-nowrap">
+                                                                <div class="col-md-12">
+                                                                <label>HIV Status Date</label>
+                                                                </div>
+                                                                </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                <obs conceptId="165276"/>
+                                                                </div>
+                                                                </div>
                                                             </obsgroup>
                                                         </td>
                                                         <td>
