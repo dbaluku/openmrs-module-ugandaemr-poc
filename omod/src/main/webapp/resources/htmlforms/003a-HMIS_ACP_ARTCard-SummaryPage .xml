@@ -832,12 +832,19 @@
         .right-inner-addon i, .right-inner-addon div  i {
             position: absolute;
             right: 0px;
-            padding: 22px 12px;
+            padding: 10px 12px;
             pointer-events: none;
         }
 
+        .right-inner-addon-row{
+            padding: 35px 12px !important;
+        }
         .start-art-icon{
-            padding: 34px 12px !important;
+            padding: 40px 12px !important;
+        }
+
+        .family-date-icon{
+            padding: 15px 20px !important;
         }
 
     </style>
@@ -898,14 +905,14 @@
                                             <td>
                                                 <label>Date of registration at this site:</label>
                                                       <div class="right-inner-addon">
-                                                        <i class=" icon-calendar small"></i>
+                                                        <i class=" icon-calendar small right-inner-addon-row"></i>
                                                         <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
                                                       </div>
                                             </td>
                                             <td>
                                                 <div class="right-inner-addon">
                                                     <label>Date verification HIV test:</label>
-                                                    <i class=" icon-calendar small"></i>
+                                                    <i class=" icon-calendar small right-inner-addon-row"></i>
                                                     <obs id="90267" conceptId="90267"/>
                                                 </div>
                                             </td>
@@ -1229,7 +1236,7 @@
                                                                 </div>
                                                             <div class="row right-inner-addon">
                                                                 <div class="col-md-12 ">
-                                                                    <i class=" icon-calendar small"></i>
+                                                                    <i class=" icon-calendar small family-date-icon"></i>
                                                                 <obs conceptId="165276"/>
                                                                 </div>
                                                                 </div>
@@ -1819,7 +1826,7 @@
                                                 <div class="col-md-6">
                                                     <label>Date TPT started: </label>
                                                     <div class="right-inner-addon ">
-                                                        <i class=" icon-calendar small"></i>
+                                                        <i class=" icon-calendar small right-inner-addon-row"></i>
                                                         <obs id="165226" conceptId="165226"/>
                                                     </div>
 
@@ -1827,7 +1834,7 @@
                                                 <div class="col-md-6">
                                                     <label>Date TPT Completed: </label>
                                                     <div class="right-inner-addon ">
-                                                        <i class=" icon-calendar small"></i>
+                                                        <i class=" icon-calendar small right-inner-addon-row"></i>
                                                         <obs id="165227" conceptId="165227"/>
                                                     </div>
 
