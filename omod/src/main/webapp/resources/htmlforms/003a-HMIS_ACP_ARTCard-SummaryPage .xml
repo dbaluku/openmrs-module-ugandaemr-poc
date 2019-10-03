@@ -667,7 +667,6 @@
                     $lastVisibleRow.find('.add').show();
                 };
 
-
                 jq('.FamilyTrackingEnableDisable').change(function(){
                    $age = jq(this).find('[id^="99074"]').find("input[type$='text']").val();
                    $ageUnit=  jq(this).find('[id^="99725"]').find(":selected").val();
@@ -696,7 +695,9 @@
                         jq(this).find('[id^="90263"]').find("input[type$='text']").attr("disabled",true);
                     }
 
-
+                    if($HIVStatus == 90166){
+                        jq(this).find('[id^="165276"]').find("input[type$='text']").focus();
+                    }
                  });
 
 
@@ -1237,7 +1238,7 @@
                                                             <div class="row right-inner-addon">
                                                                 <div class="col-md-12 ">
                                                                     <i class=" icon-calendar small family-date-icon"></i>
-                                                                <obs conceptId="165276"/>
+                                                                <obs id="165276" conceptId="165276"/>
                                                                 </div>
                                                                 </div>
                                                             </obsgroup>
