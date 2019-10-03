@@ -1271,60 +1271,59 @@
                                     <div class="card">
                                     <div class="card-header">ART CARE START</div>
                                     <div class="card-body">
-                                        <div id="art-care">
-                                            <div  class="row">
+                                        <table id="art-care" class="table table-borderless table-responsive">
+                                            <tbody>
+                                            <tr>
                                                 <obsgroup groupingConceptId="99162">
-                                                    <div  class="ARTStartEnableDisable1 col-md-3">
-                                                        <div class="right-inner-addon">
-                                                        <i class=" icon-calendar small start-art-icon" ></i>
-                                                        <obs id="99161" conceptId="99161" labelText="At Start ART:"/>
+                                                    <td class="ARTStartEnableDisable1">
+                                                        <div class="right-inner-addon ">
+                                                            <i class=" icon-calendar small start-art-icon"></i>
+                                                            <obs id="99161" conceptId="99161" labelText="At Start ART:"/>
                                                         </div>
-                                                    </div>
-                                                    <div class="ARTStartEnableDisableChild1 co-md-3">
+                                                    </td>
+                                                    <td class="ARTStartEnableDisableChild1">
                                                         <span class="ArtCareEnableDisable2">
                                                         <obs conceptId="99061"
                                                              answerConceptIds="99005,99006,164979,99015,99016,99039,99040,164977,99041,99042,99884,99885,164978,163017,99143"
                                                              answerLabels="AZT-3TC-NVP, AZT-3TC-EFV,AZT-3TC-DTG, D4T-3TC-NVP, D4T-3TC-EFV, TDF-3TC-NVP, TDF-3TC-EFV, TDF-3TC-DTG, TDF-FTC-NVP, TDF-FTC-EFV,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-LPV/r,OTHER"
                                                              labelText="Start ART 1st Line Initial Regimen"/>
                                                             </span>
-                                                    </div>
-
-                                                    <div class="col-md-3">
+                                                    </td>
+                                                    <td>
                                                         <span class="ArtCareEnableDisableChild2">
                                                             <obs conceptId="99268" labelText="Others"/>
                                                         </span>
-                                                    </div>
-
+                                                    </td>
+                                                    <td class="ARTStartEnableDisableChild1">
+                                                        <obs conceptId="99069" labelText="Wt"/>
+                                                    </td>
                                                 </obsgroup>
-                                                <div class="ARTStartEnableDisableChild1 col-md-3">
-                                                    <obs conceptId="99069" labelText="Wt"/>
-                                                </div>
-                                            </div>
-
-                                            <div class="row">
-                                                <div  class="ARTStartEnableDisableChild1 col-md-3">
+                                            </tr>
+                                            <tr>
+                                                <td class="ARTStartEnableDisableChild1">
                                                     <obs conceptId="99070" answerConceptIds="1204,1205,1206,1207"
-                                                         answerLabels="1,2,3,4" labelText="CI.Stage" style="dropdown"/>
-                                                </div>
-                                                <div class="ARTStartEnableDisableChild1 col-md-3">
-                                                    <obs conceptId="99071" labelText="CD4"/>
-                                                </div>
+                                                         answerLabels="1,2,3,4" labelText="WHO Clinical Stage" style="dropdown"/>
+                                                </td>
 
-                                                <div class="ARTStartEnableDisableChild1 col-md-3">
+                                                <td class="ARTStartEnableDisableChild1">
+                                                    <obs conceptId="99071" labelText="CD4"/>
+                                                </td>
+                                                <td class="ARTStartEnableDisableChild1">
                                                     <excludeIf velocityTest="$patient.gender =='M' ">
                                                         <obs conceptId="99072" answerConceptIds="90003,90004"
-                                                             answerLabels="Y, N" labelText="Preg"/>
+                                                             answerLabels="Yes, No" labelText="Preg"/>
                                                     </excludeIf>
-                                                </div>
+                                                </td>
 
-                                                <div class="ARTStartEnableDisableChild1 col-md-3">
+                                                <td class="ARTStartEnableDisableChild1">
                                                     <excludeIf velocityTest="$patient.gender =='M' ">
                                                         <obs conceptId="99603" answerConceptIds="90003,90004"
-                                                             answerLabels="Y, N" labelText="Lactating"/>
+                                                             answerLabels="Yes, No" labelText="Lactating"/>
                                                     </excludeIf>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                     </div>
                                     <p></p>
@@ -1365,8 +1364,8 @@
                                                             </td>
                                                             <td>
                                                                 <span class="ArtCareEnableDisableChild1">
-                                                    <obs conceptId="99269"/>
-                                                </span>
+                                                                    <obs conceptId="99269"/>
+                                                                </span>
 
                                                             </td>
                                                             <td class="text-nowrap" >
@@ -1406,22 +1405,22 @@
                                                                 <obsgroup groupingConceptId="99062">
                                                                     <tr>
                                                                         <td class="ARTStartEnableDisable3 col-md-3">
-                                                                            <div class="right-inner-addon ">
+                                                                            <div class="ARTStartEnableDisableChild1 right-inner-addon ">
                                                                                 <i class=" icon-calendar small"></i>
                                                                                 <obs id="99163_{n}" conceptId="99163"/>
                                                                             </div>
                                                                         </td>
                                                                         <td class="ARTStartEnableDisableChild3 col-md-3">
                                                                             <span class="ArtCareEnableDisable3">
-                                                        <obs conceptId="90315"
-                                                             answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99884,99885,164978,163017,99143"
-                                                             answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3CT-LPV/r,Other"/>
-                                                        </span>
+                                                                            <obs conceptId="90315"
+                                                                                 answerConceptIds="99015,99016,99005,99006,164979,99039,99040,99041,99042,164977,99884,99885,164978,163017,99143"
+                                                                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-FTC-NVP,TDF-FTC-EFV,TDF-3TC-DTG,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3CT-LPV/r,Other"/>
+                                                                            </span>
                                                                         </td>
                                                                         <td>
                                                                             <span class="ArtCareEnableDisableChild3">
-                                                            <obs  conceptId="99146"/>
-                                                        </span>
+                                                                                <obs  conceptId="99146"/>
+                                                                            </span>
                                                                         </td>
                                                                         <td colspan="2" class="ARTStartEnableDisableChild3 col-md-3">
                                                                             <obs conceptId="90246" answerConceptIds="90040,90043,90044,90045,90002"
@@ -1467,13 +1466,13 @@
                                                         <template>
                                                             <obsgroup groupingConceptId="99063">
                                                                 <tr>
-                                                                    <td class="ARTStartEnableDisable7 col-md-3">
-                                                                        <div class="right-inner-addon ">
+                                                                    <td class="ARTStartEnableDisable10 col-md-3">
+                                                                        <div class="ARTStartEnableDisableChild1 right-inner-addon ">
                                                                             <i class=" icon-calendar small"></i>
                                                                             <obs id="99164_{n}" conceptId="99164"/>
                                                                         </div>
                                                                     </td>
-                                                                    <td class="ARTStartEnableDisableChild7 col-md-3">
+                                                                    <td class="ARTStartEnableDisableChild10 col-md-3">
                                                                         <span class="ArtCareEnableDisable7">
                                                             <small>
                                                                 <obs conceptId="90315"
@@ -1487,7 +1486,7 @@
                                                                 <obs  conceptId="99147" />
                                                             </span>
                                                                     </td>
-                                                                    <td  class="ArtCareEnableDisableChild7 col-md-3">
+                                                                    <td  class="ARTStartEnableDisableChild10 col-md-3">
                                                                         <obs conceptId="90247" answerConceptIds="90046,90047,99889"
                                                                              answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
                                                                     </td>
@@ -1536,7 +1535,7 @@
 
                                                                     </td>
                                                                     <td class="ARTStart3EnableDisableChild1 col-md-3">
-                                                                        <span class="ArtCareEnableDisable10">
+                                                                        <span class="ArtCare3EnableDisable10">
                                                                             <small>
                                                                                 <obs conceptId="162990"/>
                                                                             </small>
