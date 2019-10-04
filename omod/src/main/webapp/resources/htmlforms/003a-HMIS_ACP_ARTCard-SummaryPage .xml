@@ -901,7 +901,10 @@
                                           <tr>
                                             <td>
                                                 <label >Enrollment into HIV Care Transfer in from: </label>
-                                                        <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
+                                                <div class="right-inner-addon">
+                                                    <i class=" icon-calendar small right-inner-addon-row"></i>
+                                                    <obs id="165312" conceptId="165312"/>
+                                                </div>
                                             </td>
                                             <td>
                                                 <label>Date of registration at this site:</label>
@@ -1456,9 +1459,9 @@
 
                                                 <table class="multi table table-borderless table-responsive">
                                                     <thead>
+                                                    <th>Switch/Substitution</th>
                                                     <th>Date </th>
                                                     <th>New Regimen</th>
-                                                    <th> Other Regimen</th>
                                                     <th>Why</th>
                                                     </thead>
                                                     <tbody>
@@ -1466,7 +1469,12 @@
                                                         <template>
                                                             <obsgroup groupingConceptId="99063">
                                                                 <tr>
-                                                                    <td class="ARTStartEnableDisable10 col-md-3">
+                                                                    <td class="ARTStartEnableDisableChild10 col-md-3">
+                                                                        <span class="ARTStartEnableDisableChild1">
+                                                                            <obs conceptId="165310" answerConceptIds="1371,1372" answerLabels="Switch, Substitution" style="radio" />
+                                                                        </span>
+                                                                    </td>
+                                                                    <td class="ARTStartEnableDisableChild10 col-md-3">
                                                                         <div class="ARTStartEnableDisableChild1 right-inner-addon ">
                                                                             <i class=" icon-calendar small"></i>
                                                                             <obs id="99164_{n}" conceptId="99164"/>
@@ -1474,17 +1482,16 @@
                                                                     </td>
                                                                     <td class="ARTStartEnableDisableChild10 col-md-3">
                                                                         <span class="ArtCareEnableDisable7">
-                                                            <small>
-                                                                <obs conceptId="90315"
-                                                                     answerConceptIds="99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,99046,99887,99888,99144"
-                                                                     answerLabels="ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,TDF-3TC-ATV/r,ABC-3TC-ATV/r,Other"/>
-                                                            </small>
-                                                            </span>
-                                                                    </td>
-                                                                    <td>
+                                                                            <small>
+                                                                                <obs conceptId="90315"
+                                                                                     answerConceptIds="99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99046,99046,99887,99888,99144"
+                                                                                     answerLabels="ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,ZDV-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,ZDV-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,AZT-3TC-LPV/r,TDF-3TC-ATV/r,ABC-3TC-ATV/r,Other"/>
+                                                                            </small>
+                                                                            </span>
+
                                                                         <span class="ArtCareEnableDisableChild7">
-                                                                <obs  conceptId="99147" />
-                                                            </span>
+                                                                            <obs  conceptId="99147" />
+                                                                        </span>
                                                                     </td>
                                                                     <td  class="ARTStartEnableDisableChild10 col-md-3">
                                                                         <obs conceptId="90247" answerConceptIds="90046,90047,99889"
@@ -1517,9 +1524,9 @@
                                             <div>
                                                 <table class="multi table table-borderless table-responsive">
                                                     <thead>
+                                                    <th>Switch/Substitution</th>
                                                     <th>Date </th>
                                                     <th>New Regimen</th>
-                                                    <th> Other Regimen</th>
                                                     <th>Why</th>
                                                     </thead>
                                                     <tbody>
@@ -1527,26 +1534,31 @@
                                                         <template>
                                                             <obsgroup groupingConceptId="162988">
                                                                 <tr>
-                                                                    <td class="ARTStart3EnableDisable1 col-md-3">
-                                                                        <div class="right-inner-addon ">
+                                                                    <td class="ARTStart3EnableDisable1">
+                                                                        <span class="ARTStartEnableDisableChild1">
+                                                                                <obs conceptId="165311" answerConceptIds="1371,1372"
+                                                                                     answerLabels="Switch, Substitution" style="radio" />
+                                                                        </span>
+                                                                    </td>
+                                                                    <td class="ARTStartEnableDisableChild10">
+                                                                        <div class="ARTStartEnableDisableChild1 right-inner-addon ">
                                                                             <i class=" icon-calendar small"></i>
                                                                             <obs id="162991_{n}" conceptId="162991"/>
                                                                         </div>
 
                                                                     </td>
-                                                                    <td class="ARTStart3EnableDisableChild1 col-md-3">
+                                                                    <td class="ARTStartEnableDisableChild10">
                                                                         <span class="ArtCare3EnableDisable10">
                                                                             <small>
                                                                                 <obs conceptId="162990"/>
                                                                             </small>
                                                                         </span>
-                                                                    </td>
-                                                                    <td>
+
                                                                         <span class="ArtCareEnableDisableChild10">
-                                                        <obs  conceptId="162989" />
-                                                    </span>
+                                                                            <obs  conceptId="162989" />
+                                                                        </span>
                                                                     </td>
-                                                                    <td colspan="2" class="ARTStart3EnableDisableChild1 col-md-3">
+                                                                    <td class="ARTStartEnableDisableChild10">
                                                                         <obs conceptId="90247" answerConceptIds="90046,90047,99889"
                                                                              answerLabels="6.Clinical, 7.Immuno, 8. Virological"/>
                                                                     </td>
@@ -1560,7 +1572,6 @@
                                                         <render n="1"/>
                                                         <render n="2"/>
                                                         <render n="3"/>
-                                                        <render n="4"/>
                                                     </repeat>
                                                     </tbody>
                                                 </table>
