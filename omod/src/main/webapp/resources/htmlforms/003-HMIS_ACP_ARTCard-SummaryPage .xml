@@ -932,7 +932,7 @@
                                           <tr>
                                               <td>
                                                   <label>Marital Status:</label>
-                                                  <lookup expression="personAttributes.get('Marital Status')"/>
+                                                  <lookup expression="personAttributes.get('Marital Status').name"/>
                                               </td>
                                               <td>
                                                   <label>Occupation:</label>
