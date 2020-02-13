@@ -141,7 +141,7 @@
                 var patientQueueListElement = element;
                 var dataRowTable = "";
                 var urlToPatientDashBoard = '${ui.pageLink("coreapps","clinicianfacing/patient",[patientId: "patientIdElement"])}'.replace("patientIdElement", element.patientId);
-                var encounterUrl = "/" + OPENMRS_CONTEXT_PATH + "/htmlformentryui/htmlform/editHtmlFormWithStandardUi.page?patientId=" + element.patientId + "&formUuid=12de5bc5-352e-4faf-9961-a2125085a75c&encounterId=" + element.encounterId + "&returnUrl="+"/"+OPENMRS_CONTEXT_PATH+"/patientqueueing/providerDashboard.page";
+                var encounterUrl = "/" + OPENMRS_CONTEXT_PATH + "/htmlformentryui/htmlform/editHtmlFormWithStandardUi.page?patientId=" + element.patientId + "&encounterId=" + element.encounterId + "&returnUrl="+"/"+OPENMRS_CONTEXT_PATH+"/patientqueueing/providerDashboard.page";
 
                 var waitingTime = getWaitingTime(patientQueueListElement.dateCreated);
                 dataRowTable += "<tr>";
@@ -220,7 +220,7 @@
             <div class="row">
                 <div class="col-3">
                     <div>
-                        <h3 style="color: maroon">${currentLocation.name} - ${ui.message("Doctor's Queue")}</i></h3>
+                        <h3 style="color: maroon">${currentLocation.name} - ${ui.message("Queue")}</i></h3>
                     </div>
 
                     <div style="text-align: center">
