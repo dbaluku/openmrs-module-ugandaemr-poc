@@ -8,12 +8,8 @@ font-size: 1em;
 font-weight: normal;
 }
 
-#99030{
-padding: 5px;
-}
-
 .append-to-value {
- margin-left: 10px; /*this adds space between text fields and units for height, weight and temperature in the vitals form*/
+    margin-left: 10px; /*this adds space between text fields and units for height, weight and temperature in the vitals form*/
 }
 
 .error {
@@ -246,4 +242,19 @@ span.time-box-horizontal select {
 
 .drug-quantity .no-days{
     width:70px;
+}
+
+.container-padding {
+    padding: 6px;
+}
+
+.provider-dashboard-patient-search {
+    min-width: 96%;
+    color: #363463;
+    display: block;
+    padding: 5px 10px;
+    height: 45px;
+    margin-top: 27px;
+    background-color: #FFF;
+    border: 1px solid #dddddd;
 }
