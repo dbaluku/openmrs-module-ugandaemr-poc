@@ -287,6 +287,16 @@
                     }
                 });
 
+                disable_fields("99413-target");
+                jq("#99413").change(function () {
+                    if (jq(this).find("input[type='radio']:checked").val() == "1065") {
+                        enable_fields("99413-target");
+                    } else {
+                        jq("#99413-target").find("input[type='radio']:checked").val() == " ";
+                        disable_fields("99413-target");
+                    }
+                });
+
                 disable_fields("edd");
                 disable_fields("emtct");
                 disable_fields("age-in-months");
@@ -1480,9 +1490,14 @@
                                             <div class="card-body">
                                                 <obsgroup groupingConceptId="165304">
                                                     <div class="row">
-                                                        <div class="col-md-5">
+                                                        <div class="col-md-3">
                                                             <br/>
-                                                            <obs conceptId="1282" class="horizontal"
+                                                            <obs id="99413" conceptId="99413" answerConceptIds="1065,1066" labelText="Given:
+" class="horizontal" style="radio"/>
+                                                        </div>
+                                                        <div class="col-md-3">
+                                                            <br/>
+                                                            <obs id="99413-target" conceptId="1282" class="horizontal"
                                                                  answerConceptSetIds="1157"
                                                                  answerConceptIds="92,90168" style="radio"/>
                                                         </div>
@@ -2719,9 +2734,14 @@
                                     <div class="card-body">
                                         <obsgroup groupingConceptId="165304">
                                             <div class="row">
-                                                <div class="col-md-5">
+                                                <div class="col-md-3">
                                                     <br/>
-                                                    <obs conceptId="1282" class="horizontal" answerConceptSetIds="1157"
+                                                    <obs id="99413" conceptId="99413" class="horizontal" answerConceptIds="1065,1066" labelText="Given:
+" style="radio"/>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <br/>
+                                                    <obs id="99413-target" conceptId="1282" class="horizontal" answerConceptSetIds="1157"
                                                          answerConceptIds="92,90168" style="radio"/>
                                                 </div>
                                                 <div class="col-md-3">
