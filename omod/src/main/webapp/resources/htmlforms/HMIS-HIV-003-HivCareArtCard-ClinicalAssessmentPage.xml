@@ -2763,7 +2763,6 @@
                                                         <obs conceptId="159368"/>
                                                     </div>
                                                 </div>
-                                            </div>
                                         </obsgroup>
                                     </div>
                                 </div>
@@ -2788,6 +2787,7 @@
                                                     <obs id="99413-target" conceptId="1282" class="horizontal" answerConceptSetIds="1157"
                                                          answerConceptIds="92,90168" style="radio"/>
                                                 </div>
+                                            </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
                                                         <obs labelText="Number of Pills" conceptId="160856"/>
