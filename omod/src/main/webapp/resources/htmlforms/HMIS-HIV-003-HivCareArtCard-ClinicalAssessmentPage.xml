@@ -186,12 +186,18 @@
                 });
 
                 disable_fields("99413-target");
+                disable_fields("160856");
+                disable_fields("159368");
                 jq("#99413").change(function () {
                     if (jq(this).find("input[type='radio']:checked").val() == "1065") {
                         enable_fields("99413-target");
+                        enable_fields("160856");
+                        enable_fields("159368");
                     } else {
                         jq("#99413-target").find("input[type='radio']:checked").val() == " ";
                         disable_fields("99413-target");
+                        disable_fields("160856");
+                        disable_fields("159368");
                     }
                 });
 
@@ -1561,12 +1567,12 @@
                                                                  answerLabels="Dapsone,Cotrimoxazole"   style="radio"/>
                                                         </div>
                                                         <div class="col-md-3">
-                                                            <obs labelText="Number of Pills" conceptId="160856"/>
+                                                            <obs labelText="Number of Pills" id="160856" conceptId="160856"/>
                                                         </div>
 
                                                         <div class="col-3 duration">
                                                             <label>Number of Days</label>
-                                                            <obs conceptId="159368"/>
+                                                            <obs id="159368" conceptId="159368"/>
                                                         </div>
                                                     </div>
                                                 </obsgroup>
@@ -2790,13 +2796,13 @@
                                             </div>
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <obs labelText="Number of Pills" conceptId="160856"/>
+                                                        <obs labelText="Number of Pills" id="160856" conceptId="160856"/>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-12 duration">
                                                         <label>Number of Days</label>
-                                                        <obs conceptId="159368"/>
+                                                        <obs id="159368" conceptId="159368"/>
                                                     </div>
                                                 </div>
                                             </obsgroup>
