@@ -334,6 +334,10 @@
                 <div class="card-body">
                   <div class="row">
                       <div class="col-md-3">
+                          <label>Serial No</label>
+                          <obs conceptId="1646" />
+                      </div>
+                      <div class="col-md-3">
                           <label>Date of Registration</label>
                           <encounterDate default="today" disallowMultipleEncountersOnDate="block"/></div>
                       <div class="col-md-3">
@@ -342,14 +346,18 @@
                       </div>
                       <div class="col-md-3">
                           <excludeIf velocityTest="$patient.gender =='M' ">
-                              <label>EMTCT</label>
-                              <obs class="horizontal" id="90012" conceptId="90012" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"/>
-                          </excludeIf>
-                      </div>
-                      <div class="col-md-3">
-                          <excludeIf velocityTest="$patient.gender =='M' ">
-                              <obs id="99601" conceptId="99601" style="checkbox" labelText="Breast feeding"/>
-                              <obs id="99602" conceptId="99602" style="checkbox" labelText="Pregnancy"/>
+                              <div class="row">
+                                      <div class="col-md-12">
+                                          <label>EMTCT</label>
+                                          <obs class="horizontal" id="90012" conceptId="90012" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"/>
+                                      </div>
+                              </div>
+                              <div class="row">
+                                    <div class="col-md-12">
+                                      <obs id="99601" conceptId="99601" style="checkbox" labelText="Breast feeding"/>
+                                      <obs id="99602" conceptId="99602" style="checkbox" labelText="Pregnancy"/>
+                                    </div>
+                              </div>
                           </excludeIf>
                       </div>
                   </div>
