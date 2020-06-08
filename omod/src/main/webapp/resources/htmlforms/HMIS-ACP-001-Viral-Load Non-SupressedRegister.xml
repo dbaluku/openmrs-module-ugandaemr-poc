@@ -107,6 +107,13 @@
                     viral_load_widget('1305', '856_2','1301');
                 });
 
+                jq('#165822').change(function () {
+                enable_disable('165822', '165291', '1065');
+                });
+
+                jq('#165822').each(function () {
+                enable_disable('165822', '165291', '1065');
+                });
 
                 /* add JQuery validator classes and rules*/
                 jq("#nationalid input:text").addClass("nationalid");
@@ -235,6 +242,8 @@
         <ifMode mode="ENTER">
                 $otherRows.hide(); //Hide all rows apart from first row if adding new form
             $firstRow.find('.remove').hide(); //Hide the remove button from the first row
+
+            disable_fields("165291");
         </ifMode>
 
             <ifMode mode="EDIT">
@@ -418,11 +427,11 @@
                         </div>
                         <div class="col-md-3">
                             <label>TB LAM Test</label>
-                            <obs conceptId="165822" answerConceptIds="1065,1066" />
+                            <obs id="165822" conceptId="165822" answerConceptIds="1065,1066" />
                         </div>
                         <div class="col-md-3">
                             <label >TB LAM Results</label>
-                            <obs conceptId="165291" />
+                            <obs id="165291" conceptId="165291" />
                         </div>
                         <div class="col-md-3">
                             <label> TB Treatment</label>
