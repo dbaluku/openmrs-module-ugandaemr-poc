@@ -42,50 +42,7 @@
             </script>
         </includeIf>
     </ifMode>
-    <style type="text/css">
-        .error {
-            color: red;
-        }
 
-        table td {
-            color: #404040;
-        }
-
-        form select, .form select {
-            min-width: 0px;
-        }
-
-        form input, form select, form textarea, form ul.select, .form input, .form select, .form textarea, .form ul.select {
-            background-color: #FBFBFB;
-            border: 1px solid #404040;
-            border-radius: 5px;
-            margin-bottom: 0px;
-            padding: 5px;
-            min-width: 200px;
-        }
-
-        fieldset {
-            width: 98%;
-        }
-
-        .row {
-            width: 100%;
-            float: left;
-            display: inline-flex;
-            clear: both;
-        }
-
-        .row .row-col2 {
-            float: left;
-            width: 50%;
-        }
-
-        table th, table td {
-            border: 1px solid #BDBDBD;
-            text-align: left;
-            vertical-align: top;
-        }
-    </style>
     <!-- jquery loaded for nonessential purposes. -->
     <script type="text/javascript">
         if (jQuery) {
@@ -351,247 +308,283 @@
         });
 
     </script>
-    <div class="ai-page-frame">
-        <div class="headers" style="text-align: center;">
-            <h3 style="background: #FF0000; padding: 10px; color: #ffffff;font-weight: bold">HMIS ACP 001 - Viral Load Non Suppressed Form</h3>
+    <div>
+        <div class="row">
+            <div class="col-md-6">
+                <h1 >HMIS ACP 001 - Viral Load Non Suppressed Form</h1>
+            </div>
+            <div class="col-md-5"></div>
+            <div class="col-md-1 submitButton">
+                <submit class="confirm" submitLabel="Save"/>
+            </div>
         </div>
-        <span style="display: none;">
-            <encounterType types="38cb2232-30fc-4b1f-8df1-47c795771ee9" default="38cb2232-30fc-4b1f-8df1-47c795771ee9"/>
-            <encounterLocation default="629d78e9-93e5-43b0-ad8a-48313fd99117"
-                               order="629d78e9-93e5-43b0-ad8a-48313fd99117"/>
-        </span>
 
-        <fieldset>
-            <legend>None Suppressed Viral Load Results</legend>
-            <table>
-                <tbody>
-                <tr>
-                    <td style="width: 15%;background: #F3F3F3;">
-                        <label>Date of Registration</label>
-                        <encounterDate default="today" disallowMultipleEncountersOnDate="block"/>
-                    </td>
-                    <td style="width: 15%;background: #F3F3F3;" colspan="2">
-                        <label>Pt Clinic ID:</label>
-                        <patient field="identifier" identifierTypeId="e1731641-30ab-102d-86b0-7a5022ba4115"
-                                 required="false"/>
-                    </td>
-                    <td style="width: 15%;background: #F3F3F3;" rowspan="4">
-                        <excludeIf velocityTest="$patient.gender =='M' ">
-                            <label>EMTCT</label>
-                            <obs id="90012" conceptId="90012" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <obs id="99601" conceptId="99601" style="checkbox" labelText="Breast feeding"/>
-                            <obs id="99602" conceptId="99602" style="checkbox" labelText="Pregnancy"/>
-                            <div>
 
-                            </div>
-                        </excludeIf>
-                    </td>
-                </tr>
-                <tr>
-                    <td style="width: 15%;background: #F3F3F3;">
-                        <label>Date Results Received at Health Facility</label>
-                        <obs id="163150_1" conceptId="163150" allowFutureDates="false" required="true"/>
-                    </td>
+            <div class="card">
+                <div class="card-header">Non Suppressed Viral Load Results </div>
+                <div class="card-body">
+                  <div class="row">
+                      <div class="col-md-3">
+                          <label>Date of Registration</label>
+                          <encounterDate default="today" disallowMultipleEncountersOnDate="block"/></div>
+                      <div class="col-md-3">
+                          <label>Pt Clinic ID:</label>
+                          <patient field="identifier" identifierTypeId="e1731641-30ab-102d-86b0-7a5022ba4115" required="false"/>
+                      </div>
+                      <div class="col-md-3">
+                          <excludeIf velocityTest="$patient.gender =='M' ">
+                              <label>EMTCT</label>
+                              <obs class="horizontal" id="90012" conceptId="90012" answerConceptIds="90003,90004" answerLabels="Yes,No" style="radio"/>
+                          </excludeIf>
+                      </div>
+                      <div class="col-md-3">
+                          <excludeIf velocityTest="$patient.gender =='M' ">
+                              <obs id="99601" conceptId="99601" style="checkbox" labelText="Breast feeding"/>
+                              <obs id="99602" conceptId="99602" style="checkbox" labelText="Pregnancy"/>
+                          </excludeIf>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <label>Date of the sample collection</label>
+                          <obs conceptId="165820"  />
+                      </div>
+                      <div class="col-md-3">
+                          <label>Date Results Received at Health Facility</label>
+                          <obs id="163150_1" conceptId="163150" allowFutureDates="false" required="true"/>
+                      </div>
 
-                    <obsgroup groupingConceptId="163151">
-                        <td style="width: 15%;background: #F3F3F3;">
-                            <label>VL Results at Initiation of IAC (copies/ml)</label>
-                            <div>
-                                <obs conceptId="1305" defaultValue="1301" class="hidden"/>
-                            </div>
-                            <div>
-                                <obs id="856_1" conceptId="856" required="true"/>
-                            </div>
-                        </td>
+                      <obsgroup groupingConceptId="163151">
+                      <div class="col-md-3">
+                          <label>VL Results at Initiation of IAC (copies/ml)</label>
+                          <div>
+                              <obs conceptId="1305" defaultValue="1301" class="hidden"/>
+                          </div>
+                          <div>
+                              <obs id="856_1" conceptId="856" required="true"/>
+                          </div>
+                      </div>
+                      <div class="col-md-3">
+                          <label>Date Results given to Client</label>
+                          <obs id="163156" conceptId="163156" allowFutureDates="false" required="true"/>
+                      </div>
+                      </obsgroup>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <label>Date  CD4  Sample collected</label>
+                          <obs conceptId="165819" />
+                      </div>
+                      <div class="col-md-3">
+                          <label>CD4 Test Results </label>
+                          <obs conceptId="5497"
+                               allowFutureDates="false"/>
+                      </div>
+                      <obsgroup groupingConceptId="163152">
+                      <div class="col-md-3">
+                          <label>Regimen At VL test</label>
+                          <obs conceptId="90315" required="true"
+                               answerConceptIds="99015,99016,99005,99006,164979,99039,99040,164977,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99884,99885,164978,99888,163017,99887,90002"
+                               answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-3TC-DTG,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,AZT-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,AZT-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-ATV/r,ABC-3TC-LPV/r,TDF-3TC-ATV/r,Other"/>
+                      </div>
+                      <div class="col-md-3">
+                          <label>Regimen Start Date</label>
+                          <obs id="163172" conceptId="163172" allowFutureDates="false" required="true"/>
+                      </div>
+                      </obsgroup>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3">
+                          <label>Serum Crag Screening</label>
+                          <obs id="164987" conceptId="164987"
+                               answerConceptIds="1065,1066"
+                               answerLabels="Yes,No" style="radio" class="horizontal"/>
+                      </div>
+                      <div class="col-md-3">
+                          <label>Serum Crag Screening Result</label>
+                          <obs id="164986" conceptId="164986" />
+                      </div>
+                      <div class="col-md-3">
+                          <label>Restart IAC</label>
+                          <obs conceptId="164988" answerConceptIds="1065,1066"
+                               answerLabels="Yes,No" required="true" style="radio" class="horizontal"/>
+                      </div>
+                      <div class="col-md-3"></div>
+                  </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label>Treated with Fluconazole</label>
+                            <obs conceptId="165821" answerConceptIds="1065,1066" />
+                        </div>
+                        <div class="col-md-3">
+                            <label>TB LAM Test</label>
+                            <obs conceptId="165822" answerConceptIds="1065,1066" />
+                        </div>
+                        <div class="col-md-3">
+                            <label >TB LAM Results</label>
+                            <obs conceptId="165291" />
+                        </div>
+                        <div class="col-md-3">
+                            <label> TB Treatment</label>
+                            <obs conceptId="90216" answerConceptIds="90071,165439"  answerLabels="Yes,No"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+            <div class="card-header">IAC Session </div>
+                <div class="card-body">
 
-                        <td style="width: 15%;background: #F3F3F3;">
-                            <label>Date Results given to Client</label>
-                            <obs id="163156" conceptId="163156" allowFutureDates="false" required="true"/>
-                        </td>
-                    </obsgroup>
-                </tr>
+                    <table class="table multi table-borderless">
+                                <tbody>
 
-                <tr>
-                    <obsgroup groupingConceptId="163152">
-                        <td style="width: 15%;background: #F3F3F3;">
-                            <label>Regimen At VL test</label>
-                            <obs conceptId="90315" required="true"
-                                 answerConceptIds="99015,99016,99005,99006,164979,99039,99040,164977,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99884,99885,164978,99888,163017,99887,90002"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-3TC-DTG,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,AZT-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,AZT-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-ATV/r,ABC-3TC-LPV/r,TDF-3TC-ATV/r,Other"/>
-                        </td>
-                        <td style="width: 15%;background: #F3F3F3;" colspan="2">
-                            <label>Regimen Start Date</label>
-                            <obs id="163172" conceptId="163172" allowFutureDates="false" required="true"/>
-                        </td>
-                    </obsgroup>
-                </tr>
-                <tr>
-                    <td style="width: 15%;background: #F3F3F3;">
-                        <label>Serum Crag Screening</label>
-                        <obs id="164987" conceptId="164987"
-                             answerConceptIds="1065,1066"
-                             answerLabels="Yes,No" style="radio"/>
-                    </td>
-                    <td style="width: 15%;background: #F3F3F3;">
-                        <label>Serum Crag Screening Result</label>
-                        <obs id="164986" conceptId="164986"/>
-                    </td>
-                    <td style="width: 15%;background: #F3F3F3;">
-                        <label>Restart IAC</label>
-                        <obs conceptId="164988" answerConceptIds="1065,1066"
-                             answerLabels="Yes,No" required="true" style="radio"/>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </fieldset>
+                                    <repeat>
+                                        <template>
+                                            <obsgroup groupingConceptId="163153">
+                                                <tr id="{n}-toggleContainer" class="row">
+                                                    <td class="col-md-4">
+                                                        <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label>Session Date</label>
+                                                                    <obs id="163154_{n}" conceptId="163154" allowFutureDates="false"/>
+                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-4">
+                                                        <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label>Adherence assessment score</label>
+                                                                    <obs id="163155_{n}" conceptId="163155"/>
+                                                                </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="col-md-4">
+                                                        <div class="row">
+                                                                <div class="col-md-18">
+                                                                    <label>Adherence Codes</label>
+                                                                    <obs id="90221_{n}" conceptId="90221" answerConceptIds="90156,90157,90158"
+                                                                         answerLabels=" Good, Fair, Poor"/>
+                                                                </div>
+                                                                <div class="col-md-4">
+                                                                    <a href="#" class="add">Add</a>| <a href="#" class="remove">Remove</a>
+                                                                </div>
+                                                        </div>
+                                                    </td>
 
-        <fieldset>
-            <legend>IAC Session</legend>
-            <table class="multi">
-                <tbody>
-                <tr>
-                    <td style="background: #F3F3F3;">Session Date</td>
-                    <td style="background: #F3F3F3;">Adherence assessment score</td>
-                    <td style="background: #F3F3F3;">Adherence Codes</td>
-                    <td style="background: #F3F3F3;"></td>
-                </tr>
-                <repeat>
-                    <template>
-                        <obsgroup groupingConceptId="163153">
-                            <tr id="{n}-toggleContainer">
-                                <td style="width: 15%;background: #F3F3F3;">
-                                    <obs id="163154_{n}" conceptId="163154" allowFutureDates="false"/>
-                                </td>
-                                <td style="width: 15%;background: #F3F3F3;">
-                                    <obs id="163155_{n}" conceptId="163155"/>
-                                </td>
-                                <td style="width: 15%;background: #F3F3F3;">
-                                    <obs id="90221_{n}" conceptId="90221" answerConceptIds="90156,90157,90158"
-                                         answerLabels=" Good, Fair, Poor"/>
-                                </td>
-                                <td><a href="#" class="add">Add</a>| <a href="#" class="remove">Remove</a></td>
-                            </tr>
-                        </obsgroup>
-                    </template>
-                    <render n="1"/>
-                    <render n="2"/>
-                    <render n="3"/>
-                    <render n="4"/>
-                    <render n="5"/>
-                    <render n="6"/>
-                    <render n="7"/>
-                    <render n="8"/>
-                    <render n="9"/>
-                    <render n="10"/>
-                </repeat>
-                </tbody>
-            </table>
-        </fieldset>
-
-        <fieldset>
-            <legend>VL After IAC Session</legend>
-            <table>
-                <tbody>
-
-                <tr>
-                    <obsgroup groupingConceptId="163157">
-                        <td style="width: 15%;background: #F3F3F3;">
+                                                </tr>
+                                            </obsgroup>
+                                        </template>
+                                        <render n="1"/>
+                                        <render n="2"/>
+                                        <render n="3"/>
+                                        <render n="4"/>
+                                        <render n="5"/>
+                                        <render n="6"/>
+                                        <render n="7"/>
+                                        <render n="8"/>
+                                        <render n="9"/>
+                                        <render n="10"/>
+                                    </repeat>
+                                </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">VL and HIVDR After IAC Session</div>
+                <div class="card-body">
+                    <div class="row">
+                        <obsgroup groupingConceptId="163157">
+                        <div class="col-md-3">
                             <label>Date of VL repeat</label>
                             <obs id="163023" conceptId="163023" allowFutureDates="false"/>
-                        </td>
-                    </obsgroup>
-                    <td style="width: 15%;background: #F3F3F3;">
-                        <label>HIVDR Sample Collected</label>
-                        <obs conceptId="164989" answerConceptIds="1065,1066"
-                             answerLabels="Yes,No" style="radio"/>
-                    </td>
-
-                    <obsgroup groupingConceptId="163157">
-                        <td style="width: 15%;background: #F3F3F3;">
+                        </div>
+                        <div class="col-md-3">
+                            <label>HIVDR Sample Collected</label>
+                            <obs conceptId="164989" answerConceptIds="1065,1066"
+                                 answerLabels="Yes,No" style="radio" class="horizontal"/>
+                        </div>
+                        <div class="col-md-3">
                             <label>VL Results After IAC</label>
                             <div>
                                 <obs id="1305" conceptId="1305" answerConceptIds="1301,1306,1304"
                                      answerLabels="Detected,Not Detected, Sample Rejected"/>
-                            </div>
-                            <br/>
-                            <br/>
-                            <br/>
-                            <div>
+
                                 <obs id="856_2" conceptId="856" showUnits="copies/ml"/>
                             </div>
-                        </td>
-                        <td style="width: 15%;background: #F3F3F3;" colspan="2">
+                        </div>
+                        <div class="col-md-3">
                             <label>Date Results Received</label>
                             <obs id="163150_2" conceptId="163150" allowFutureDates="false"/>
-                        </td>
-                    </obsgroup>
-                </tr>
+                        </div>
+                        </obsgroup>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>HIVDR Results </label>
+                            <obs conceptId="165824" />
+                        </div>
+                        <div class="col-md-4">
+                            <label>Date HIVDR results Recieved at facility</label>
+                            <obs conceptId="165823" />
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                </tbody>
-            </table>
-        </fieldset>
-
-        <fieldset>
-            <legend>Decision And Outcomes</legend>
-            <table>
-                <tbody>
-                <tr>
-                    <td style="width: 15%;background: #F3F3F3;">
-                        <label>Clinic decision</label>
-                        <obs id="163166" conceptId="163166"
-                             answerConceptIds="163160,163161,163162,163163,163164,163165,5622"
-                             answerLabels="1. Suppressed and continues with 1st line regimen,2. Suppressed and Continue with 2nd line,3. Non-suppressed Switch to 2nd line,4. Non-suppressed Referred for HIV resistance testing,5. Non-suppressed Referred for 3rd line regimen,6. Treat as per resistance profile,7. Other"/>
-                        <br/>
-                    </td>
-                    <td>
-                        <label>Other Clinic Decision</label>
-                        <obs id="163168" conceptId="163168"/>
-                    </td>
-                    <td style="width: 15%;background: #F3F3F3;" colspan="2">
-                        <label>Decision date</label>
-                        <obs id="163167" conceptId="163167" allowFutureDates="false"/>
-                    </td>
-                </tr>
-                <obsgroup groupingConceptId="163169">
-                    <tr>
-                        <td style="width: 15%;background: #F3F3F3;">
+            <div class="card">
+                <div class="card-header"> Decision And Outcomes</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Clinic decision</label>
+                            <obs id="163166" conceptId="163166"
+                                 answerConceptIds="163160,163161,163162,163163,163164,163165,5622"
+                                 answerLabels="1. Suppressed and continues with 1st line regimen,2. Suppressed and Continue with 2nd line,3. Non-suppressed Switch to 2nd line,4. Non-suppressed Referred for HIV resistance testing,5. Non-suppressed Referred for 3rd line regimen,6. Treat as per resistance profile,7. Other"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Other Clinic Decision</label>
+                            <obs id="163168" conceptId="163168"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Decision date</label>
+                            <obs id="163167" conceptId="163167" allowFutureDates="false"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <obsgroup groupingConceptId="163169">
+                        <div class="col-md-4">
                             <label>Regimen After IAC Session</label>
-                            <obs conceptId="90315"
+                            <obs conceptId="90315" style="width:20px;"
                                  answerConceptIds="99015,99016,99005,99006,164979,99039,99040,164977,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99884,99885,164978,99888,163017,99887,90002"
                                  answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-3TC-DTG,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,AZT-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,AZT-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-ATV/r,ABC-3TC-LPV/r,TDF-3TC-ATV/r,Other"/>
-                        </td>
-                        <td style="width: 15%;background: #F3F3F3;" colspan="2">
+                        </div>
+                        <div class="col-md-4">
                             <label>Date of Initiation</label>
                             <obs conceptId="163172" allowFutureDates="false"/>
-                        </td>
-                    </tr>
-                </obsgroup>
-                <tr>
-                    <td style="width: 15%;background: #F3F3F3;">
-                        <label>Outcome</label>
-                        <obs id="163170" conceptId="163170" answerConceptIds="163158,163159,90306,1363,5240,99112,5622"
-                             answerLabels="Suppressed,Non suppressed,Transfer out,Stopped treatment,Lost to follow up,Died,Other"/>
-                        <br/>
-                    </td>
-                    <td>
-                        <label>Other Outome</label>
-                        <br/>
-                        <obs id="163171" conceptId="163171"/>
-                    </td>
-                    <td style="width: 15%;background: #F3F3F3;" colspan="2">
-                        <label>Comment</label>
-                        <br/>
-                        <obs style="textarea" conceptId="163173" rows="8" cols="80"/>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </fieldset>
+                        </div>
+                        </obsgroup>
+                        <div class="col-md-4"></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label>Outcome</label>
+                            <obs id="163170" conceptId="163170" answerConceptIds="163158,163159,90306,1363,5240,99112,5622"
+                                 answerLabels="Suppressed,Non suppressed,Transfer out,Stopped treatment,Lost to follow up,Died,Other"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Other Outcome</label>
+                            <br/>
+                            <obs id="163171" conceptId="163171"/>
+                        </div>
+                        <div class="col-md-4">
+                            <label>Comment</label>
+                            <br/>
+                            <obs style="textarea" conceptId="163173" rows="8" cols="30"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
     </div>
-    <submit/>
 </htmlform>
