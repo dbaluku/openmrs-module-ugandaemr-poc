@@ -172,6 +172,7 @@
             beforeSubmit.push(function () {
                 var submitVal = true;
                 var submitValStage = [];
+                setValue('165820.error','');
 
                 var sample_collection_date = new Date((getValue("165820" + '.value')));
                 var encounter_date = new Date((getValue("encounterDate" + '.value')));
