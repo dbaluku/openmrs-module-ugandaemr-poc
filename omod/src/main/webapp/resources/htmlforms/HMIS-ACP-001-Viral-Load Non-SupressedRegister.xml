@@ -61,6 +61,15 @@
                     enable_disable('163170', '163171', '5622');
                 });
 
+                // Enable disable other regimen
+                jq('#90315').change(function () {
+                enable_disable('90315','99126','90002');
+                });
+
+                jq('#90315').each(function () {
+                enable_disable('90315','99126','90002');
+                });
+
                 // Enable disable other decision
                 jq('#163166').change(function () {
                     enable_disable('163166', '163168', '5622');
@@ -163,6 +172,14 @@
             beforeSubmit.push(function () {
                 var submitVal = true;
                 var submitValStage = [];
+
+                var sample_collection_date = new Date((getValue("165820" + '.value')));
+                var encounter_date = new Date((getValue("encounterDate" + '.value')));
+
+                if (sample_collection_date &gt;= encounter_date) {
+                getField('165820.error').html('Date of Sample collection cannot be after date of registration').show();
+                return false;
+                }
 
                 var message1 = "Viral load copies can not be less than 1000";
 
@@ -273,6 +290,12 @@
                     $firstRow.find('.remove').hide();
                 }
             });
+
+            if(getValue("99126" + '.value')===""){
+                disable_fields("99126");
+                }else{
+                enable_fields("99126");
+                }
         </ifMode>
 
             jq('.add').click(function(e) { //Handle add button event
@@ -339,7 +362,7 @@
                       </div>
                       <div class="col-md-3">
                           <label>Date of Registration</label>
-                          <encounterDate default="today" disallowMultipleEncountersOnDate="block"/></div>
+                          <encounterDate id="encounterDate" default="today" disallowMultipleEncountersOnDate="block"/></div>
                       <div class="col-md-3">
                           <label>Pt Clinic ID:</label>
                           <patient field="identifier" identifierTypeId="e1731641-30ab-102d-86b0-7a5022ba4115" required="false"/>
@@ -364,7 +387,7 @@
                   <div class="row">
                       <div class="col-md-3">
                           <label>Date of the sample collection</label>
-                          <obs conceptId="165820"  />
+                          <obs id="165820" conceptId="165820" allowFutureDates="false" />
                       </div>
                       <div class="col-md-3">
                           <label>Date Results Received at Health Facility</label>
@@ -400,9 +423,12 @@
                       <obsgroup groupingConceptId="163152">
                       <div class="col-md-3">
                           <label>Regimen At VL test</label>
-                          <obs conceptId="90315" required="true"
+                          <obs id="90315" conceptId="90315" required="true"
                                answerConceptIds="99015,99016,99005,99006,164979,99039,99040,164977,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99884,99885,164978,99888,163017,99887,90002"
                                answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-3TC-DTG,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,AZT-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,AZT-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-ATV/r,ABC-3TC-LPV/r,TDF-3TC-ATV/r,Other"/>
+
+                          <label> Other Specify</label>
+                          <obs conceptId="99126" id="99126" />
                       </div>
                       <div class="col-md-3">
                           <label>Regimen Start Date</label>
@@ -421,22 +447,18 @@
                           <label>Serum Crag Screening Result</label>
                           <obs id="164986" conceptId="164986" />
                       </div>
+
                       <div class="col-md-3">
-                          <label>Restart IAC</label>
-                          <obs conceptId="164988" answerConceptIds="1065,1066"
-                               answerLabels="Yes,No" required="true" style="radio" class="horizontal"/>
+                          <label>Treated with Fluconazole</label>
+                          <obs conceptId="165821" answerConceptIds="1065,1066,1175" />
                       </div>
-                      <div class="col-md-3"></div>
+                      <div class="col-md-3">
+                          <label>TB LAM Test</label>
+                          <obs id="165822" conceptId="165822" answerConceptIds="1065,1066" />
+                      </div>
                   </div>
                     <div class="row">
-                        <div class="col-md-3">
-                            <label>Treated with Fluconazole</label>
-                            <obs conceptId="165821" answerConceptIds="1065,1066" />
-                        </div>
-                        <div class="col-md-3">
-                            <label>TB LAM Test</label>
-                            <obs id="165822" conceptId="165822" answerConceptIds="1065,1066" />
-                        </div>
+
                         <div class="col-md-3">
                             <label >TB LAM Results</label>
                             <obs id="165291" conceptId="165291" />
@@ -445,6 +467,13 @@
                             <label> TB Treatment</label>
                             <obs conceptId="90216" answerConceptIds="90071,165439"  answerLabels="Yes,No"/>
                         </div>
+                        <div class="col-md-3">
+                            <label>Restart IAC</label>
+                            <obs conceptId="164988" answerConceptIds="1065,1066"
+                                 answerLabels="Yes,No" required="true" style="radio" class="horizontal"/>
+                        </div>
+
+                        <div class="col-md-3"></div>
                     </div>
                 </div>
             </div>
@@ -525,25 +554,30 @@
                             <div>
                                 <obs id="1305" conceptId="1305" answerConceptIds="1301,1306,1304"
                                      answerLabels="Detected,Not Detected, Sample Rejected"/>
-
-                                <obs id="856_2" conceptId="856" showUnits="copies/ml"/>
                             </div>
                         </div>
                         <div class="col-md-3">
-                            <label>Date Results Received</label>
-                            <obs id="163150_2" conceptId="163150" allowFutureDates="false"/>
+                            <label>Copies</label>
+                            <obs id="856_2" conceptId="856" showUnits="copies/ml"/>
                         </div>
                         </obsgroup>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
+                        <obsgroup groupingConceptId="163157">
+                        <div class="col-md-3">
+                            <label>Date VL Results Received</label>
+                            <obs id="163150_2" conceptId="163150" allowFutureDates="false"/>
+                        </div>
+                        </obsgroup>
+                        <div class="col-md-3">
                             <label>HIVDR Results </label>
                             <obs conceptId="165824" />
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label>Date HIVDR results Recieved at facility</label>
                             <obs conceptId="165823" />
                         </div>
+                        <div class="col-md-3"></div>
                     </div>
                 </div>
             </div>
@@ -552,36 +586,35 @@
                 <div class="card-header"> Decision And Outcomes</div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <label>Clinic decision</label>
                             <obs id="163166" conceptId="163166"
                                  answerConceptIds="163160,163161,163162,163163,163164,163165,5622"
                                  answerLabels="1. Suppressed and continues with 1st line regimen,2. Suppressed and Continue with 2nd line,3. Non-suppressed Switch to 2nd line,4. Non-suppressed Referred for HIV resistance testing,5. Non-suppressed Referred for 3rd line regimen,6. Treat as per resistance profile,7. Other"/>
-                        </div>
-                        <div class="col-md-4">
+
                             <label>Other Clinic Decision</label>
                             <obs id="163168" conceptId="163168"/>
                         </div>
-                        <div class="col-md-4">
+
+                        <div class="col-md-3">
                             <label>Decision date</label>
                             <obs id="163167" conceptId="163167" allowFutureDates="false"/>
                         </div>
-                    </div>
-                    <div class="row">
+
                         <obsgroup groupingConceptId="163169">
-                        <div class="col-md-4">
-                            <label>Regimen After IAC Session</label>
-                            <obs conceptId="90315" style="width:20px;"
-                                 answerConceptIds="99015,99016,99005,99006,164979,99039,99040,164977,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99884,99885,164978,99888,163017,99887,90002"
-                                 answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-3TC-DTG,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,AZT-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,AZT-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-ATV/r,ABC-3TC-LPV/r,TDF-3TC-ATV/r,Other"/>
-                        </div>
-                        <div class="col-md-4">
-                            <label>Date of Initiation</label>
-                            <obs conceptId="163172" allowFutureDates="false"/>
-                        </div>
+                            <div class="col-md-3">
+                                <label>New Regimen </label>
+                                <obs conceptId="90315" style="width:20px;"
+                                     answerConceptIds="99015,99016,99005,99006,164979,99039,99040,164977,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99884,99885,164978,99888,163017,99887,90002"
+                                     answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-3TC-DTG,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,AZT-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,AZT-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-ATV/r,ABC-3TC-LPV/r,TDF-3TC-ATV/r,Other"/>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Date of Initiation</label>
+                                <obs conceptId="163172" allowFutureDates="false"/>
+                            </div>
                         </obsgroup>
-                        <div class="col-md-4"></div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-4">
                             <label>Outcome</label>
