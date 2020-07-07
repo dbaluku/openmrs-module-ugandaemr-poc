@@ -83,6 +83,9 @@ public class UgandaEMRPOCServiceImpl extends BaseOpenmrsService implements Ugand
             patientQueueVisitMapper.setAge(patientQueue.getPatient().getAge().toString());
             patientQueueVisitMapper.setGender(patientQueue.getPatient().getGender());
             patientQueueVisitMapper.setDateCreated(patientQueue.getDateCreated().toString());
+            if (patientQueue.getDateChanged() != null) {
+                patientQueueVisitMapper.setDateChanged(patientQueue.getDateChanged().toString());
+            }
             patientQueueMappers.add(patientQueueVisitMapper);
         }
         return patientQueueMappers;
@@ -289,6 +292,7 @@ public class UgandaEMRPOCServiceImpl extends BaseOpenmrsService implements Ugand
                 drugOrderMapper.setNumRefills(drugOrder.getNumRefills());
                 drugOrderMapper.setQuantity(drugOrder.getQuantity());
                 drugOrderMapper.setQuantityUnits(drugOrder.getQuantityUnits().getDisplayString());
+                drugOrderMapper.setStrength(getDrugStrength(drugOrder));
                 drugOrderMapper.setRoute(drugOrder.getRoute().getDisplayString());
                 drugOrderMapper.setAccessionNumber(drugOrder.getAccessionNumber());
                 drugOrderMapper.setCareSetting(drugOrder.getCareSetting().getName());
@@ -313,6 +317,33 @@ public class UgandaEMRPOCServiceImpl extends BaseOpenmrsService implements Ugand
             }
         }
         return orderMappers;
+    }
+
+
+    /**
+     * Get Medication Strength from the drug order
+     * @param drugOrder the drug order where the drug strength has to be picked
+     * @return the
+     */
+    private String getDrugStrength(DrugOrder drugOrder){
+        List<Concept> concepts=new ArrayList<>();
+        List<Encounter> encounters= new ArrayList<>();
+        List<Person> personList=new ArrayList<>();
+        personList.add(drugOrder.getPatient().getPerson());
+        concepts.add(drugOrder.getConcept());
+        encounters.add(drugOrder.getEncounter());
+        String medicationStrength="";
+        List<Obs> obs= Context.getObsService().getObservations(personList,encounters,null,concepts,null,null,null,null,null,null,null,false);
+        if(!obs.isEmpty()){
+            Set<Obs> groupMembers=obs.get(0).getObsGroup().getGroupMembers();
+            for (Obs groupMember:groupMembers) {
+                if(groupMember.getConcept().getConceptId()==MEDICATION_STRENGTH_CONCEPT_ID){
+                    medicationStrength=groupMember.getValueText();
+                    return medicationStrength;
+                }
+            }
+        }
+        return medicationStrength;
     }
 
     /**
@@ -440,7 +471,11 @@ public class UgandaEMRPOCServiceImpl extends BaseOpenmrsService implements Ugand
                 labQueueMapper.setStatus(patientQueue.getStatus().name());
                 labQueueMapper.setAge(patientQueue.getPatient().getAge().toString());
                 labQueueMapper.setDateCreated(patientQueue.getDateCreated().toString());
+                if (patientQueue.getDateChanged() != null) {
+                    labQueueMapper.setDateChanged(patientQueue.getDateChanged().toString());
+                }
                 labQueueMapper.setEncounterId(patientQueue.getEncounter().getEncounterId().toString());
+                labQueueMapper.setVisitNumber(patientQueue.getVisitNumber());
                 if (patientQueue.getEncounter() != null) {
                     labQueueMapper.setOrderMapper(Context.getService(UgandaEMRPOCService.class).processOrders(patientQueue.getEncounter().getOrders(), true));
                 }
@@ -483,11 +518,16 @@ public class UgandaEMRPOCServiceImpl extends BaseOpenmrsService implements Ugand
             pharmacyMapper.setAge(patientQueue.getPatient().getAge().toString());
             pharmacyMapper.setDateCreated(patientQueue.getDateCreated().toString());
 
+            if (patientQueue.getDateChanged() != null) {
+                pharmacyMapper.setDateChanged(patientQueue.getDateChanged().toString());
+            }
+
             Visit visit = getPatientCurrentVisit(patientQueue.getPatient());
 
             if (visit != null) {
                 pharmacyMapper.setVisitId(visit.getVisitId());
             }
+
 
             if (patientQueue.getEncounter() != null) {
                 pharmacyMapper.setEncounterId(patientQueue.getEncounter().getEncounterId().toString());
@@ -707,7 +747,11 @@ public class UgandaEMRPOCServiceImpl extends BaseOpenmrsService implements Ugand
                     drugOrder.setCareSetting(careSetting);
                     drugOrder.setConcept(obs.getValueCoded());
                     discontinueOverLappingDrugOrders(drugOrder);
-                    orders.add(drugOrder);
+
+                    if (isValidDrugOrder(drugOrder)) {
+                        orders.add(drugOrder);
+                    }
+
                 }
             }
         }
@@ -721,6 +765,20 @@ public class UgandaEMRPOCServiceImpl extends BaseOpenmrsService implements Ugand
             }
         }
         return encounter;
+    }
+
+    /**
+     * This Validates a drug order
+     *
+     * @param drugOrder the drug order to validate
+     * @return returns true or false basing on the validation
+     */
+    private boolean isValidDrugOrder(DrugOrder drugOrder) {
+        if (drugOrder.getDuration() == null || drugOrder.getQuantity() == null || drugOrder.getFrequency() == null || drugOrder.getQuantityUnits() == null || drugOrder.getRoute() == null || drugOrder.getDose() == null || drugOrder.getDoseUnits() == null) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     public Provider getProviderFromEncounter(Encounter encounter) {
