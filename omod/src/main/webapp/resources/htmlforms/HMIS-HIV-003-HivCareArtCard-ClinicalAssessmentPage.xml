@@ -672,12 +672,15 @@
                 setValue('returndate.error', '');
                 setValue('viral-load-results-copies.error', '');
                 setValue('date-viral-load-taken.error', '');
+
+            <restrictByRole exclude="Data Clerk,System Developer,Organizational: System Administrator">
                 setValue('no-of-art-pills.error','');
                 setValue('isoniazid-pills.error','');
-                setValue('b6-pills.error','');
+                setValue('vitamin-b6-pills.error','');
                 setValue('160856.error','');
                 setValue('fluconazole-pills.error','');
                 setValue('other-meds-quantity.error','');
+            </restrictByRole>
 
 
                 var encounterDate = new Date((getValue('encounterDate.value')));
@@ -732,35 +735,38 @@
                     return false;
                 }
 
+            <restrictByRole exclude="Data Clerk,System Developer,Organizational: System Administrator">
                 if (getValue('art-regimen.value') != "" &amp;&amp; getValue('no-of-art-pills.value') == "") {
-                     getField('no-of-art-pills.error').html('No. of pills required').show();
+                     getField('no-of-art-pills.error').html('No of ' + jq("#art-regimen").find(":selected").text() + ' pills required').show();
                     return false;
                 }
 
                 if (getValue('isoniazid-trigger.value') != "" &amp;&amp; getValue('isoniazid-pills.value') == "") {
-                    getField('isoniazid-pills.error').html('No. of pills required').show();
+                    getField('isoniazid-pills.error').html('No of isoniazid pills required').show();
                     return false;
                 }
 
-                if (getValue('b6-trigger.value') != "" &amp;&amp; getValue('b6-pills.value') == "") {
-                    getField('b6-pills.error').html('No. of pills required').show();
+                if (getValue('vitamin-b6-trigger.value') != "" &amp;&amp; getValue('vitamin-b6-pills.value') == "") {
+                    getField('vitamin-b6-pills.error').html('No. of Vitamin B6 pills required').show();
                     return false;
                 }
 
+<!--                checking whether no of pills for cotrimaxzole  prescribed are entered-->
                 if (getValue('99413-target.value') != "" &amp;&amp; getValue('160856.value') == "") {
-                    getField('160856.error').html('No. of pills required').show();
+                    getField('160856.error').html('No. of Dapsone/Cotrimoxazole pills  required').show();
                     return false;
                 }
 
                 if (getValue('fluconazole-trigger.value') != "" &amp;&amp; getValue('fluconazole-pills.value') == "") {
-                    getField('fluconazole-pills.error').html('No. of pills required').show();
+                    getField('fluconazole-pills.error').html('No. of fluconazole pills required').show();
                     return false;
                 }
 
                 if (getValue('other-meds-trigger.value') != "" &amp;&amp; getValue('other-meds-quantity.value') == "") {
-                    getField('other-meds-quantity.error').html('Quantity required').show();
+                    getField('other-meds-quantity.error').html('Quantity of ' + getValue('other-meds-trigger.value') + ' required').show();
                     return false;
                 }
+            </restrictByRole>
 
                 return true;
             });
@@ -2813,13 +2819,13 @@
                                                 <div class="row">
                                                     <div class="col-md-4">
                                                         <br/>
-                                                        <obs id="b6-trigger" conceptId="1282" answerConceptSetIds="160021"
+                                                        <obs id="vitamin-b6-trigger" conceptId="1282" answerConceptSetIds="160021"
                                                              style="radio"
                                                              answerConceptIds="82912" answerLabels="Vitamin B6"/>
                                                     </div>
                                                     <div class="col-md-4">
                                                         <label>No. of Pills</label>
-                                                        <obs id="b6-pills" conceptId="160856"/>
+                                                        <obs id="vitamin-b6-pills" conceptId="160856"/>
                                                     </div>
 
                                                     <div class="col-4 duration">
