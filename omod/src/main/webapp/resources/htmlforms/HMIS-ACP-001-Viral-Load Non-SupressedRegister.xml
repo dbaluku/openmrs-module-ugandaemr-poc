@@ -195,6 +195,8 @@
 
                 submitValStage.push(dateValidator("163172", "encounterDate", "", "Must be on or before Registration Date", "", "greater_than", true));
 
+                submitValStage.push(dateValidator("163172", "165820", "", "Must be before date of Sample collection ", "", "greater_than", true));
+
                 submitValStage.push(dateValidator("163150_1", "encounterDate", "", "Must be less or equal to the Registration Date", "", "greater_than", true));
 
                 submitValStage.push(dateValidator("163156", "163150_1", "", "Must be greater than Date Results Received at Health Facility", "", "less_than", true));
@@ -388,7 +390,7 @@
                   <div class="row">
                       <div class="col-md-3">
                           <label>Date of the sample collection</label>
-                          <obs id="165820" conceptId="165820" allowFutureDates="false" />
+                          <obs id="165820" conceptId="165820" allowFutureDates="false" required="true" />
                       </div>
                       <div class="col-md-3">
                           <label>Date Results Received at Health Facility</label>
@@ -588,6 +590,10 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-3">
+                            <label>Decision date</label>
+                            <obs id="163167" conceptId="163167" allowFutureDates="false"/>
+                        </div>
+                        <div class="col-md-3">
                             <label>Clinic decision</label>
                             <obs id="163166" conceptId="163166"
                                  answerConceptIds="163160,163161,163162,163163,163164,163165,5622"
@@ -595,11 +601,6 @@
 
                             <label>Other Clinic Decision</label>
                             <obs id="163168" conceptId="163168"/>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label>Decision date</label>
-                            <obs id="163167" conceptId="163167" allowFutureDates="false"/>
                         </div>
 
                         <obsgroup groupingConceptId="163169">
@@ -624,7 +625,6 @@
                         </div>
                         <div class="col-md-4">
                             <label>Other Outcome</label>
-                            <br/>
                             <obs id="163171" conceptId="163171"/>
                         </div>
                         <div class="col-md-4">
