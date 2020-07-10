@@ -561,7 +561,10 @@
                         </div>
                         <div class="col-md-3">
                             <label>Copies</label>
-                            <obs id="856_2" conceptId="856" showUnits="copies/ml"/>
+                            <div class="row">
+                                <obs id="856_2" conceptId="856" class="col-md-2"/>
+                                <div class="col-md-3">copies/ml</div>
+                            </div>
                         </div>
                         </obsgroup>
                     </div>
@@ -629,7 +632,6 @@
                         </div>
                         <div class="col-md-4">
                             <label>Comment</label>
-                            <br/>
                             <obs style="textarea" conceptId="163173" rows="8" cols="30"/>
                         </div>
                     </div>
