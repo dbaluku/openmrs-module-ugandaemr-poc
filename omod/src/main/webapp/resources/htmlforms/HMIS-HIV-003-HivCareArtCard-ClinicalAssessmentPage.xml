@@ -328,7 +328,7 @@
                     disable_enable_on_edit_mode("tpt-side-effects");
 
                     /* enable disable side-effects-of-art */
-                    if(!jq(".hepB-results").find("input[type='radio']:checked")){
+                    if(!jq(".hepB-status").find("input[type='radio']:checked")){
                          jq(".hepB-results").find("input[type$='radio']").attr('disabled', true);
                     }
                     else{
