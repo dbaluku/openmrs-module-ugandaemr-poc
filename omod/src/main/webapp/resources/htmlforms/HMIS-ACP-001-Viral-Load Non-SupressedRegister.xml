@@ -61,6 +61,14 @@
                     enable_disable('163170', '163171', '5622');
                 });
 
+                jq('#new-regimen').change(function () {
+                enable_disable('new-regimen', 'new-regimen-other', '90002');
+                });
+
+                jq('#new-regimen').each(function () {
+                enable_disable('new-regimen', 'new-regimen-other', '90002');
+                });
+
                 // Enable disable other regimen
                 jq('#90315').change(function () {
                 enable_disable('90315','99126','90002');
@@ -609,9 +617,12 @@
                         <obsgroup groupingConceptId="163169">
                             <div class="col-md-3">
                                 <label>New Regimen </label>
-                                <obs conceptId="90315" style="width:20px;"
+                                <obs id="new-regimen" conceptId="90315" style="width:20px;"
                                      answerConceptIds="99015,99016,99005,99006,164979,99039,99040,164977,99041,99042,99007,99008,99044,99043,99282,99283,99046,99017,99018,99019,99045,99284,99285,99286,99884,99885,164978,99888,163017,99887,90002"
                                      answerLabels="d4T-3TC-NVP,d4T-3TC-EFV,AZT-3TC-NVP,AZT-3TC-EFV,AZT-3TC-DTG,TDF-3TC-NVP,TDF-3TC-EFV,TDF-3TC-DTG,TDF-FTC-NVP,TDF-FTC-EFV,ABC-ddI(250)-LPV/r,ABC-ddI(400)-LPV/r,TDF-3TC-LPV/r,TDF-FTC-LPV/r,ZDV-ddI(250)-LPV/r,ZDV-ddI(400)-LPV/r,AZT-3TC-LPV/r,ABC-ddI-LPV/r,ABC-ddI-NFV,ABC-ddI-SQV/r,ZDV-ddI-LPV/r,AZT-ABC-LPV/r,ABC-ddI-ATV/r,AZT-3TC-ATV/r,ABC-3TC-NVP,ABC-3TC-EFV,ABC-3TC-DTG,ABC-3TC-ATV/r,ABC-3TC-LPV/r,TDF-3TC-ATV/r,Other"/>
+
+                                <label> Other Specify</label>
+                                <obs id="new-regimen-other" conceptId="99126"/>
                             </div>
                             <div class="col-md-3">
                                 <label>Date of Initiation</label>
@@ -625,8 +636,7 @@
                             <label>Outcome</label>
                             <obs id="163170" conceptId="163170" answerConceptIds="163158,163159,90306,1363,5240,99112,5622"
                                  answerLabels="Suppressed,Non suppressed,Transfer out,Stopped treatment,Lost to follow up,Died,Other"/>
-                        </div>
-                        <div class="col-md-4">
+
                             <label>Other Outcome</label>
                             <obs id="163171" conceptId="163171"/>
                         </div>
