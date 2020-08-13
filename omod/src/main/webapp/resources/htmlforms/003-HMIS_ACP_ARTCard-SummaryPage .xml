@@ -989,6 +989,7 @@
 
                                           <div class="col-md-6">
                                               <div class="row">
+                                                  <obsgroup groupingConceptId="99116">
                                                   <div class="col-md-6">
                                                       <div class="row">
                                                           <div class="col-md-12">
@@ -997,12 +998,13 @@
                                                       </div>
                                                       <div class="row">
                                                           <div class="col-md-12">
-                                                    <span class="ARTCareEntryPointEnableDisable1">
-                                                        <obs conceptId="90200"
-                                                             answerConceptIds="90012,90016,99593,99610,90019,90013,90015,90018,165224,90002"
-                                                             answerLabels="eMTCT,TB,YCC,SMC,Outreach,Out Patient,STI,Inpatient,KP Clinic,Other"
-                                                             required="true"/>
-                                                    </span>
+                                                              <span class="ARTCareEntryPointEnableDisable1">
+                                                                      <obs conceptId="90200"
+                                                                           answerConceptIds="90012,90016,99593,99610,90019,90013,90015,90018,90002"
+                                                                           answerLabels="eMTCT,TB,YCC,SMC,Outreach,Out Patient,STI,Inpatient,Other"
+                                                                           required="true"/>
+
+                                                              </span>
                                                           </div>
                                                       </div>
                                                   </div>
@@ -1020,6 +1022,7 @@
                                                           </div>
                                                       </div>
                                                   </div>
+                                              </obsgroup>
                                               </div>
                                           </div>
                                       </div>
