@@ -1072,6 +1072,9 @@
 
                 isValid = true;
                 var maxNumberOfBooked =  jq("#numberOfPatients").html();
+
+                if(getValue('returndate.value')!=="")
+                {
                 jq.ajax({
                      type: 'GET',
                      dataType: 'json',
@@ -1109,6 +1112,7 @@
 
                 // check the appointment dates
                 return isValid;
+                }
 
             <restrictByRole exclude="Data Clerk,System Developer,Organizational: System Administrator">
                 if (getValue('art-regimen.value') != "" &amp;&amp; getValue('no-of-art-pills.value') == "") {
