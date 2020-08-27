@@ -66,8 +66,8 @@
     </changeSet>
 
     <changeSet id="ugandaemrpoc-14-08-2020-04" author="dbaluku">
-        <comment>Updating old data of concept id 90253 to 165275 as family member
-            HIV status in family section and the unknown answer 90001 to 165165</comment>
+        <comment>Migrate data from concept id 90253 (HIV Status) to 165275 (Family Member HIV Status)
+            unknown answer 90001 to 165165 in the on the ART Summary Page Family Tracking Section from 2.x to 3.x</comment>
         <sql>
             UPDATE obs SET concept_id = 165275 WHERE concept_id = 90253 and obs_group_id is not null;
             UPDATE obs SET value_coded=165165 WHERE concept_id = 165275 and value_coded=90001 and obs_group_id is not null;
