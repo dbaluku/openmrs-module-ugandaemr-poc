@@ -556,7 +556,7 @@
                 /* enable the edd,emtct,age in months and ANC no. fields in case the client is pregnant */
 
                 jq(".pregnancy").change(function () {
-                    if (jq(this).find('#pregnant').find(':checkbox').prop('checked')) {
+                    if (jq(this).find('#pregnant').find(':checkbox').prop('checked') || jq(this).find('#breast-feeding').find(':checkbox').prop('checked')) {
                         enable_fields("edd");
                         enable_fields("emtct");
                         enable_fields("age-in-months");
