@@ -556,7 +556,7 @@
                 /* enable the edd,emtct,age in months and ANC no. fields in case the client is pregnant */
 
                 jq(".pregnancy").change(function () {
-                    if (jq(this).find('#pregnant').find(':checkbox').prop('checked') || jq(this).find('#breast-feeding').find(':checkbox').prop('checked')) {
+                    if (jq(this).find('#pregnant').find(':checkbox').prop('checked')) {
                         enable_fields("edd");
                         enable_fields("emtct");
                         enable_fields("age-in-months");
@@ -570,6 +570,16 @@
                 });
 
                 jq(".pregnancy").change(function () {
+                    if (jq(this).find('#breast-feeding').find(':checkbox').prop('checked')) {
+                        enable_fields("emtct");
+                    } else if(jq(this).find('#pregnant').find(':checkbox').prop('checked')){
+                        enable_fields("emtct");
+                    }else{
+                        disable_fields("emtct");
+                    }
+                });
+
+                jq(".pregnancy").change(function () {
                     if (jq(this).find('#not-pregnant-not-breast-feeding').find(':checkbox').prop('checked')) {
                         jq("#pregnant").find("input[type$='checkbox']").prop("checked", false);
                         jq("#breast-feeding").find("input[type$='checkbox']").prop("checked", false);
@@ -578,6 +588,7 @@
                         disable_fields("162983");
                         disable_fields("anc_no");
                         disable_fields("162983");
+                        disable_fields("age-in-months");
                     }
                 });
 
