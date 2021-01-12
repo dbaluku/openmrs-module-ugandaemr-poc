@@ -3698,7 +3698,7 @@
                                             </includeIf>
 
                                             <includeIf velocityTest="$transfer_out!='YES'">
-                                                <obs id="returndate" conceptId="5096" required="true"
+                                                <obs id="returndate" conceptId="5096" required="required"
                                                      allowFutureDates="true"
                                                      labelText="Return date"/>
                                             </includeIf>
